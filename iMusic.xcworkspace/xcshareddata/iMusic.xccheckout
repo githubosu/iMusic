@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>EAAC7601-EF20-46EF-94FB-5C0E6738BC56</string>
+	<key>IDESourceControlProjectName</key>
+	<string>iMusic</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>B5FDFFDF-81EB-490D-B2F8-7DDBAB6981CA</key>
+		<string>https://github.com/githubosu/iMusic.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>iMusic.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>B5FDFFDF-81EB-490D-B2F8-7DDBAB6981CA</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/githubosu/iMusic.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>B5FDFFDF-81EB-490D-B2F8-7DDBAB6981CA</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>B5FDFFDF-81EB-490D-B2F8-7DDBAB6981CA</string>
+			<key>IDESourceControlWCCName</key>
+			<string>iMusic</string>
+		</dict>
+	</array>
+</dict>
+</plist>

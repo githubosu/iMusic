@@ -54,7 +54,7 @@
 {
     self.activityIndicator.hidden = NO;
     [self.activityIndicator startAnimating];
-    NSArray *permissionsArray = @[@"user_about_me", @"user_interests", @"user_relationships", @"user_birthday", @"user_location", @"user_relationship_details"];
+    NSArray *permissionsArray = @[@"user_about_me", @"user_interests", @"user_relationships", @"user_birthday", @"user_location", @"user_relationship_details", @"user_friends"];
     
     [PFFacebookUtils logInWithPermissions:permissionsArray block:^(PFUser *user, NSError *error) {
         [self.activityIndicator stopAnimating];
@@ -121,20 +121,17 @@
 
 -(void)getFriendList
 {
-    FBRequest *friendRequest = [FBRequest requestForMyFriends];
-    [friendRequest startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
-        NSArray *friends = [result objectForKey:@"data"];
-        for (FBGraphObject *friend in friends) {
-            NSLog(@"%@",friend);
+    [FBRequestConnection startForMyFriendsWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+        if (!error) {
+            NSArray *friendObjects = [result objectForKey:@"data"];
+            NSMutableArray *friendIds = [NSMutableArray arrayWithCapacity:friendObjects.count];
+            NSLog(@"Found: %i friends", friendIds.count);
+            for (NSDictionary *friendObject in friendObjects) {
+                [friendIds addObject:[friendObject objectForKey:@"id"]];
+            }
         }
-        }];
+    
+    }];
 }
-
-
-
-
-
-
-
 
 @end
