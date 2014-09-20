@@ -39,15 +39,15 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+ {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 #pragma mark - IBActions
 - (IBAction)loginButtonPressed:(UIButton *)sender
@@ -103,7 +103,7 @@
                 userProfile[@"gender"] = userDictionary[@"gender"];
             }
             if (userDictionary[@"birthday"]) {
-            userProfile[@"birthday"] = userDictionary[@"birthday"];
+                userProfile[@"birthday"] = userDictionary[@"birthday"];
             }
             if (userDictionary[@"interested_in"]) {
                 userProfile[@"interested_in"] = userDictionary[@"interested_in"];
@@ -121,17 +121,21 @@
 
 -(void)getFriendList
 {
-    [FBRequestConnection startForMyFriendsWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
-        if (!error) {
-            NSArray *friendObjects = [result objectForKey:@"data"];
-            NSMutableArray *friendIds = [NSMutableArray arrayWithCapacity:friendObjects.count];
-            NSLog(@"Found: %i friends", friendIds.count);
-            for (NSDictionary *friendObject in friendObjects) {
-                [friendIds addObject:[friendObject objectForKey:@"id"]];
-            }
-        }
-    
-    }];
+
+    [FBRequestConnection startForMyFriendsWithCompletionHandler:
+     ^(FBRequestConnection *connection, id<FBGraphUser> friends, NSError *error)
+     {
+         if(!error){
+             NSArray *friendObjects = [friends objectForKey:@"data"];
+             NSMutableArray *friendIds = [NSMutableArray arrayWithCapacity:friendObjects.count];
+             for (NSDictionary *friendObject in friendObjects) {
+                 [friendIds addObject:[friendObject objectForKey:@"id"]];
+             }
+             [[PFUser currentUser] setObject:friendIds forKey:@"friend"];
+             [[PFUser currentUser] saveInBackground];
+         }
+     }
+     ];
 }
 
 @end

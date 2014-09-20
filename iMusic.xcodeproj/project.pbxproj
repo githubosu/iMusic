@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		A214D2459425482FA098883D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D724DC070B54EA4A3830D2D /* libPods.a */; };
+		BAC0327119CB96040062C291 /* TTArtistTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC0327019CB96040062C291 /* TTArtistTableViewController.m */; };
+		BAC0327519CB969E0062C291 /* TTSongTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC0327419CB969E0062C291 /* TTSongTableViewController.m */; };
 		BADD934E19C563B1000E0898 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BADD934D19C563B1000E0898 /* Foundation.framework */; };
 		BADD935019C563B1000E0898 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BADD934F19C563B1000E0898 /* CoreGraphics.framework */; };
 		BADD935219C563B1000E0898 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BADD935119C563B1000E0898 /* UIKit.framework */; };
@@ -15,8 +17,6 @@
 		BADD935A19C563B1000E0898 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BADD935919C563B1000E0898 /* main.m */; };
 		BADD935E19C563B1000E0898 /* TTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BADD935D19C563B1000E0898 /* TTAppDelegate.m */; };
 		BADD936119C563B1000E0898 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BADD935F19C563B1000E0898 /* Main.storyboard */; };
-		BADD936419C563B1000E0898 /* TTFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BADD936319C563B1000E0898 /* TTFirstViewController.m */; };
-		BADD936719C563B1000E0898 /* TTSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BADD936619C563B1000E0898 /* TTSecondViewController.m */; };
 		BADD936919C563B1000E0898 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BADD936819C563B1000E0898 /* Images.xcassets */; };
 		BADD937019C563B1000E0898 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BADD936F19C563B1000E0898 /* XCTest.framework */; };
 		BADD937119C563B1000E0898 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BADD934D19C563B1000E0898 /* Foundation.framework */; };
@@ -40,6 +40,10 @@
 /* Begin PBXFileReference section */
 		1D724DC070B54EA4A3830D2D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2A758E248BC41D0A9C9A19F /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		BAC0326F19CB96040062C291 /* TTArtistTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTArtistTableViewController.h; sourceTree = "<group>"; };
+		BAC0327019CB96040062C291 /* TTArtistTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTArtistTableViewController.m; sourceTree = "<group>"; };
+		BAC0327319CB969E0062C291 /* TTSongTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTSongTableViewController.h; sourceTree = "<group>"; };
+		BAC0327419CB969E0062C291 /* TTSongTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTSongTableViewController.m; sourceTree = "<group>"; };
 		BADD934A19C563B1000E0898 /* iMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BADD934D19C563B1000E0898 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BADD934F19C563B1000E0898 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -51,10 +55,6 @@
 		BADD935C19C563B1000E0898 /* TTAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTAppDelegate.h; sourceTree = "<group>"; };
 		BADD935D19C563B1000E0898 /* TTAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTAppDelegate.m; sourceTree = "<group>"; };
 		BADD936019C563B1000E0898 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		BADD936219C563B1000E0898 /* TTFirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTFirstViewController.h; sourceTree = "<group>"; };
-		BADD936319C563B1000E0898 /* TTFirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTFirstViewController.m; sourceTree = "<group>"; };
-		BADD936519C563B1000E0898 /* TTSecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTSecondViewController.h; sourceTree = "<group>"; };
-		BADD936619C563B1000E0898 /* TTSecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTSecondViewController.m; sourceTree = "<group>"; };
 		BADD936819C563B1000E0898 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		BADD936E19C563B1000E0898 /* iMusicTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iMusicTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BADD936F19C563B1000E0898 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -92,6 +92,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BAC0326E19CB95CF0062C291 /* Artists */ = {
+			isa = PBXGroup;
+			children = (
+				BAC0326F19CB96040062C291 /* TTArtistTableViewController.h */,
+				BAC0327019CB96040062C291 /* TTArtistTableViewController.m */,
+			);
+			name = Artists;
+			sourceTree = "<group>";
+		};
+		BAC0327219CB96720062C291 /* Songs */ = {
+			isa = PBXGroup;
+			children = (
+				BAC0327319CB969E0062C291 /* TTSongTableViewController.h */,
+				BAC0327419CB969E0062C291 /* TTSongTableViewController.m */,
+			);
+			name = Songs;
+			sourceTree = "<group>";
+		};
 		BADD934119C563B1000E0898 = {
 			isa = PBXGroup;
 			children = (
@@ -132,10 +150,8 @@
 				BADD935D19C563B1000E0898 /* TTAppDelegate.m */,
 				BADD935F19C563B1000E0898 /* Main.storyboard */,
 				BAFA654519C56C0700A7937D /* Login */,
-				BADD936219C563B1000E0898 /* TTFirstViewController.h */,
-				BADD936319C563B1000E0898 /* TTFirstViewController.m */,
-				BADD936519C563B1000E0898 /* TTSecondViewController.h */,
-				BADD936619C563B1000E0898 /* TTSecondViewController.m */,
+				BAC0326E19CB95CF0062C291 /* Artists */,
+				BAC0327219CB96720062C291 /* Songs */,
 				BADD936819C563B1000E0898 /* Images.xcassets */,
 				BADD935419C563B1000E0898 /* Supporting Files */,
 			);
@@ -314,10 +330,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				BADD935E19C563B1000E0898 /* TTAppDelegate.m in Sources */,
+				BAC0327519CB969E0062C291 /* TTSongTableViewController.m in Sources */,
 				BAFA654419C56BFE00A7937D /* TTLoginViewController.m in Sources */,
+				BAC0327119CB96040062C291 /* TTArtistTableViewController.m in Sources */,
 				BADD935A19C563B1000E0898 /* main.m in Sources */,
-				BADD936719C563B1000E0898 /* TTSecondViewController.m in Sources */,
-				BADD936419C563B1000E0898 /* TTFirstViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
