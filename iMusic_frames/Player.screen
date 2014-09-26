@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model:Screen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:model="http://wireframesketcher.com/1.0/model.ecore">
+  <widgets xsi:type="model:Master" id="1" x="96" y="32" measuredWidth="375" measuredHeight="795">
+    <screen xsi:type="model:WidgetGroup" href="assets/iOS7/iPhone.screen#iPhone"/>
+  </widgets>
+  <widgets xsi:type="model:ButtonBar" id="2" x="125" y="656" width="320" height="60" text="Music, Social, Settings" measuredWidth="320" measuredHeight="60" selection="0" background="#666666">
+    <font size="24px"/>
+    <items link="Mus_Artists_Affiance.screen" x="0" y="0" width="96" height="60" text="Music"/>
+    <items link="Soc_Featured.screen" x="96" y="0" width="95" height="60" text="Social"/>
+    <items x="191" y="0" width="129" height="60" text="Settings"/>
+  </widgets>
+  <widgets xsi:type="model:Panel" id="5" x="125" y="168" width="319" height="488" measuredWidth="319" measuredHeight="488" background="#444444" foreground="#444444"/>
+  <widgets xsi:type="model:Icon" id="6" x="135" y="178" width="316" height="299" measuredWidth="316" measuredHeight="299" foreground="#e06666" icon="image (large)"/>
+  <widgets xsi:type="model:HSlider" id="8" x="135" y="456" width="298" measuredWidth="298" measuredHeight="17"/>
+  <widgets xsi:type="model:Label" id="9" x="135" y="488" width="298" text="Tooth And Claw" measuredWidth="298" measuredHeight="36" textAlignment="Center" foreground="#e06666">
+    <font size="24px"/>
+  </widgets>
+  <widgets xsi:type="model:Label" id="10" x="135" y="548" width="298" text="Animals As Leaders" measuredWidth="298" measuredHeight="29" textAlignment="Center" foreground="#e06666">
+    <font size="18px"/>
+  </widgets>
+  <widgets xsi:type="model:Label" id="11" x="135" y="520" width="298" text="The Joy of Motion" measuredWidth="298" measuredHeight="29" textAlignment="Center" foreground="#e06666">
+    <font size="18px"/>
+  </widgets>
+  <widgets xsi:type="model:HSlider" id="12" x="135" y="608" width="298" measuredWidth="298" measuredHeight="17"/>
+  <hRuler/>
+  <vRuler/>
+  <font size="12px"/>
+</model:Screen>

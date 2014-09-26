@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		37DA621119D5A5D600E89387 /* FacebookSDK.h in Frameworks */ = {isa = PBXBuildFile; fileRef = 37DA621019D5A5D600E89387 /* FacebookSDK.h */; };
 		A214D2459425482FA098883D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D724DC070B54EA4A3830D2D /* libPods.a */; };
 		BAC0327119CB96040062C291 /* TTArtistTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC0327019CB96040062C291 /* TTArtistTableViewController.m */; };
 		BAC0327519CB969E0062C291 /* TTSongTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC0327419CB969E0062C291 /* TTSongTableViewController.m */; };
@@ -21,8 +22,6 @@
 		BADD937019C563B1000E0898 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BADD936F19C563B1000E0898 /* XCTest.framework */; };
 		BADD937119C563B1000E0898 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BADD934D19C563B1000E0898 /* Foundation.framework */; };
 		BADD937219C563B1000E0898 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BADD935119C563B1000E0898 /* UIKit.framework */; };
-		BADD937A19C563B1000E0898 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BADD937819C563B1000E0898 /* InfoPlist.strings */; };
-		BADD937C19C563B1000E0898 /* iMusicTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BADD937B19C563B1000E0898 /* iMusicTests.m */; };
 		BAFA654419C56BFE00A7937D /* TTLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAFA654319C56BFE00A7937D /* TTLoginViewController.m */; };
 		BAFA654719C576C800A7937D /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAFA654619C576C800A7937D /* ParseFacebookUtils.framework */; };
 /* End PBXBuildFile section */
@@ -39,6 +38,8 @@
 
 /* Begin PBXFileReference section */
 		1D724DC070B54EA4A3830D2D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		37DA621019D5A5D600E89387 /* FacebookSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FacebookSDK.h; path = "Pods/Facebook-iOS-SDK/src/FacebookSDK.h"; sourceTree = "<group>"; };
+		37DA621419D5A9FF00E89387 /* libPods-Parse.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-Parse.a"; path = "Pods/build/Debug-iphoneos/libPods-Parse.a"; sourceTree = "<group>"; };
 		B2A758E248BC41D0A9C9A19F /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		BAC0326F19CB96040062C291 /* TTArtistTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTArtistTableViewController.h; sourceTree = "<group>"; };
 		BAC0327019CB96040062C291 /* TTArtistTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTArtistTableViewController.m; sourceTree = "<group>"; };
@@ -58,9 +59,6 @@
 		BADD936819C563B1000E0898 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		BADD936E19C563B1000E0898 /* iMusicTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iMusicTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BADD936F19C563B1000E0898 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		BADD937719C563B1000E0898 /* iMusicTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iMusicTests-Info.plist"; sourceTree = "<group>"; };
-		BADD937919C563B1000E0898 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		BADD937B19C563B1000E0898 /* iMusicTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iMusicTests.m; sourceTree = "<group>"; };
 		BAFA654219C56BFE00A7937D /* TTLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTLoginViewController.h; sourceTree = "<group>"; };
 		BAFA654319C56BFE00A7937D /* TTLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTLoginViewController.m; sourceTree = "<group>"; };
 		BAFA654619C576C800A7937D /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseFacebookUtils.framework; path = "../../../../Downloads/parse-library-1.3.0/ParseFacebookUtils.framework"; sourceTree = "<group>"; };
@@ -71,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37DA621119D5A5D600E89387 /* FacebookSDK.h in Frameworks */,
 				BADD935019C563B1000E0898 /* CoreGraphics.framework in Frameworks */,
 				BADD935219C563B1000E0898 /* UIKit.framework in Frameworks */,
 				BADD934E19C563B1000E0898 /* Foundation.framework in Frameworks */,
@@ -114,7 +113,6 @@
 			isa = PBXGroup;
 			children = (
 				BADD935319C563B1000E0898 /* iMusic */,
-				BADD937519C563B1000E0898 /* iMusicTests */,
 				BADD934C19C563B1000E0898 /* Frameworks */,
 				BADD934B19C563B1000E0898 /* Products */,
 				B2A758E248BC41D0A9C9A19F /* Pods.xcconfig */,
@@ -133,6 +131,8 @@
 		BADD934C19C563B1000E0898 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				37DA621419D5A9FF00E89387 /* libPods-Parse.a */,
+				37DA621019D5A5D600E89387 /* FacebookSDK.h */,
 				BAFA654619C576C800A7937D /* ParseFacebookUtils.framework */,
 				BADD934D19C563B1000E0898 /* Foundation.framework */,
 				BADD934F19C563B1000E0898 /* CoreGraphics.framework */,
@@ -165,24 +165,6 @@
 				BADD935619C563B1000E0898 /* InfoPlist.strings */,
 				BADD935919C563B1000E0898 /* main.m */,
 				BADD935B19C563B1000E0898 /* iMusic-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		BADD937519C563B1000E0898 /* iMusicTests */ = {
-			isa = PBXGroup;
-			children = (
-				BADD937B19C563B1000E0898 /* iMusicTests.m */,
-				BADD937619C563B1000E0898 /* Supporting Files */,
-			);
-			path = iMusicTests;
-			sourceTree = "<group>";
-		};
-		BADD937619C563B1000E0898 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				BADD937719C563B1000E0898 /* iMusicTests-Info.plist */,
-				BADD937819C563B1000E0898 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -285,7 +267,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BADD937A19C563B1000E0898 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,7 +322,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BADD937C19C563B1000E0898 /* iMusicTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -370,14 +350,6 @@
 				BADD936019C563B1000E0898 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		BADD937819C563B1000E0898 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BADD937919C563B1000E0898 /* en */,
-			);
-			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -462,10 +434,15 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/MPBr2013/Downloads/parse-library-1.3.0",
+					"$(PROJECT_DIR)/Pods/Parse",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iMusic/iMusic-Prefix.pch";
 				INFOPLIST_FILE = "iMusic/iMusic-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -480,10 +457,15 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/MPBr2013/Downloads/parse-library-1.3.0",
+					"$(PROJECT_DIR)/Pods/Parse",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iMusic/iMusic-Prefix.pch";
 				INFOPLIST_FILE = "iMusic/iMusic-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

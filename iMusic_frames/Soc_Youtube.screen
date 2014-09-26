@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model:Screen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:model="http://wireframesketcher.com/1.0/model.ecore">
+  <widgets xsi:type="model:Master" id="4" x="104" y="54" measuredWidth="375" measuredHeight="795">
+    <screen xsi:type="model:WidgetGroup" href="assets/iOS7/iPhone.screen#iPhone"/>
+  </widgets>
+  <widgets xsi:type="model:ButtonBar" id="5" x="133" y="678" width="320" height="60" text="Music, Social, Settings" measuredWidth="320" measuredHeight="60" selection="1" background="#666666">
+    <font size="24px"/>
+    <items link="Mus_Artists_Affiance.screen" x="0" y="0" width="96" height="60" text="Music"/>
+    <items link="Soc_Featured.screen" x="96" y="0" width="95" height="60" text="Social"/>
+    <items x="191" y="0" width="129" height="60" text="Settings"/>
+  </widgets>
+  <widgets xsi:type="model:TabbedPane" id="6" x="133" y="190" width="320" height="488" text="Featured, Facebook, Youtube" measuredWidth="320" measuredHeight="488" selection="2" background="#444444" position="bottom">
+    <items link="Soc_Featured.screen" x="10" y="451" width="98" height="37" text="Featured"/>
+    <items link="Soc_FB.screen" x="108" y="451" width="104" height="37" text="Facebook"/>
+    <items x="212" y="451" width="94" height="37" text="Youtube"/>
+    <font size="18px"/>
+  </widgets>
+  <widgets xsi:type="model:Icon" id="7" x="143" y="232" width="145" height="145" measuredWidth="145" measuredHeight="145" foreground="#e06666" icon="image (large)"/>
+  <widgets xsi:type="model:Icon" id="8" x="298" y="232" width="145" height="145" measuredWidth="145" measuredHeight="145" foreground="#6fa8dc" icon="image (large)"/>
+  <widgets xsi:type="model:Icon" id="9" x="143" y="366" width="145" height="145" measuredWidth="145" measuredHeight="145" foreground="#ffffff" icon="image (large)"/>
+  <widgets xsi:type="model:Icon" id="10" x="298" y="366" width="145" height="145" measuredWidth="145" measuredHeight="145" foreground="#f6b26b" icon="image (large)"/>
+  <widgets xsi:type="model:Icon" id="11" x="143" y="502" width="145" height="145" measuredWidth="145" measuredHeight="145" foreground="#93c47d" icon="image (large)"/>
+  <widgets xsi:type="model:Icon" id="12" x="298" y="502" width="145" height="145" measuredWidth="145" measuredHeight="145" foreground="#ffd966" icon="image (large)"/>
+  <widgets xsi:type="model:SearchField" id="13" x="143" y="200" width="299" text="Search Youtube" measuredWidth="299" measuredHeight="29">
+    <font size="18px"/>
+  </widgets>
+  <hRuler/>
+  <vRuler/>
+  <font size="12px"/>
+</model:Screen>
