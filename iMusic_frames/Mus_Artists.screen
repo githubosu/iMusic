@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model:Screen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:model="http://wireframesketcher.com/1.0/model.ecore">
+  <widgets xsi:type="model:Master" id="4" x="258" y="56" measuredWidth="375" measuredHeight="795">
+    <screen xsi:type="model:WidgetGroup" href="assets/iOS7/iPhone.screen#iPhone"/>
+  </widgets>
+  <widgets xsi:type="model:ButtonBar" id="5" x="287" y="680" width="320" height="60" text="Music, Social, Settings" measuredWidth="320" measuredHeight="60" selection="0" background="#666666">
+    <font size="24px"/>
+    <items x="0" y="0" width="96" height="60" text="Music"/>
+    <items link="Soc_Featured.screen" x="96" y="0" width="95" height="60" text="Social"/>
+    <items x="191" y="0" width="129" height="60" text="Settings"/>
+  </widgets>
+  <widgets xsi:type="model:TabbedPane" id="7" x="287" y="192" width="320" height="488" text="Artists, Playlists, Albums" measuredWidth="320" measuredHeight="488" selection="0" background="#444444" position="bottom">
+    <items x="10" y="451" width="78" height="37" text="Artists"/>
+    <items link="Mus_Playlists.screen" x="88" y="451" width="91" height="37" text="Playlists"/>
+    <items link="Mus_Albums.screen" x="179" y="451" width="88" height="37" text="Albums"/>
+    <font size="18px"/>
+  </widgets>
+  <widgets xsi:type="model:List" id="8" x="287" y="192" width="320" height="450" text="Affiance&#xA;Alt-J&#xA;Animals As Leaders&#xA;Anup Sastry&#xA;Arctic Monkeys&#xA;Cage The Elephant&#xA;Capital Cities&#xA;Ellie Goulding&#xA;The Front Bottoms&#xA;JAY Z&#xA;John Mayer&#xA;Kanye West&#xA;MGMT&#xA;Muse&#xA;Red Hot Chili Peppers&#xA;System Of A Down&#xA;TesseracT" measuredWidth="320" measuredHeight="450" background="#666666" alternative="#444444">
+    <font size="18px"/>
+    <items x="0" y="2" width="320" height="29" text="Affiance"/>
+    <items x="0" y="31" width="320" height="29" text="Alt-J"/>
+    <items x="0" y="60" width="320" height="29" text="Animals As Leaders"/>
+    <items x="0" y="89" width="320" height="29" text="Anup Sastry"/>
+    <items x="0" y="118" width="320" height="29" text="Arctic Monkeys"/>
+    <items x="0" y="147" width="320" height="29" text="Cage The Elephant"/>
+    <items x="0" y="176" width="320" height="29" text="Capital Cities"/>
+    <items x="0" y="205" width="320" height="29" text="Ellie Goulding"/>
+    <items x="0" y="234" width="320" height="29" text="The Front Bottoms"/>
+    <items x="0" y="263" width="320" height="29" text="JAY Z"/>
+    <items x="0" y="292" width="320" height="29" text="John Mayer"/>
+    <items x="0" y="321" width="320" height="29" text="Kanye West"/>
+    <items x="0" y="350" width="320" height="29" text="MGMT"/>
+    <items x="0" y="379" width="320" height="29" text="Muse"/>
+    <items x="0" y="408" width="320" height="29" text="Red Hot Chili Peppers"/>
+    <items x="0" y="437" width="320" height="29" text="System Of A Down"/>
+    <items x="0" y="466" width="320" height="29" text="TesseracT"/>
+  </widgets>
+  <hRuler/>
+  <vRuler/>
+  <font size="12px"/>
+</model:Screen>
