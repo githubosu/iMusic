@@ -9,7 +9,7 @@
 #import "TTArtistTableViewController.h"
 
 @interface TTArtistTableViewController ()
-
+@property (nonatomic, strong) NSMutableArray *albums;
 @end
 
 @implementation TTArtistTableViewController
@@ -23,6 +23,13 @@
     return self;
 }
 
+- (NSMutableArray *) albums {
+    if(!_albums) {
+        _albums = [[NSMutableArray alloc]init];
+    }
+    return _albums;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -32,6 +39,16 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    NSLog(@"Artist View Loaded.");
+    MPMediaQuery *allAlbumsQuery = [MPMediaQuery albumsQuery];
+    NSArray *allAlbumsArray = [allAlbumsQuery collections];
+    for (MPMediaItemCollection *collection in allAlbumsArray) {
+        MPMediaItem *item = [collection representativeItem];
+        NSLog(@"%@", [item valueForProperty:MPMediaItemPropertyAlbumTitle]);
+        NSLog(@"Artwork: %@", [item valueForProperty:MPMediaItemPropertyArtwork]);
+        [self.albums addObject:[NSString stringWithFormat:@"%@",[item valueForProperty:MPMediaItemPropertyAlbumTitle]]];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,28 +61,30 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return [self.albums count];
 }
 
-/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    static NSString *simpleTableIdentifier = @"AlbumCell";
     
-    // Configure the cell...
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
     
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
+    }
+    
+    cell.textLabel.text = [self.albums objectAtIndex:indexPath.row];
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.

@@ -69,19 +69,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="sectionIndexColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="sectionIndexBackgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="13Z-9v-SdM">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AlbumCell" textLabel="LfZ-I6-bcW" style="IBUITableViewCellStyleDefault" id="13Z-9v-SdM">
                                 <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="13Z-9v-SdM" id="pnq-1b-KrU">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="LfZ-I6-bcW">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="Qdp-Xg-Oog" id="PrL-RW-BJt"/>
-                            <outlet property="delegate" destination="Qdp-Xg-Oog" id="aMm-sk-6le"/>
+                            <outlet property="dataSource" destination="Qdp-Xg-Oog" id="q6M-fN-f6m"/>
+                            <outlet property="delegate" destination="Qdp-Xg-Oog" id="ODY-bQ-Ni8"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Root View Controller" id="sWv-QK-60q"/>
@@ -119,11 +129,11 @@
             </objects>
             <point key="canvasLocation" x="1638" y="-33"/>
         </scene>
-        <!--Item-->
+        <!--Songs-->
         <scene sceneID="akf-Di-ZEU">
             <objects>
                 <navigationController definesPresentationContext="YES" id="ljO-10-HKh" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="UeV-Me-yWH"/>
+                    <tabBarItem key="tabBarItem" title="Songs" id="UeV-Me-yWH"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="QF1-H2-tmn">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -135,11 +145,11 @@
             </objects>
             <point key="canvasLocation" x="1106" y="-33"/>
         </scene>
-        <!--Item-->
+        <!--Artists-->
         <scene sceneID="D2R-22-ug3">
             <objects>
                 <navigationController definesPresentationContext="YES" id="Bhe-0S-o41" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="RjD-zx-S63"/>
+                    <tabBarItem key="tabBarItem" title="Artists" id="RjD-zx-S63"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ejU-RG-7vo">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
