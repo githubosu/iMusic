@@ -7,9 +7,11 @@
 //
 
 #import "TTArtistTableViewController.h"
+#import "TTSong.m"
 
 @interface TTArtistTableViewController ()
 @property (nonatomic, strong) NSMutableArray *albums;
+@property (nonatomic, strong) NSMutableArray *songs;
 @end
 
 @implementation TTArtistTableViewController
@@ -44,9 +46,15 @@
     MPMediaQuery *allAlbumsQuery = [MPMediaQuery albumsQuery];
     NSArray *allAlbumsArray = [allAlbumsQuery collections];
     for (MPMediaItemCollection *collection in allAlbumsArray) {
+        TTSong *song = [[TTSong alloc] init];
         MPMediaItem *item = [collection representativeItem];
         NSLog(@"%@", [item valueForProperty:MPMediaItemPropertyAlbumTitle]);
         NSLog(@"Artwork: %@", [item valueForProperty:MPMediaItemPropertyArtwork]);
+        [song.album [item valueForProperty:MPMediaItemPropertyAlbumTitle]];
+        [song.artist [item valueForProperty:MPMediaItemPropertyArtist]];
+        [song.artwork [item valueForProperty:MPMediaItemPropertyArtwork]];
+        [song.songTitle [item valueForProperty:MPMediaItemPropertyTitle]];
+        [song.duration [item valueForProperty:MPMediaItemPropertyTitle]];
         [self.albums addObject:[NSString stringWithFormat:@"%@",[item valueForProperty:MPMediaItemPropertyAlbumTitle]]];
     }
 }
