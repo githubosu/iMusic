@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@import MediaPlayer;
 @interface TTSongTableViewController : UITableViewController
 
 @end

@@ -7,10 +7,9 @@
 //
 
 #import "TTArtistTableViewController.h"
-#import "TTSong.m"
-
+#import "TTSong.h"
+#import "UIImage+Resize.h"
 @interface TTArtistTableViewController ()
-@property (nonatomic, strong) NSMutableArray *albums;
 @property (nonatomic, strong) NSMutableArray *songs;
 @end
 
@@ -25,11 +24,11 @@
     return self;
 }
 
-- (NSMutableArray *) albums {
-    if(!_albums) {
-        _albums = [[NSMutableArray alloc]init];
+- (NSMutableArray *) songs {
+    if(!_songs) {
+        _songs = [[NSMutableArray alloc]init];
     }
-    return _albums;
+    return _songs;
 }
 
 - (void)viewDidLoad
@@ -43,19 +42,19 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     NSLog(@"Artist View Loaded.");
-    MPMediaQuery *allAlbumsQuery = [MPMediaQuery albumsQuery];
+    MPMediaQuery *allAlbumsQuery = [MPMediaQuery artistsQuery];
     NSArray *allAlbumsArray = [allAlbumsQuery collections];
     for (MPMediaItemCollection *collection in allAlbumsArray) {
         TTSong *song = [[TTSong alloc] init];
         MPMediaItem *item = [collection representativeItem];
-        NSLog(@"%@", [item valueForProperty:MPMediaItemPropertyAlbumTitle]);
-        NSLog(@"Artwork: %@", [item valueForProperty:MPMediaItemPropertyArtwork]);
-        [song.album [item valueForProperty:MPMediaItemPropertyAlbumTitle]];
-        [song.artist [item valueForProperty:MPMediaItemPropertyArtist]];
-        [song.artwork [item valueForProperty:MPMediaItemPropertyArtwork]];
-        [song.songTitle [item valueForProperty:MPMediaItemPropertyTitle]];
-        [song.duration [item valueForProperty:MPMediaItemPropertyTitle]];
-        [self.albums addObject:[NSString stringWithFormat:@"%@",[item valueForProperty:MPMediaItemPropertyAlbumTitle]]];
+        //NSLog(@"%@", [item valueForProperty:MPMediaItemPropertyAlbumTitle]);
+        //NSLog(@"Artwork: %@", [item valueForProperty:MPMediaItemPropertyArtwork]);
+        song.album = [item valueForProperty:MPMediaItemPropertyAlbumTitle];
+        song.artist = [item valueForProperty:MPMediaItemPropertyArtist];
+        song.artwork = [item valueForProperty:MPMediaItemPropertyArtwork];
+        song.songTitle = [item valueForProperty:MPMediaItemPropertyTitle];
+        song.duration = [item valueForProperty:MPMediaItemPropertyTitle];
+        [self.songs addObject:song];
     }
 }
 
@@ -76,12 +75,12 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [self.albums count];
+    return [self.songs count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *simpleTableIdentifier = @"AlbumCell";
+    static NSString *simpleTableIdentifier = @"Artist Cell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
     
@@ -89,7 +88,23 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
     
-    cell.textLabel.text = [self.albums objectAtIndex:indexPath.row];
+    UIImage *albumArtworkImage = NULL;
+    UIImage *resizedImage = NULL;
+    MPMediaItemArtwork *itemArtwork = [[self.songs objectAtIndex:indexPath.row] artwork];
+    
+    if (itemArtwork != nil) {
+        albumArtworkImage = [itemArtwork imageWithSize:CGSizeMake(256.0f, 256.0f)];
+        resizedImage = [albumArtworkImage resizedImage: CGSizeMake(256.0f, 256.0f) interpolationQuality: kCGInterpolationLow];
+    }
+    
+    if (albumArtworkImage) {
+        cell.imageView.image = resizedImage;
+    } else { // no album artwork
+        NSLog(@"No ALBUM ARTWORK");
+        cell.imageView.image = [[UIImage imageNamed:@"default-artwork.png"] resizedImage: CGSizeMake(256.0f, 256.0f) interpolationQuality: kCGInterpolationLow];
+    }
+    TTSong *song = [self.songs objectAtIndex:indexPath.row];
+    cell.textLabel.text = song.artist;
     return cell;
 }
 
