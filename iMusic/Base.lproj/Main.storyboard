@@ -18,13 +18,10 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" image="login_bg" translatesAutoresizingMaskIntoConstraints="NO" id="nAA-rd-afH">
-                                <rect key="frame" x="-11" y="46" width="342" height="475"/>
+                                <rect key="frame" x="-8" y="64" width="336" height="504"/>
                             </imageView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="plt-KJ-128">
-                                <rect key="frame" x="150" y="373" width="20" height="20"/>
-                            </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZEX-Z7-d1x">
-                                <rect key="frame" x="89" y="436" width="143" height="30"/>
+                                <rect key="frame" x="89" y="465" width="143" height="30"/>
                                 <state key="normal" title="Login with Facebook">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -33,6 +30,9 @@
                                     <action selector="loginButtonPressed:" destination="KAO-oJ-cF0" eventType="touchUpInside" id="HWf-mu-eom"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="plt-KJ-128">
+                                <rect key="frame" x="150" y="409" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -52,15 +52,19 @@
                 <tabBarController id="8YX-ce-x5E" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="NTw-Rk-sKc"/>
                     <nil key="simulatedBottomBarMetrics"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="JQR-rB-NYL">
+                    <tabBar key="tabBar" contentMode="scaleToFill" barStyle="black" id="JQR-rB-NYL">
                         <rect key="frame" x="0.0" y="431" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
                         <segue destination="Bhe-0S-o41" kind="relationship" relationship="viewControllers" id="UiC-5h-x7z"/>
                         <segue destination="ljO-10-HKh" kind="relationship" relationship="viewControllers" id="SD4-Eo-rOX"/>
+<<<<<<< HEAD
                         <segue destination="fS6-yS-bdP" kind="relationship" relationship="viewControllers" id="WR3-Qu-enY"/>
+=======
+                        <segue destination="xrf-sv-hXj" kind="relationship" relationship="viewControllers" id="PQv-0R-gkp"/>
+>>>>>>> FETCH_HEAD
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FNP-y4-bzi" sceneMemberID="firstResponder"/>
@@ -74,11 +78,16 @@
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Snz-rC-cYi">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+<<<<<<< HEAD
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 <<<<<<< HEAD
 =======
                         <color key="sectionIndexColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 >>>>>>> LocalSongsList
+=======
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="separatorColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+>>>>>>> FETCH_HEAD
                         <color key="sectionIndexBackgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Artist Cell" textLabel="LfZ-I6-bcW" style="IBUITableViewCellStyleDefault" id="13Z-9v-SdM">
@@ -108,7 +117,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oHT-Ri-ZfZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1642" y="-766"/>
+            <point key="canvasLocation" x="1579" y="-450"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="j8v-zo-oJs">
@@ -117,7 +126,8 @@
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="vPe-jI-3g7">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="separatorColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="sectionIndexBackgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Song Cell" textLabel="Qwv-z2-Q8z" style="IBUITableViewCellStyleDefault" id="kbR-vJ-yjC">
@@ -147,8 +157,9 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fr9-xw-Kcc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1638" y="-33"/>
+            <point key="canvasLocation" x="1579" y="180"/>
         </scene>
+<<<<<<< HEAD
         <!--Root View Controller-->
         <scene sceneID="tKs-ce-P8Q">
             <objects>
@@ -205,6 +216,12 @@
         <scene sceneID="akf-Di-ZEU">
             <objects>
                 <navigationController title="Songs" definesPresentationContext="YES" id="ljO-10-HKh" sceneMemberID="viewController">
+=======
+        <!--Songs-->
+        <scene sceneID="akf-Di-ZEU">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="ljO-10-HKh" sceneMemberID="viewController">
+>>>>>>> FETCH_HEAD
                     <tabBarItem key="tabBarItem" title="Songs" id="UeV-Me-yWH"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="QF1-H2-tmn">
                         <autoresizingMask key="autoresizingMask"/>
@@ -215,12 +232,61 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i26-jx-PYS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1106" y="-33"/>
+            <point key="canvasLocation" x="1106" y="180"/>
+        </scene>
+        <!--Root View Controller-->
+        <scene sceneID="ePJ-TI-me5">
+            <objects>
+                <tableViewController id="3aq-AJ-QeD" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="j00-gB-oAM">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Vij-7g-7bO">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Vij-7g-7bO" id="cIQ-uL-e75">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="3aq-AJ-QeD" id="KgM-kg-fvi"/>
+                            <outlet property="delegate" destination="3aq-AJ-QeD" id="f5s-fD-lD5"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="rNk-xq-IBC"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ju8-Sv-Jyt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1579" y="896"/>
+        </scene>
+        <!--Playlists-->
+        <scene sceneID="H9c-Sv-ZlK">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="xrf-sv-hXj" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Playlists" id="Ujx-iD-f9O"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ATM-Pc-fZo">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="3aq-AJ-QeD" kind="relationship" relationship="rootViewController" id="cOa-t3-svF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3I8-tG-IU9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1106" y="896"/>
         </scene>
         <!--Artists-->
         <scene sceneID="D2R-22-ug3">
             <objects>
+<<<<<<< HEAD
                 <navigationController title="Artists" definesPresentationContext="YES" id="Bhe-0S-o41" sceneMemberID="viewController">
+=======
+                <navigationController definesPresentationContext="YES" id="Bhe-0S-o41" sceneMemberID="viewController">
+>>>>>>> FETCH_HEAD
                     <tabBarItem key="tabBarItem" title="Artists" id="RjD-zx-S63"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ejU-RG-7vo">
                         <autoresizingMask key="autoresizingMask"/>
@@ -231,7 +297,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pu7-UI-9go" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1106" y="-766"/>
+            <point key="canvasLocation" x="1106" y="-450"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="GqP-OS-H8W">
