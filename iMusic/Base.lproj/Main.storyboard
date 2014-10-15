@@ -61,7 +61,11 @@
                         <segue destination="Bhe-0S-o41" kind="relationship" relationship="viewControllers" id="UiC-5h-x7z"/>
                         <segue destination="ljO-10-HKh" kind="relationship" relationship="viewControllers" id="SD4-Eo-rOX"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
                         <segue destination="fS6-yS-bdP" kind="relationship" relationship="viewControllers" id="WR3-Qu-enY"/>
+=======
+                        <segue destination="xrf-sv-hXj" kind="relationship" relationship="viewControllers" id="PQv-0R-gkp"/>
+>>>>>>> FETCH_HEAD
 =======
                         <segue destination="xrf-sv-hXj" kind="relationship" relationship="viewControllers" id="PQv-0R-gkp"/>
 >>>>>>> FETCH_HEAD
@@ -79,11 +83,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 <<<<<<< HEAD
 =======
                         <color key="sectionIndexColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 >>>>>>> LocalSongsList
+=======
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="separatorColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+>>>>>>> FETCH_HEAD
 =======
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="separatorColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -158,6 +167,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fr9-xw-Kcc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1579" y="180"/>
+<<<<<<< HEAD
         </scene>
 <<<<<<< HEAD
         <!--Root View Controller-->
@@ -217,10 +227,16 @@
             <objects>
                 <navigationController title="Songs" definesPresentationContext="YES" id="ljO-10-HKh" sceneMemberID="viewController">
 =======
+=======
+        </scene>
+>>>>>>> FETCH_HEAD
         <!--Songs-->
         <scene sceneID="akf-Di-ZEU">
             <objects>
                 <navigationController definesPresentationContext="YES" id="ljO-10-HKh" sceneMemberID="viewController">
+<<<<<<< HEAD
+>>>>>>> FETCH_HEAD
+=======
 >>>>>>> FETCH_HEAD
                     <tabBarItem key="tabBarItem" title="Songs" id="UeV-Me-yWH"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="QF1-H2-tmn">
@@ -286,6 +302,9 @@
                 <navigationController title="Artists" definesPresentationContext="YES" id="Bhe-0S-o41" sceneMemberID="viewController">
 =======
                 <navigationController definesPresentationContext="YES" id="Bhe-0S-o41" sceneMemberID="viewController">
+<<<<<<< HEAD
+>>>>>>> FETCH_HEAD
+=======
 >>>>>>> FETCH_HEAD
                     <tabBarItem key="tabBarItem" title="Artists" id="RjD-zx-S63"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ejU-RG-7vo">
