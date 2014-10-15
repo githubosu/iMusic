@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface TTArtistTableViewController : UITableViewController
+@import MediaPlayer;
+@interface TTArtistTableViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource>
 
 @end
