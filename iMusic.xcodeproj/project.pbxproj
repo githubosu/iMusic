@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		37041AB919EDE70200DE7AA3 /* TTNowPlayingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37041AB819EDE70200DE7AA3 /* TTNowPlayingViewController.m */; };
 		37DA621119D5A5D600E89387 /* FacebookSDK.h in Frameworks */ = {isa = PBXBuildFile; fileRef = 37DA621019D5A5D600E89387 /* FacebookSDK.h */; };
 		A214D2459425482FA098883D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D724DC070B54EA4A3830D2D /* libPods.a */; };
 		BAC0327119CB96040062C291 /* TTArtistTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC0327019CB96040062C291 /* TTArtistTableViewController.m */; };
@@ -44,6 +45,8 @@
 
 /* Begin PBXFileReference section */
 		1D724DC070B54EA4A3830D2D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		37041AB719EDE70200DE7AA3 /* TTNowPlayingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTNowPlayingViewController.h; sourceTree = "<group>"; };
+		37041AB819EDE70200DE7AA3 /* TTNowPlayingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTNowPlayingViewController.m; sourceTree = "<group>"; };
 		37DA621019D5A5D600E89387 /* FacebookSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FacebookSDK.h; path = "Pods/Facebook-iOS-SDK/src/FacebookSDK.h"; sourceTree = "<group>"; };
 		37DA621419D5A9FF00E89387 /* libPods-Parse.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-Parse.a"; path = "Pods/build/Debug-iphoneos/libPods-Parse.a"; sourceTree = "<group>"; };
 		B2A758E248BC41D0A9C9A19F /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
@@ -108,6 +111,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		37041ABA19EDE70500DE7AA3 /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				37041AB719EDE70200DE7AA3 /* TTNowPlayingViewController.h */,
+				37041AB819EDE70200DE7AA3 /* TTNowPlayingViewController.m */,
+			);
+			name = Player;
+			sourceTree = "<group>";
+		};
 		BAC0326E19CB95CF0062C291 /* Artists */ = {
 			isa = PBXGroup;
 			children = (
@@ -166,6 +178,7 @@
 				BADD935C19C563B1000E0898 /* TTAppDelegate.h */,
 				BADD935D19C563B1000E0898 /* TTAppDelegate.m */,
 				BADD935F19C563B1000E0898 /* Main.storyboard */,
+				37041ABA19EDE70500DE7AA3 /* Player */,
 				BAFA654519C56C0700A7937D /* Login */,
 				E2E9363119E8801300BFE068 /* Albums */,
 				BAC0326E19CB95CF0062C291 /* Artists */,
@@ -383,6 +396,7 @@
 				E2E9363E19E8D1EC00BFE068 /* UIImage+RoundedCorner.m in Sources */,
 				BAC0327119CB96040062C291 /* TTArtistTableViewController.m in Sources */,
 				BADD935A19C563B1000E0898 /* main.m in Sources */,
+				37041AB919EDE70200DE7AA3 /* TTNowPlayingViewController.m in Sources */,
 				E2E9363419E8804200BFE068 /* TTAlbumTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -501,6 +515,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/MPBr2013/Downloads/parse-library-1.3.0",
@@ -514,6 +529,7 @@
 					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -526,6 +542,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/MPBr2013/Downloads/parse-library-1.3.0",
@@ -539,6 +556,7 @@
 					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};

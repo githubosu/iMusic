@@ -8,6 +8,7 @@
 
 #import "TTSongTableViewController.h"
 #import "TTSong.h"
+#import "TTNowPlayingViewController.h"
 #import "UIImage+Resize.h"
 @interface TTSongTableViewController ()
 @property (nonatomic, strong) NSMutableArray *songs;
@@ -52,6 +53,7 @@
         song.artwork = [item valueForProperty:MPMediaItemPropertyArtwork];
         song.songTitle = [item valueForProperty:MPMediaItemPropertyTitle];
         song.duration = [item valueForProperty:MPMediaItemPropertyTitle];
+        song.songURL = [item valueForProperty:MPMediaItemPropertyAssetURL];
         [self.songs addObject:song];
     }
 }
@@ -92,6 +94,7 @@
     MPMediaItemArtwork *itemArtwork = [[self.songs objectAtIndex:indexPath.row] artwork];
     
     if (itemArtwork != nil) {
+        NSLog(@"found art");
         albumArtworkImage = [itemArtwork imageWithSize:CGSizeMake(256.0f, 256.0f)];
         resizedImage = [albumArtworkImage resizedImage: CGSizeMake(256.0f, 256.0f) interpolationQuality: kCGInterpolationLow];
     }
@@ -146,7 +149,7 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -154,7 +157,15 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    
+    if ([[segue identifier] isEqualToString:@"Player"])
+    {
+        TTNowPlayingViewController *Player = [segue destinationViewController];
+        NSIndexPath *songIndexPath = [self.tableView indexPathForSelectedRow];
+        
+        Player.currentSong = [self.songs objectAtIndex:[songIndexPath row]];
+    }
 }
-*/
+
 
 @end
