@@ -7,13 +7,8 @@
 //
 
 #import "TTAppDelegate.h"
-#import "XHTwitterPaggingViewer.h"
-#import "TTArtistTableViewController.h"
-#import "TTSongTableViewController.h"
-
 
 @implementation TTAppDelegate
-
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -23,10 +18,7 @@
     
     [PFFacebookUtils initializeFacebook];
     
-    
-    
     return YES;
-
 }
 
 -(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation

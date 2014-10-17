@@ -803,8 +803,7 @@ typedef void (^FBDialogAppCallCompletionHandler)(
  may be suspended or killed, the app must also give a fallbackHandler to the
  handleOpenURL: method in FBAppCall.
 
- @param params The parameters for the Message Dialog. The "friends" and "place" properties
- will be ignored as the Facebook Messenger app does not support tagging.
+ @param params The parameters for the Message Dialog
 
  @param clientState An NSDictionary that's passed through when the completion handler
  is called. This is useful for the app to maintain state about the share request that

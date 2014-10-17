@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="DyF-f0-bA2">
     <dependencies>
+        <deployment defaultVersion="1808" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
@@ -26,7 +27,6 @@
                                 </state>
                                 <connections>
                                     <action selector="loginButtonPressed:" destination="KAO-oJ-cF0" eventType="touchUpInside" id="HWf-mu-eom"/>
-                                    <segue destination="N3F-rS-dtH" kind="push" identifier="loginToTabBarSegue" id="av4-zU-fX8"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -35,13 +35,13 @@
                     <navigationItem key="navigationItem" id="ZCl-jH-Hgj"/>
                     <connections>
                         <outlet property="activityIndicator" destination="plt-KJ-128" id="WFF-MZ-ntE"/>
+                        <segue destination="8YX-ce-x5E" kind="push" identifier="loginToTabBarSegue" id="G1k-2l-Wyg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G3i-eF-gSS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="162" y="180"/>
         </scene>
-<<<<<<< Updated upstream
         <!--Tab Bar Controller-->
         <scene sceneID="Vex-rW-GRa">
             <objects>
@@ -65,21 +65,12 @@
         </scene>
         <!--Root View Controller-->
         <scene sceneID="kWl-nx-61r">
-=======
-        <!--Item-->
-        <scene sceneID="dkm-l3-JRa">
->>>>>>> Stashed changes
             <objects>
-                <viewController id="H0n-sQ-152" customClass="TTViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="tuZ-ps-NDp"/>
-                        <viewControllerLayoutGuide type="bottom" id="pW5-Im-Uh3"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="wp7-ET-4wf">
+                <tableViewController id="Qdp-Xg-Oog" customClass="TTArtistTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Snz-rC-cYi">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-<<<<<<< Updated upstream
                         <color key="sectionIndexColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="sectionIndexBackgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -108,29 +99,17 @@
                     <navigationItem key="navigationItem" title="Root View Controller" id="sWv-QK-60q"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oHT-Ri-ZfZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-=======
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="mQ9-u0-gtl"/>
-                    <navigationItem key="navigationItem" id="u1P-Ud-bfv"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="MeM-gw-gaT" userLabel="First Responder" sceneMemberID="firstResponder"/>
->>>>>>> Stashed changes
             </objects>
-            <point key="canvasLocation" x="1026" y="180"/>
+            <point key="canvasLocation" x="1642" y="-766"/>
         </scene>
-        <!--Artist Table View Controller-->
-        <scene sceneID="etS-3z-eGE">
+        <!--Root View Controller-->
+        <scene sceneID="j8v-zo-oJs">
             <objects>
-                <viewController storyboardIdentifier="ArtistTableVCID" id="6Gm-ld-EJM" customClass="TTArtistTableViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="xir-uC-Tg0"/>
-                        <viewControllerLayoutGuide type="bottom" id="mYv-mH-UHT"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" restorationIdentifier="ArtistTableVCID" id="9w0-AC-NFe">
+                <tableViewController id="ell-k3-rhm" customClass="TTSongTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="vPe-jI-3g7">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-<<<<<<< Updated upstream
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Song Cell" textLabel="Qwv-z2-Q8z" style="IBUITableViewCellStyleDefault" id="kbR-vJ-yjC">
                                 <rect key="frame" x="0.0" y="86" width="320" height="44"/>
@@ -225,15 +204,9 @@
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i26-jx-PYS" userLabel="First Responder" sceneMemberID="firstResponder"/>
-=======
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="oCd-sC-RIy" userLabel="First Responder" sceneMemberID="firstResponder"/>
->>>>>>> Stashed changes
             </objects>
-            <point key="canvasLocation" x="1559" y="-47"/>
+            <point key="canvasLocation" x="1106" y="-33"/>
         </scene>
-<<<<<<< Updated upstream
         <!--Artists-->
         <scene sceneID="D2R-22-ug3">
             <objects>
@@ -247,25 +220,8 @@
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pu7-UI-9go" userLabel="First Responder" sceneMemberID="firstResponder"/>
-=======
-        <!--Song Table View Controller-->
-        <scene sceneID="ZcU-uM-aEV">
-            <objects>
-                <viewController storyboardIdentifier="SongTableVCID" id="aOe-DT-wej" customClass="TTSongTableViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="zeV-x0-POc"/>
-                        <viewControllerLayoutGuide type="bottom" id="Pkd-Db-BdR"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" restorationIdentifier="SongTableVCID" id="Nm8-am-Rcw">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dfZ-D1-ln0" userLabel="First Responder" sceneMemberID="firstResponder"/>
->>>>>>> Stashed changes
             </objects>
-            <point key="canvasLocation" x="1559" y="619"/>
+            <point key="canvasLocation" x="1106" y="-766"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="GqP-OS-H8W">
@@ -284,25 +240,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KZH-7X-ZAB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-291" y="180"/>
-        </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="ZDt-Iu-ACZ">
-            <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="N3F-rS-dtH" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" id="UWG-JY-8Dp"/>
-                    <nil key="simulatedBottomBarMetrics"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="LUc-xs-Uc8">
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="H0n-sQ-152" kind="relationship" relationship="viewControllers" id="qBo-TM-kCv"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="e9N-Ws-AY9" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="562" y="180"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

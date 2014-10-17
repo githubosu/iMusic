@@ -26,7 +26,6 @@
 @property (readwrite) BOOL enableLoginTooltip;
 @property (readonly, nonatomic) NSString *appID;
 @property (copy, nonatomic) NSString *loginTooltipContent;
-@property (copy, nonatomic) NSDictionary *dialogConfigs;
 
 - (instancetype)initWithAppID:(NSString *)appID;
 

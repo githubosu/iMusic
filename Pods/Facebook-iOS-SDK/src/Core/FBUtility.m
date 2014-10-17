@@ -16,7 +16,6 @@
 
 #import "FacebookSDK.h"
 #import "FBAppEvents.h"
-#import "FBDialogConfig.h"
 #import "FBUtility+Private.h"
 #import "FBGraphObject.h"
 #import "FBLogger.h"
@@ -40,7 +39,6 @@ static const NSString *kAppSettingsFieldSupportsAttribution = @"supports_attribu
 static const NSString *kAppSettingsFieldSupportsImplicitLogging = @"supports_implicit_sdk_logging";
 static const NSString *kAppSettingsFieldEnableLoginTooltip = @"gdpv4_nux_enabled";
 static const NSString *kAppSettingsFieldLoginTooltipContent = @"gdpv4_nux_content";
-static const NSString *kAppSettingsFieldDialogConfigs = @"ios_dialog_configs";
 
 @implementation FBUtility
 
@@ -155,11 +153,6 @@ static const NSString *kAppSettingsFieldDialogConfigs = @"ios_dialog_configs";
     [bundleIdentifier hasPrefix:@".com.facebook."];
 }
 
-+ (BOOL)isSafariBundleIdentifier:(NSString *)bundleIdentifier
-{
-    return [bundleIdentifier isEqualToString:@"com.apple.mobilesafari"];
-}
-
 #pragma mark - Permissions
 
 + (BOOL)isPublishPermission:(NSString *)permission {
@@ -199,16 +192,12 @@ static const NSString *kAppSettingsFieldDialogConfigs = @"ios_dialog_configs";
 // with calling with a second appid are undefined (in reality will just return the previously requested app's results).
 + (void)fetchAppSettings:(NSString *)appID
                 callback:(void (^)(FBFetchedAppSettings *, NSError *))callback {
-    if ([self isFetchedFBAppSettingsStale] || (!g_fetchedAppSettingsError && !g_fetchedAppSettings)) {
+    if ([FBUtility isFetchedFBAppSettingsStale] || (!g_fetchedAppSettingsError && !g_fetchedAppSettings)) {
 
         NSString *pingPath = [NSString stringWithFormat:@"%@?fields=%@",
                               appID,
-                              [@[kAppSettingsFieldAppName,
-                                 kAppSettingsFieldSupportsAttribution,
-                                 kAppSettingsFieldSupportsImplicitLogging,
-                                 kAppSettingsFieldEnableLoginTooltip,
-                                 kAppSettingsFieldLoginTooltipContent,
-                                 kAppSettingsFieldDialogConfigs] componentsJoinedByString:@","]
+                              [@[kAppSettingsFieldAppName, kAppSettingsFieldSupportsAttribution, kAppSettingsFieldSupportsImplicitLogging,
+                                 kAppSettingsFieldEnableLoginTooltip, kAppSettingsFieldLoginTooltipContent] componentsJoinedByString:@","]
                               ];
         FBRequest *pingRequest = [[[FBRequest alloc] initWithSession:nil graphPath:pingPath] autorelease];
         pingRequest.skipClientToken = YES;
@@ -242,36 +231,18 @@ static const NSString *kAppSettingsFieldDialogConfigs = @"ios_dialog_configs";
                     g_fetchedAppSettings.supportsImplicitSdkLogging = [result[kAppSettingsFieldSupportsImplicitLogging] boolValue];
                     g_fetchedAppSettings.enableLoginTooltip = [result[kAppSettingsFieldEnableLoginTooltip] boolValue];
                     g_fetchedAppSettings.loginTooltipContent = result[kAppSettingsFieldLoginTooltipContent];
-                    g_fetchedAppSettings.dialogConfigs = [self _parseDialogConfigs:result[kAppSettingsFieldDialogConfigs]];
                 }
             }
-            [self callTheFetchAppSettingsCallback:callback];
+            [FBUtility callTheFetchAppSettingsCallback:callback];
         }];
     } else {
-        [self callTheFetchAppSettingsCallback:callback];
+        [FBUtility callTheFetchAppSettingsCallback:callback];
     }
-}
-
-+ (NSDictionary *)_parseDialogConfigs:(NSDictionary *)dialogConfigsDictionary
-{
-    NSMutableDictionary *dialogConfigs = [[[NSMutableDictionary alloc] init] autorelease];
-    NSArray *dialogConfigsArray = dialogConfigsDictionary[@"data"];
-    if ([dialogConfigsArray isKindOfClass:[NSArray class]]) {
-        for (NSDictionary *dialogConfigDictionary in dialogConfigsArray) {
-            if ([dialogConfigDictionary isKindOfClass:[NSDictionary class]]) {
-                FBDialogConfig *dialogConfig = [FBDialogConfig dialogConfigWithDictionary:dialogConfigDictionary];
-                if (dialogConfig) {
-                    dialogConfigs[dialogConfig.name] = dialogConfig;
-                }
-            }
-        }
-    }
-    return dialogConfigs;
 }
 
 + (FBFetchedAppSettings *)fetchedAppSettings {
-    if ([self isFetchedFBAppSettingsStale]) {
-        [self fetchAppSettings:g_fetchedAppSettings.appID callback:nil];
+    if ([FBUtility isFetchedFBAppSettingsStale]) {
+        [FBUtility fetchAppSettings:g_fetchedAppSettings.appID callback:nil];
     }
     return g_fetchedAppSettings;
 }
@@ -311,7 +282,7 @@ static const NSString *kAppSettingsFieldDialogConfigs = @"ios_dialog_configs";
 
 + (NSString *)advertiserID {
     NSString *advertiserID = nil;
-    Class ASIdentifierManagerClass = fbdfl_ASIdentifierManagerClass();
+    Class ASIdentifierManagerClass = [FBDynamicFrameworkLoader loadClass:@"ASIdentifierManager" withFramework:@"AdSupport"];
     if ([ASIdentifierManagerClass class]) {
         ASIdentifierManager *manager = [ASIdentifierManagerClass sharedManager];
         advertiserID = [[manager advertisingIdentifier] UUIDString];
@@ -324,7 +295,7 @@ static const NSString *kAppSettingsFieldDialogConfigs = @"ios_dialog_configs";
         return AdvertisingTrackingDisallowed;
     }
     FBAdvertisingTrackingStatus status = AdvertisingTrackingUnspecified;
-    Class ASIdentifierManagerClass = fbdfl_ASIdentifierManagerClass();
+    Class ASIdentifierManagerClass = [FBDynamicFrameworkLoader loadClass:@"ASIdentifierManager" withFramework:@"AdSupport"];
     if ([ASIdentifierManagerClass class]) {
         ASIdentifierManager *manager = [ASIdentifierManagerClass sharedManager];
         if (manager) {
@@ -340,7 +311,7 @@ static const NSString *kAppSettingsFieldDialogConfigs = @"ios_dialog_configs";
     // Only add the iOS global value if we have a definitive allowed/disallowed on advertising tracking.  Otherwise,
     // absence of this parameter is to be interpreted as 'unspecified'.
     if (accessAdvertisingTrackingStatus) {
-        FBAdvertisingTrackingStatus advertisingTrackingStatus = [self advertisingTrackingStatus];
+        FBAdvertisingTrackingStatus advertisingTrackingStatus = [FBUtility advertisingTrackingStatus];
         if (advertisingTrackingStatus != AdvertisingTrackingUnspecified) {
             BOOL allowed = (advertisingTrackingStatus == AdvertisingTrackingAllowed);
             [parameters setObject:[[NSNumber numberWithBool:allowed] stringValue]
@@ -374,7 +345,7 @@ static const NSString *kAppSettingsFieldDialogConfigs = @"ios_dialog_configs";
         [parameters setObject:bundleIdentifier forKey:@"bundle_id"];
     }
     if (urlSchemes.count > 0) {
-        [parameters setObject:[self simpleJSONEncode:urlSchemes] forKey:@"url_schemes"];
+        [parameters setObject:[FBUtility simpleJSONEncode:urlSchemes] forKey:@"url_schemes"];
     }
     if (longVersion.length > 0) {
         [parameters setObject:longVersion forKey:@"bundle_version"];
@@ -388,9 +359,9 @@ static const NSString *kAppSettingsFieldDialogConfigs = @"ios_dialog_configs";
 #pragma mark - JSON Encode / Decode
 
 + (NSString *)simpleJSONEncode:(id)data {
-    return [self simpleJSONEncode:data
-                            error:nil
-                   writingOptions:0];
+    return [FBUtility simpleJSONEncode:data
+                                 error:nil
+                        writingOptions:0];
 }
 
 + (NSString *)simpleJSONEncode:(id)data
@@ -409,7 +380,7 @@ static const NSString *kAppSettingsFieldDialogConfigs = @"ios_dialog_configs";
 }
 
 + (id)simpleJSONDecode:(NSString *)jsonEncoding {
-    return [self simpleJSONDecode:jsonEncoding error:nil];
+    return [FBUtility simpleJSONDecode:jsonEncoding error:nil];
 }
 
 + (id)simpleJSONDecode:(NSString *)jsonEncoding
@@ -432,10 +403,10 @@ static const NSString *kAppSettingsFieldDialogConfigs = @"ios_dialog_configs";
 
     NSMutableDictionary *result = [NSMutableDictionary dictionary];
     if ([url query]) {
-        [result addEntriesFromDictionary:[self dictionaryByParsingURLQueryPart:[url query]]];
+        [result addEntriesFromDictionary:[FBUtility dictionaryByParsingURLQueryPart:[url query]]];
     }
     if ([url fragment]) {
-        [result addEntriesFromDictionary:[self dictionaryByParsingURLQueryPart:[url fragment]]];
+        [result addEntriesFromDictionary:[FBUtility dictionaryByParsingURLQueryPart:[url fragment]]];
     }
 
     return result;
@@ -465,8 +436,8 @@ static const NSString *kAppSettingsFieldDialogConfigs = @"ios_dialog_configs";
         }
 
         if (key && value) {
-            [result setObject:[self stringByURLDecodingString:value]
-                       forKey:[self stringByURLDecodingString:key]];
+            [result setObject:[FBUtility stringByURLDecodingString:value]
+                       forKey:[FBUtility stringByURLDecodingString:key]];
         }
     }
     return result;
@@ -482,7 +453,7 @@ static const NSString *kAppSettingsFieldDialogConfigs = @"ios_dialog_configs";
             }
             id value = queryParameters[key];
             if ([value isKindOfClass:[NSString class]]) {
-                value = [self stringByURLEncodingString:value];
+                value = [FBUtility stringByURLEncodingString:value];
             }
             [queryString appendFormat:@"%@=%@", key, value];
             hasParameters = YES;
@@ -518,12 +489,12 @@ static const NSString *kAppSettingsFieldDialogConfigs = @"ios_dialog_configs";
 }
 
 + (NSString *)buildFacebookUrlWithPre:(NSString *)pre {
-    return [self buildFacebookUrlWithPre:pre post:nil version:nil];
+    return [FBUtility buildFacebookUrlWithPre:pre post:nil version:nil];
 }
 
 + (NSString *)buildFacebookUrlWithPre:(NSString *)pre
                              withPost:(NSString *)post {
-    return [self buildFacebookUrlWithPre:pre post:post version:nil];
+    return [FBUtility buildFacebookUrlWithPre:pre post:post version:nil];
 }
 
 + (NSString *)buildFacebookUrlWithPre:(NSString *)pre
@@ -541,7 +512,6 @@ static const NSString *kAppSettingsFieldDialogConfigs = @"ios_dialog_configs";
     post = post ?: @"";
 
     if ([post length] > 2 &&
-        version.length &&
         // clear the auto version if there is already a version in the form v#.# in path
         [post characterAtIndex:1] == 'v') {
         int grammarPart = 0;
@@ -579,7 +549,7 @@ static const NSString *kAppSettingsFieldDialogConfigs = @"ios_dialog_configs";
 }
 
 + (NSString *)dialogBaseURL {
-    return [self buildFacebookUrlWithPre:@"https://m." withPost:@"/dialog/"];
+    return [FBUtility buildFacebookUrlWithPre:@"https://m." withPost:@"/dialog/"];
 }
 
 #pragma mark - System Info
@@ -680,7 +650,7 @@ static const NSString *kAppSettingsFieldDialogConfigs = @"ios_dialog_configs";
 + (void)deleteFacebookCookies {
     NSHTTPCookieStorage *cookies = [NSHTTPCookieStorage sharedHTTPCookieStorage];
     NSArray *facebookCookies = [cookies cookiesForURL:
-                                [NSURL URLWithString:[self dialogBaseURL]]];
+                                [NSURL URLWithString:[FBUtility dialogBaseURL]]];
 
     for (NSHTTPCookie *cookie in facebookCookies) {
         [cookies deleteCookie:cookie];
