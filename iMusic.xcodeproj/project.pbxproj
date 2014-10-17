@@ -24,12 +24,16 @@
 		BADD937219C563B1000E0898 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BADD935119C563B1000E0898 /* UIKit.framework */; };
 		BAFA654419C56BFE00A7937D /* TTLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAFA654319C56BFE00A7937D /* TTLoginViewController.m */; };
 		BAFA654719C576C800A7937D /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAFA654619C576C800A7937D /* ParseFacebookUtils.framework */; };
+<<<<<<< Updated upstream
 		E257F4A119E81E9100EF4FBB /* TTSong.m in Sources */ = {isa = PBXBuildFile; fileRef = E257F4A019E81E9100EF4FBB /* TTSong.m */; };
 		E2E9363019E86A6900BFE068 /* default-artwork.png in Resources */ = {isa = PBXBuildFile; fileRef = E2E9362F19E86A6900BFE068 /* default-artwork.png */; };
 		E2E9363419E8804200BFE068 /* TTAlbumTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E9363319E8804200BFE068 /* TTAlbumTableViewController.m */; };
 		E2E9363C19E8D1EC00BFE068 /* UIImage+Alpha.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E9363719E8D1EC00BFE068 /* UIImage+Alpha.m */; };
 		E2E9363D19E8D1EC00BFE068 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E9363919E8D1EC00BFE068 /* UIImage+Resize.m */; };
 		E2E9363E19E8D1EC00BFE068 /* UIImage+RoundedCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E9363B19E8D1EC00BFE068 /* UIImage+RoundedCorner.m */; };
+=======
+		CABFD7B019F06A70004C0523 /* TTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CABFD7AF19F06A70004C0523 /* TTViewController.m */; };
+>>>>>>> Stashed changes
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +72,7 @@
 		BAFA654219C56BFE00A7937D /* TTLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTLoginViewController.h; sourceTree = "<group>"; };
 		BAFA654319C56BFE00A7937D /* TTLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTLoginViewController.m; sourceTree = "<group>"; };
 		BAFA654619C576C800A7937D /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseFacebookUtils.framework; path = "../../../../Downloads/parse-library-1.3.0/ParseFacebookUtils.framework"; sourceTree = "<group>"; };
+<<<<<<< Updated upstream
 		E257F49F19E81E9100EF4FBB /* TTSong.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTSong.h; sourceTree = "<group>"; };
 		E257F4A019E81E9100EF4FBB /* TTSong.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTSong.m; sourceTree = "<group>"; };
 		E2E9362F19E86A6900BFE068 /* default-artwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default-artwork.png"; sourceTree = "<group>"; };
@@ -79,6 +84,10 @@
 		E2E9363919E8D1EC00BFE068 /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
 		E2E9363A19E8D1EC00BFE068 /* UIImage+RoundedCorner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+RoundedCorner.h"; sourceTree = "<group>"; };
 		E2E9363B19E8D1EC00BFE068 /* UIImage+RoundedCorner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+RoundedCorner.m"; sourceTree = "<group>"; };
+=======
+		CABFD7AE19F06A70004C0523 /* TTViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTViewController.h; sourceTree = "<group>"; };
+		CABFD7AF19F06A70004C0523 /* TTViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTViewController.m; sourceTree = "<group>"; };
+>>>>>>> Stashed changes
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +174,8 @@
 			children = (
 				BADD935C19C563B1000E0898 /* TTAppDelegate.h */,
 				BADD935D19C563B1000E0898 /* TTAppDelegate.m */,
+				CABFD7AE19F06A70004C0523 /* TTViewController.h */,
+				CABFD7AF19F06A70004C0523 /* TTViewController.m */,
 				BADD935F19C563B1000E0898 /* Main.storyboard */,
 				BAFA654519C56C0700A7937D /* Login */,
 				E2E9363119E8801300BFE068 /* Albums */,
@@ -377,6 +388,7 @@
 				E257F4A119E81E9100EF4FBB /* TTSong.m in Sources */,
 				BADD935E19C563B1000E0898 /* TTAppDelegate.m in Sources */,
 				BAC0327519CB969E0062C291 /* TTSongTableViewController.m in Sources */,
+				CABFD7B019F06A70004C0523 /* TTViewController.m in Sources */,
 				BAFA654419C56BFE00A7937D /* TTLoginViewController.m in Sources */,
 				E2E9363C19E8D1EC00BFE068 /* UIImage+Alpha.m in Sources */,
 				E2E9363D19E8D1EC00BFE068 /* UIImage+Resize.m in Sources */,
@@ -501,6 +513,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+<<<<<<< Updated upstream
+=======
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+>>>>>>> Stashed changes
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/MPBr2013/Downloads/parse-library-1.3.0",
@@ -514,7 +530,11 @@
 					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+<<<<<<< Updated upstream
 				TARGETED_DEVICE_FAMILY = "1,2";
+=======
+				PROVISIONING_PROFILE = "";
+>>>>>>> Stashed changes
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -526,6 +546,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+<<<<<<< Updated upstream
+=======
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+>>>>>>> Stashed changes
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/MPBr2013/Downloads/parse-library-1.3.0",
@@ -539,7 +563,11 @@
 					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+<<<<<<< Updated upstream
 				TARGETED_DEVICE_FAMILY = "1,2";
+=======
+				PROVISIONING_PROFILE = "";
+>>>>>>> Stashed changes
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
