@@ -48,8 +48,14 @@
             
             // findObjects will return a list of PFUsers that are friends
             // with the current user
-            self.friendUsers = [friendQuery findObjects];
-            [self.tableView reloadData];
+            
+            [friendQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+                if (!error) {
+                    self.friendUsers = objects;
+                    [self.tableView reloadData];
+                }
+            }];
+            //self.friendUsers = [friendQuery findObjects];
         }
     }];
 }
