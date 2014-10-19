@@ -24,6 +24,10 @@
 		BADD937219C563B1000E0898 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BADD935119C563B1000E0898 /* UIKit.framework */; };
 		BAFA654419C56BFE00A7937D /* TTLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAFA654319C56BFE00A7937D /* TTLoginViewController.m */; };
 		BAFA654719C576C800A7937D /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAFA654619C576C800A7937D /* ParseFacebookUtils.framework */; };
+		CABDD8CE19F400A400776B6C /* TTFriendCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CABDD8CD19F400A400776B6C /* TTFriendCollectionViewController.m */; };
+		CABDD8D119F4089600776B6C /* TTPhotoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CABDD8D019F4089600776B6C /* TTPhotoCollectionViewCell.m */; };
+		CABDD8D619F4443200776B6C /* TTFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CABDD8D519F4443200776B6C /* TTFriendViewController.m */; };
+		CABDD8D919F4447700776B6C /* TTCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CABDD8D819F4447700776B6C /* TTCollectionViewCell.m */; };
 		CAEA694819F1D5F2002695B3 /* TTFriendTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAEA694719F1D5F2002695B3 /* TTFriendTableViewController.m */; };
 		E257F4A119E81E9100EF4FBB /* TTSong.m in Sources */ = {isa = PBXBuildFile; fileRef = E257F4A019E81E9100EF4FBB /* TTSong.m */; };
 		E2E9363019E86A6900BFE068 /* default-artwork.png in Resources */ = {isa = PBXBuildFile; fileRef = E2E9362F19E86A6900BFE068 /* default-artwork.png */; };
@@ -69,6 +73,14 @@
 		BAFA654219C56BFE00A7937D /* TTLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTLoginViewController.h; sourceTree = "<group>"; };
 		BAFA654319C56BFE00A7937D /* TTLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTLoginViewController.m; sourceTree = "<group>"; };
 		BAFA654619C576C800A7937D /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseFacebookUtils.framework; path = "../../../../Downloads/parse-library-1.3.0/ParseFacebookUtils.framework"; sourceTree = "<group>"; };
+		CABDD8CC19F400A400776B6C /* TTFriendCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTFriendCollectionViewController.h; sourceTree = "<group>"; };
+		CABDD8CD19F400A400776B6C /* TTFriendCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTFriendCollectionViewController.m; sourceTree = "<group>"; };
+		CABDD8CF19F4089600776B6C /* TTPhotoCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTPhotoCollectionViewCell.h; sourceTree = "<group>"; };
+		CABDD8D019F4089600776B6C /* TTPhotoCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTPhotoCollectionViewCell.m; sourceTree = "<group>"; };
+		CABDD8D419F4443200776B6C /* TTFriendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTFriendViewController.h; sourceTree = "<group>"; };
+		CABDD8D519F4443200776B6C /* TTFriendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTFriendViewController.m; sourceTree = "<group>"; };
+		CABDD8D719F4447700776B6C /* TTCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTCollectionViewCell.h; sourceTree = "<group>"; };
+		CABDD8D819F4447700776B6C /* TTCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTCollectionViewCell.m; sourceTree = "<group>"; };
 		CAEA694619F1D5F2002695B3 /* TTFriendTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTFriendTableViewController.h; sourceTree = "<group>"; };
 		CAEA694719F1D5F2002695B3 /* TTFriendTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTFriendTableViewController.m; sourceTree = "<group>"; };
 		E257F49F19E81E9100EF4FBB /* TTSong.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTSong.h; sourceTree = "<group>"; };
@@ -208,6 +220,14 @@
 			children = (
 				CAEA694619F1D5F2002695B3 /* TTFriendTableViewController.h */,
 				CAEA694719F1D5F2002695B3 /* TTFriendTableViewController.m */,
+				CABDD8CC19F400A400776B6C /* TTFriendCollectionViewController.h */,
+				CABDD8CD19F400A400776B6C /* TTFriendCollectionViewController.m */,
+				CABDD8CF19F4089600776B6C /* TTPhotoCollectionViewCell.h */,
+				CABDD8D019F4089600776B6C /* TTPhotoCollectionViewCell.m */,
+				CABDD8D419F4443200776B6C /* TTFriendViewController.h */,
+				CABDD8D519F4443200776B6C /* TTFriendViewController.m */,
+				CABDD8D719F4447700776B6C /* TTCollectionViewCell.h */,
+				CABDD8D819F4447700776B6C /* TTCollectionViewCell.m */,
 			);
 			name = Friends;
 			sourceTree = "<group>";
@@ -395,9 +415,13 @@
 				E2E9363C19E8D1EC00BFE068 /* UIImage+Alpha.m in Sources */,
 				E2E9363D19E8D1EC00BFE068 /* UIImage+Resize.m in Sources */,
 				E2E9363E19E8D1EC00BFE068 /* UIImage+RoundedCorner.m in Sources */,
+				CABDD8CE19F400A400776B6C /* TTFriendCollectionViewController.m in Sources */,
 				BAC0327119CB96040062C291 /* TTArtistTableViewController.m in Sources */,
+				CABDD8D619F4443200776B6C /* TTFriendViewController.m in Sources */,
 				BADD935A19C563B1000E0898 /* main.m in Sources */,
+				CABDD8D919F4447700776B6C /* TTCollectionViewCell.m in Sources */,
 				E2E9363419E8804200BFE068 /* TTAlbumTableViewController.m in Sources */,
+				CABDD8D119F4089600776B6C /* TTPhotoCollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -14,7 +14,6 @@
 @property (strong, nonatomic) NSMutableArray *friends;
 @property (strong, nonatomic) NSArray *friendObjects;
 @property (strong, nonatomic) NSArray *friendUsers;
-@property (nonatomic) int currentFriendIndex;
 
 @end
 
