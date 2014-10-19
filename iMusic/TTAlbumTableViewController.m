@@ -7,10 +7,10 @@
 //
 
 #import "TTAlbumTableViewController.h"
-#import "TTSong.h"
+#import "TTAlbum.h"
 #import "UIImage+Resize.h"
 @interface TTAlbumTableViewController ()
-@property (nonatomic, strong) NSMutableArray *songs;
+@property (nonatomic, strong) NSMutableArray *albums;
 @end
 
 @implementation TTAlbumTableViewController
@@ -24,11 +24,11 @@
     return self;
 }
 
-- (NSMutableArray *) songs {
-    if(!_songs) {
-        _songs = [[NSMutableArray alloc]init];
+- (NSMutableArray *) albums {
+    if(!_albums) {
+        _albums = [[NSMutableArray alloc]init];
     }
-    return _songs;
+    return _albums;
 }
 
 - (void)viewDidLoad {
@@ -41,16 +41,22 @@
     MPMediaQuery *allAlbumsQuery = [MPMediaQuery albumsQuery];
     NSArray *allAlbumsArray = [allAlbumsQuery collections];
     for (MPMediaItemCollection *collection in allAlbumsArray) {
-        TTSong *song = [[TTSong alloc] init];
+        TTAlbum *album = [[TTAlbum alloc] init];
         MPMediaItem *item = [collection representativeItem];
-        //NSLog(@"%@", [item valueForProperty:MPMediaItemPropertyAlbumTitle]);
-        //NSLog(@"Artwork: %@", [item valueForProperty:MPMediaItemPropertyArtwork]);
-        song.album = [item valueForProperty:MPMediaItemPropertyAlbumTitle];
-        song.artist = [item valueForProperty:MPMediaItemPropertyArtist];
-        song.artwork = [item valueForProperty:MPMediaItemPropertyArtwork];
-        song.songTitle = [item valueForProperty:MPMediaItemPropertyTitle];
-        song.duration = [item valueForProperty:MPMediaItemPropertyTitle];
-        [self.songs addObject:song];
+        album.albumTitle = [item valueForProperty:MPMediaItemPropertyAlbumTitle];
+        album.artwork = [item valueForProperty:MPMediaItemPropertyArtwork];
+        album.albumPersistentId = [item valueForProperty:MPMediaItemPropertyAlbumPersistentID];
+        //NSLog(@"Album Track Count: %@", [item valueForProperty:MPMediaItemPropertyAlbumTrackCount]);
+        NSInteger songCount = 0;
+        long duration = 0;
+        for(MPMediaItem *song in collection.items) {
+            songCount++;
+            duration = duration + [[song valueForProperty:MPMediaItemPropertyPlaybackDuration] longValue];
+        }
+        //NSLog(@"Album Song Count: %ld", (long)songCount);
+        album.songCount = songCount;
+        album.duration = duration;
+        [self.albums addObject:album];
     }
 }
 
@@ -68,22 +74,23 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return [self.songs count];
+    return [self.albums count];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *simpleTableIdentifier = @"Album Cell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    TTAlbumViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
     
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
+        cell = [[TTAlbumViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
     
     UIImage *albumArtworkImage = NULL;
     UIImage *resizedImage = NULL;
-    MPMediaItemArtwork *itemArtwork = [[self.songs objectAtIndex:indexPath.row] artwork];
+    TTAlbum *album = [self.albums objectAtIndex:indexPath.row];
+    MPMediaItemArtwork *itemArtwork = album.artwork;
     
     if (itemArtwork != nil) {
         albumArtworkImage = [itemArtwork imageWithSize:CGSizeMake(256.0f, 256.0f)];
@@ -91,13 +98,16 @@
     }
     
     if (albumArtworkImage) {
-        cell.imageView.image = resizedImage;
+        cell.albumArtworkImage.image = resizedImage;
     } else { // no album artwork
-        NSLog(@"No ALBUM ARTWORK");
-        cell.imageView.image = [[UIImage imageNamed:@"default-artwork.png"] resizedImage: CGSizeMake(256.0f, 256.0f) interpolationQuality: kCGInterpolationLow];
+        //NSLog(@"No ALBUM ARTWORK");
+        cell.albumArtworkImage.image = [[UIImage imageNamed:@"default-artwork.png"] resizedImage: CGSizeMake(256.0f, 256.0f) interpolationQuality: kCGInterpolationLow];
     }
-    TTSong *song = [self.songs objectAtIndex:indexPath.row];
-    cell.textLabel.text = song.album;
+    cell.albumTitle.text = album.albumTitle;
+    NSString *minString = (album.duration > 1)?@"mins":@"min";
+    NSString *songString = (album.songCount > 1)?@"songs":@"song";
+
+    cell.songCountLabel.text = [NSString stringWithFormat:@"%ld %@, %ld %@", (long)album.songCount, songString, (long)album.duration/60, minString];
     return cell;
 
 }
@@ -137,14 +147,25 @@
 }
 */
 
-/*
-#pragma mark - Navigation
+/*- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"Row Selected.");
+    //[self performSegueWithIdentifier:@"albumSegue" sender:[self.tableView cellForRowAtIndexPath:indexPath]];
+    [self performSegueWithIdentifier:@"albumSegue" sender:[self superclass]];
+}
+*/
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    NSLog(@"Preparing for segue.... %@ ", [segue identifier]);
+    if ([[segue identifier] isEqualToString:@"albumToSongListSegue"])
+    {
+        //NSLog(@"Inside segue.");
+        TTAlbumArtistTableViewController *vc = (TTAlbumArtistTableViewController *)[segue destinationViewController];
+        NSIndexPath *path = [self.tableView indexPathForSelectedRow];
+        vc.album = [self.albums objectAtIndex:path.row];
+    }
 }
-*/
+
 
 @end

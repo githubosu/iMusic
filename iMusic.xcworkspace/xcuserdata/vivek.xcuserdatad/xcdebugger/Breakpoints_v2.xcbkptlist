@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iMusic/TTArtistTableViewController.h"
-            timestampString = "435388757.376941"
+            timestampString = "435443145.666028"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "12"
-            endingLineNumber = "12"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
             landmarkName = "@interface TTArtistTableViewController"
             landmarkType = "2">
          </BreakpointContent>

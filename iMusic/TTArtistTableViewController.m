@@ -64,6 +64,7 @@
         artist.artistTitle = [item valueForProperty:MPMediaItemPropertyArtist];
         artist.albumCount = [artistAlbumCounter countForObject:artist.artistTitle];
         artist.artwork = [item valueForProperty:MPMediaItemPropertyArtwork];
+        artist.artistPersistentId = [item valueForProperty:MPMediaItemPropertyArtistPersistentID];
         [self.artists addObject:artist];
     }
     
@@ -164,15 +165,20 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+    NSLog(@"Preparing for segue.... %@ ", [segue identifier]);
+    if ([[segue identifier] isEqualToString:@"artistToSongListSegue"])
+    {
+        //NSLog(@"Inside segue.");
+        TTAlbumArtistTableViewController *vc = (TTAlbumArtistTableViewController *)[segue destinationViewController];
+        NSIndexPath *path = [self.tableView indexPathForSelectedRow];
+        vc.artist = [self.artists objectAtIndex:path.row];
+    }}
+
 
 @end

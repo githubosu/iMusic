@@ -26,6 +26,10 @@
 		BAFA654719C576C800A7937D /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAFA654619C576C800A7937D /* ParseFacebookUtils.framework */; };
 		E219456519F32087005C3E56 /* TTArtistViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E219456419F32087005C3E56 /* TTArtistViewCell.m */; };
 		E219456819F3653B005C3E56 /* TTArtist.m in Sources */ = {isa = PBXBuildFile; fileRef = E219456719F3653B005C3E56 /* TTArtist.m */; };
+		E219456B19F39A8C005C3E56 /* TTAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = E219456A19F39A8C005C3E56 /* TTAlbum.m */; };
+		E219457119F39B96005C3E56 /* TTAlbumViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E219457019F39B96005C3E56 /* TTAlbumViewCell.m */; };
+		E219457519F3AF84005C3E56 /* TTAlbumArtistSongViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E219457419F3AF84005C3E56 /* TTAlbumArtistSongViewCell.m */; };
+		E219457819F3AFAB005C3E56 /* TTAlbumArtistTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E219457719F3AFAB005C3E56 /* TTAlbumArtistTableViewController.m */; };
 		E257F4A119E81E9100EF4FBB /* TTSong.m in Sources */ = {isa = PBXBuildFile; fileRef = E257F4A019E81E9100EF4FBB /* TTSong.m */; };
 		E2E9363019E86A6900BFE068 /* default-artwork.png in Resources */ = {isa = PBXBuildFile; fileRef = E2E9362F19E86A6900BFE068 /* default-artwork.png */; };
 		E2E9363419E8804200BFE068 /* TTAlbumTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E9363319E8804200BFE068 /* TTAlbumTableViewController.m */; };
@@ -74,6 +78,14 @@
 		E219456419F32087005C3E56 /* TTArtistViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTArtistViewCell.m; sourceTree = "<group>"; };
 		E219456619F3653B005C3E56 /* TTArtist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTArtist.h; sourceTree = "<group>"; };
 		E219456719F3653B005C3E56 /* TTArtist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTArtist.m; sourceTree = "<group>"; };
+		E219456919F39A8C005C3E56 /* TTAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTAlbum.h; sourceTree = "<group>"; };
+		E219456A19F39A8C005C3E56 /* TTAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTAlbum.m; sourceTree = "<group>"; };
+		E219456F19F39B96005C3E56 /* TTAlbumViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTAlbumViewCell.h; sourceTree = "<group>"; };
+		E219457019F39B96005C3E56 /* TTAlbumViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTAlbumViewCell.m; sourceTree = "<group>"; };
+		E219457319F3AF84005C3E56 /* TTAlbumArtistSongViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTAlbumArtistSongViewCell.h; sourceTree = "<group>"; };
+		E219457419F3AF84005C3E56 /* TTAlbumArtistSongViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTAlbumArtistSongViewCell.m; sourceTree = "<group>"; };
+		E219457619F3AFAB005C3E56 /* TTAlbumArtistTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTAlbumArtistTableViewController.h; sourceTree = "<group>"; };
+		E219457719F3AFAB005C3E56 /* TTAlbumArtistTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTAlbumArtistTableViewController.m; sourceTree = "<group>"; };
 		E257F49F19E81E9100EF4FBB /* TTSong.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTSong.h; sourceTree = "<group>"; };
 		E257F4A019E81E9100EF4FBB /* TTSong.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTSong.m; sourceTree = "<group>"; };
 		E2E9362F19E86A6900BFE068 /* default-artwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default-artwork.png"; sourceTree = "<group>"; };
@@ -177,6 +189,7 @@
 				BAFA654519C56C0700A7937D /* Login */,
 				E2E9363119E8801300BFE068 /* Albums */,
 				BAC0326E19CB95CF0062C291 /* Artists */,
+				E219457219F3AF2B005C3E56 /* AlbumsArtists */,
 				BAC0327219CB96720062C291 /* Songs */,
 				E257F49E19E81D6F00EF4FBB /* Model */,
 				BADD936819C563B1000E0898 /* Images.xcassets */,
@@ -207,6 +220,17 @@
 			name = Login;
 			sourceTree = "<group>";
 		};
+		E219457219F3AF2B005C3E56 /* AlbumsArtists */ = {
+			isa = PBXGroup;
+			children = (
+				E219457319F3AF84005C3E56 /* TTAlbumArtistSongViewCell.h */,
+				E219457419F3AF84005C3E56 /* TTAlbumArtistSongViewCell.m */,
+				E219457619F3AFAB005C3E56 /* TTAlbumArtistTableViewController.h */,
+				E219457719F3AFAB005C3E56 /* TTAlbumArtistTableViewController.m */,
+			);
+			name = AlbumsArtists;
+			sourceTree = "<group>";
+		};
 		E257F49E19E81D6F00EF4FBB /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -214,6 +238,8 @@
 				E257F4A019E81E9100EF4FBB /* TTSong.m */,
 				E219456619F3653B005C3E56 /* TTArtist.h */,
 				E219456719F3653B005C3E56 /* TTArtist.m */,
+				E219456919F39A8C005C3E56 /* TTAlbum.h */,
+				E219456A19F39A8C005C3E56 /* TTAlbum.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -231,6 +257,8 @@
 			children = (
 				E2E9363219E8804200BFE068 /* TTAlbumTableViewController.h */,
 				E2E9363319E8804200BFE068 /* TTAlbumTableViewController.m */,
+				E219456F19F39B96005C3E56 /* TTAlbumViewCell.h */,
+				E219457019F39B96005C3E56 /* TTAlbumViewCell.m */,
 			);
 			name = Albums;
 			sourceTree = "<group>";
@@ -384,14 +412,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E219457119F39B96005C3E56 /* TTAlbumViewCell.m in Sources */,
 				E257F4A119E81E9100EF4FBB /* TTSong.m in Sources */,
 				BADD935E19C563B1000E0898 /* TTAppDelegate.m in Sources */,
 				BAC0327519CB969E0062C291 /* TTSongTableViewController.m in Sources */,
+				E219457819F3AFAB005C3E56 /* TTAlbumArtistTableViewController.m in Sources */,
 				BAFA654419C56BFE00A7937D /* TTLoginViewController.m in Sources */,
 				E2E9363C19E8D1EC00BFE068 /* UIImage+Alpha.m in Sources */,
 				E2E9363D19E8D1EC00BFE068 /* UIImage+Resize.m in Sources */,
 				E219456519F32087005C3E56 /* TTArtistViewCell.m in Sources */,
 				E2E9363E19E8D1EC00BFE068 /* UIImage+RoundedCorner.m in Sources */,
+				E219456B19F39A8C005C3E56 /* TTAlbum.m in Sources */,
+				E219457519F3AF84005C3E56 /* TTAlbumArtistSongViewCell.m in Sources */,
 				E219456819F3653B005C3E56 /* TTArtist.m in Sources */,
 				BAC0327119CB96040062C291 /* TTArtistTableViewController.m in Sources */,
 				BADD935A19C563B1000E0898 /* main.m in Sources */,
