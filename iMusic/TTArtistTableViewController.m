@@ -7,10 +7,11 @@
 //
 
 #import "TTArtistTableViewController.h"
-#import "TTSong.h"
+#import "TTArtistViewCell.h"
+#import "TTArtist.h"
 #import "UIImage+Resize.h"
 @interface TTArtistTableViewController ()
-@property (nonatomic, strong) NSMutableArray *songs;
+@property (nonatomic, strong) NSMutableArray *artists;
 @end
 
 @implementation TTArtistTableViewController
@@ -24,11 +25,11 @@
     return self;
 }
 
-- (NSMutableArray *) songs {
-    if(!_songs) {
-        _songs = [[NSMutableArray alloc]init];
+- (NSMutableArray *) artists {
+    if(!_artists) {
+        _artists = [[NSMutableArray alloc]init];
     }
-    return _songs;
+    return _artists;
 }
 
 - (void)viewDidLoad
@@ -42,20 +43,30 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     NSLog(@"Artist View Loaded.");
-    MPMediaQuery *allAlbumsQuery = [MPMediaQuery artistsQuery];
-    NSArray *allAlbumsArray = [allAlbumsQuery collections];
-    for (MPMediaItemCollection *collection in allAlbumsArray) {
-        TTSong *song = [[TTSong alloc] init];
+    MPMediaQuery *albumQuery = [MPMediaQuery albumsQuery];
+    NSArray *albumCollection = [albumQuery collections];
+    NSCountedSet *artistAlbumCounter = [NSCountedSet set];
+    
+    [albumCollection enumerateObjectsUsingBlock:^(MPMediaItemCollection *album, NSUInteger idx, BOOL *stop) {
+        NSString *artistName = [[album representativeItem] valueForProperty:MPMediaItemPropertyArtist];
+        if(artistName != nil) {
+            [artistAlbumCounter addObject:artistName];
+        }
+
+    }];
+    MPMediaQuery *allArtistsQuery = [MPMediaQuery artistsQuery];
+    NSArray *allArtistsArray = [allArtistsQuery collections];
+    for (MPMediaItemCollection *collection in allArtistsArray) {
+        TTArtist *artist = [[TTArtist alloc] init];
         MPMediaItem *item = [collection representativeItem];
-        //NSLog(@"%@", [item valueForProperty:MPMediaItemPropertyAlbumTitle]);
-        //NSLog(@"Artwork: %@", [item valueForProperty:MPMediaItemPropertyArtwork]);
-        song.album = [item valueForProperty:MPMediaItemPropertyAlbumTitle];
-        song.artist = [item valueForProperty:MPMediaItemPropertyArtist];
-        song.artwork = [item valueForProperty:MPMediaItemPropertyArtwork];
-        song.songTitle = [item valueForProperty:MPMediaItemPropertyTitle];
-        song.duration = [item valueForProperty:MPMediaItemPropertyTitle];
-        [self.songs addObject:song];
+        NSInteger songsCount = [collection.items count];
+        artist.songCount = songsCount;
+        artist.artistTitle = [item valueForProperty:MPMediaItemPropertyArtist];
+        artist.albumCount = [artistAlbumCounter countForObject:artist.artistTitle];
+        artist.artwork = [item valueForProperty:MPMediaItemPropertyArtwork];
+        [self.artists addObject:artist];
     }
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -75,22 +86,22 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [self.songs count];
+    return [self.artists count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *simpleTableIdentifier = @"Artist Cell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
-    
+    TTArtistViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier forIndexPath:indexPath];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
+        //cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
+        cell = [[TTArtistViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
-    
+    TTArtist *artist = [self.artists objectAtIndex:indexPath.row];
     UIImage *albumArtworkImage = NULL;
     UIImage *resizedImage = NULL;
-    MPMediaItemArtwork *itemArtwork = [[self.songs objectAtIndex:indexPath.row] artwork];
+    MPMediaItemArtwork *itemArtwork = artist.artwork;
     
     if (itemArtwork != nil) {
         albumArtworkImage = [itemArtwork imageWithSize:CGSizeMake(256.0f, 256.0f)];
@@ -98,13 +109,19 @@
     }
     
     if (albumArtworkImage) {
-        cell.imageView.image = resizedImage;
+        cell.artistArtworkImage.image = resizedImage;
     } else { // no album artwork
         NSLog(@"No ALBUM ARTWORK");
-        cell.imageView.image = [[UIImage imageNamed:@"default-artwork.png"] resizedImage: CGSizeMake(256.0f, 256.0f) interpolationQuality: kCGInterpolationLow];
+        cell.artistArtworkImage.image = [[UIImage imageNamed:@"default-artwork.png"] resizedImage: CGSizeMake(256.0f, 256.0f) interpolationQuality: kCGInterpolationLow];
     }
-    TTSong *song = [self.songs objectAtIndex:indexPath.row];
-    cell.textLabel.text = song.artist;
+
+    cell.artistTitle.text = artist.artistTitle;
+    NSString *albumString = (artist.albumCount > 1)?@"albums":@"album";
+    NSString *songString = (artist.songCount > 1)?@"songs":@"song";
+    cell.albumSongCountLabel.text = [NSString stringWithFormat:@"%ld %@, %ld %@", (long)artist.albumCount, albumString, (long)artist.songCount, songString];
+    //cell.textLabel.text = song.artist;
+    //cell.artistTitle.text = song.artist;
+
     return cell;
 }
 
