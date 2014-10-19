@@ -24,6 +24,7 @@
 		BADD937219C563B1000E0898 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BADD935119C563B1000E0898 /* UIKit.framework */; };
 		BAFA654419C56BFE00A7937D /* TTLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAFA654319C56BFE00A7937D /* TTLoginViewController.m */; };
 		BAFA654719C576C800A7937D /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAFA654619C576C800A7937D /* ParseFacebookUtils.framework */; };
+		CAEA694819F1D5F2002695B3 /* TTFriendTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAEA694719F1D5F2002695B3 /* TTFriendTableViewController.m */; };
 		E257F4A119E81E9100EF4FBB /* TTSong.m in Sources */ = {isa = PBXBuildFile; fileRef = E257F4A019E81E9100EF4FBB /* TTSong.m */; };
 		E2E9363019E86A6900BFE068 /* default-artwork.png in Resources */ = {isa = PBXBuildFile; fileRef = E2E9362F19E86A6900BFE068 /* default-artwork.png */; };
 		E2E9363419E8804200BFE068 /* TTAlbumTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E9363319E8804200BFE068 /* TTAlbumTableViewController.m */; };
@@ -68,6 +69,8 @@
 		BAFA654219C56BFE00A7937D /* TTLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTLoginViewController.h; sourceTree = "<group>"; };
 		BAFA654319C56BFE00A7937D /* TTLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTLoginViewController.m; sourceTree = "<group>"; };
 		BAFA654619C576C800A7937D /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseFacebookUtils.framework; path = "../../../../Downloads/parse-library-1.3.0/ParseFacebookUtils.framework"; sourceTree = "<group>"; };
+		CAEA694619F1D5F2002695B3 /* TTFriendTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTFriendTableViewController.h; sourceTree = "<group>"; };
+		CAEA694719F1D5F2002695B3 /* TTFriendTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTFriendTableViewController.m; sourceTree = "<group>"; };
 		E257F49F19E81E9100EF4FBB /* TTSong.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTSong.h; sourceTree = "<group>"; };
 		E257F4A019E81E9100EF4FBB /* TTSong.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTSong.m; sourceTree = "<group>"; };
 		E2E9362F19E86A6900BFE068 /* default-artwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default-artwork.png"; sourceTree = "<group>"; };
@@ -170,6 +173,7 @@
 				E2E9363119E8801300BFE068 /* Albums */,
 				BAC0326E19CB95CF0062C291 /* Artists */,
 				BAC0327219CB96720062C291 /* Songs */,
+				CAEA694A19F1D610002695B3 /* Friends */,
 				E257F49E19E81D6F00EF4FBB /* Model */,
 				BADD936819C563B1000E0898 /* Images.xcassets */,
 				BADD935419C563B1000E0898 /* Supporting Files */,
@@ -197,6 +201,15 @@
 				BAFA654319C56BFE00A7937D /* TTLoginViewController.m */,
 			);
 			name = Login;
+			sourceTree = "<group>";
+		};
+		CAEA694A19F1D610002695B3 /* Friends */ = {
+			isa = PBXGroup;
+			children = (
+				CAEA694619F1D5F2002695B3 /* TTFriendTableViewController.h */,
+				CAEA694719F1D5F2002695B3 /* TTFriendTableViewController.m */,
+			);
+			name = Friends;
 			sourceTree = "<group>";
 		};
 		E257F49E19E81D6F00EF4FBB /* Model */ = {
@@ -374,6 +387,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAEA694819F1D5F2002695B3 /* TTFriendTableViewController.m in Sources */,
 				E257F4A119E81E9100EF4FBB /* TTSong.m in Sources */,
 				BADD935E19C563B1000E0898 /* TTAppDelegate.m in Sources */,
 				BAC0327519CB969E0062C291 /* TTSongTableViewController.m in Sources */,
