@@ -7,12 +7,12 @@
 //
 
 #import "TTNowPlayingViewController.h"
-#import "TTSong.h"
+#import "UIImage+Resize.h"
+@import MediaPlayer;
+
 
 @interface TTNowPlayingViewController ()
 
-@property (strong, nonatomic) TTSong *currentSong;
-@property (strong, nonatomic) AVPlayer *audioPlayer;
 
 @end
 
@@ -20,12 +20,49 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    NSURL *currentSongPath = [NSURL URLWithString: self.currentSong.songURL];
+
+    //Start playing audio
+    NSURL *currentSongPath = self.currentSong.songURL;
     self.audioPlayer = [[AVPlayer alloc] initWithURL: currentSongPath];
+    NSLog(@"Player URL: %@", self.currentSong.songURL);
     [self.audioPlayer play];
     
+    //Display song info and cover art
+    self.songLabel.text = self.currentSong.songTitle;
+    self.artistLabel.text = self.currentSong.artist;
+    self.artwork = NULL;
+    
+    //Set max value for duration slider
+    [self.durSlider setMaximumValue:self.audioPlayer.currentItem.duration.value/self.audioPlayer.currentItem.duration.timescale];
+    int songDur = [self.currentSong.duration intValue];
+    int songMins = (int) songDur / 60;
+    int songSecs = (int) songDur % 60;
+    self.durLabel.text = [NSString stringWithFormat:@"%02d:%02d", songMins, songSecs];
 
+    
+    MPMediaItemArtwork *itemArtwork = self.currentSong.artwork;
+
+    UIImage *resizedImage = NULL;
+    
+    [self configurePlayer];
+}
+
+- (IBAction)sliderDragged:(id)sender {
+    [self.audioPlayer seekToTime:CMTimeMakeWithSeconds((int)(self.durSlider.value) , 1)];
+}
+
+
+-(void) configurePlayer {
+    __block TTNowPlayingViewController * weakSelf = self;
+
+    [self.audioPlayer addPeriodicTimeObserverForInterval:CMTimeMakeWithSeconds(1, 1) queue:NULL usingBlock:^(CMTime time) {
+        if(!time.value) {return;}
+        int curTime = (int)((weakSelf.audioPlayer.currentTime.value)/weakSelf.audioPlayer.currentTime.timescale);
+        int curMins = (int)(curTime/60);
+        int curSecs = (int)(curTime%60);
+        weakSelf.curDurLabel.text = [NSString stringWithFormat:@"%02d:%02d",curMins,curSecs];
+        weakSelf.durSlider.value = curTime;
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

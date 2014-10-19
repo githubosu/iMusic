@@ -52,7 +52,7 @@
         song.artist = [item valueForProperty:MPMediaItemPropertyArtist];
         song.artwork = [item valueForProperty:MPMediaItemPropertyArtwork];
         song.songTitle = [item valueForProperty:MPMediaItemPropertyTitle];
-        song.duration = [item valueForProperty:MPMediaItemPropertyTitle];
+        song.duration = [item valueForProperty:MPMediaItemPropertyPlaybackDuration];
         song.songURL = [item valueForProperty:MPMediaItemPropertyAssetURL];
         [self.songs addObject:song];
     }
@@ -157,13 +157,13 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    
-    if ([[segue identifier] isEqualToString:@"Player"])
+    if ([[segue identifier] isEqualToString:@"PlayerSegue"])
     {
-        TTNowPlayingViewController *Player = [segue destinationViewController];
+        TTNowPlayingViewController *Player = (TTNowPlayingViewController*) segue.destinationViewController;
         NSIndexPath *songIndexPath = [self.tableView indexPathForSelectedRow];
         
         Player.currentSong = [self.songs objectAtIndex:[songIndexPath row]];
+        NSLog(@"Song list URL: %@", Player.currentSong.songURL);
     }
 }
 
