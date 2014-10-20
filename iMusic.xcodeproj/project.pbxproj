@@ -25,20 +25,12 @@
 		BADD937219C563B1000E0898 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BADD935119C563B1000E0898 /* UIKit.framework */; };
 		BAFA654419C56BFE00A7937D /* TTLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAFA654319C56BFE00A7937D /* TTLoginViewController.m */; };
 		BAFA654719C576C800A7937D /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAFA654619C576C800A7937D /* ParseFacebookUtils.framework */; };
-<<<<<<< HEAD
-		CABDD8CE19F400A400776B6C /* TTFriendCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CABDD8CD19F400A400776B6C /* TTFriendCollectionViewController.m */; };
-		CABDD8D119F4089600776B6C /* TTPhotoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CABDD8D019F4089600776B6C /* TTPhotoCollectionViewCell.m */; };
-		CABDD8D619F4443200776B6C /* TTFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CABDD8D519F4443200776B6C /* TTFriendViewController.m */; };
-		CABDD8D919F4447700776B6C /* TTCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CABDD8D819F4447700776B6C /* TTCollectionViewCell.m */; };
-		CAEA694819F1D5F2002695B3 /* TTFriendTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAEA694719F1D5F2002695B3 /* TTFriendTableViewController.m */; };
-=======
 		E219456519F32087005C3E56 /* TTArtistViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E219456419F32087005C3E56 /* TTArtistViewCell.m */; };
 		E219456819F3653B005C3E56 /* TTArtist.m in Sources */ = {isa = PBXBuildFile; fileRef = E219456719F3653B005C3E56 /* TTArtist.m */; };
 		E219456B19F39A8C005C3E56 /* TTAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = E219456A19F39A8C005C3E56 /* TTAlbum.m */; };
 		E219457119F39B96005C3E56 /* TTAlbumViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E219457019F39B96005C3E56 /* TTAlbumViewCell.m */; };
 		E219457519F3AF84005C3E56 /* TTAlbumArtistSongViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E219457419F3AF84005C3E56 /* TTAlbumArtistSongViewCell.m */; };
 		E219457819F3AFAB005C3E56 /* TTAlbumArtistTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E219457719F3AFAB005C3E56 /* TTAlbumArtistTableViewController.m */; };
->>>>>>> FETCH_HEAD
 		E257F4A119E81E9100EF4FBB /* TTSong.m in Sources */ = {isa = PBXBuildFile; fileRef = E257F4A019E81E9100EF4FBB /* TTSong.m */; };
 		E2E9363019E86A6900BFE068 /* default-artwork.png in Resources */ = {isa = PBXBuildFile; fileRef = E2E9362F19E86A6900BFE068 /* default-artwork.png */; };
 		E2E9363419E8804200BFE068 /* TTAlbumTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E9363319E8804200BFE068 /* TTAlbumTableViewController.m */; };
@@ -85,18 +77,6 @@
 		BAFA654219C56BFE00A7937D /* TTLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTLoginViewController.h; sourceTree = "<group>"; };
 		BAFA654319C56BFE00A7937D /* TTLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTLoginViewController.m; sourceTree = "<group>"; };
 		BAFA654619C576C800A7937D /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseFacebookUtils.framework; path = "../../../../Downloads/parse-library-1.3.0/ParseFacebookUtils.framework"; sourceTree = "<group>"; };
-<<<<<<< HEAD
-		CABDD8CC19F400A400776B6C /* TTFriendCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTFriendCollectionViewController.h; sourceTree = "<group>"; };
-		CABDD8CD19F400A400776B6C /* TTFriendCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTFriendCollectionViewController.m; sourceTree = "<group>"; };
-		CABDD8CF19F4089600776B6C /* TTPhotoCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTPhotoCollectionViewCell.h; sourceTree = "<group>"; };
-		CABDD8D019F4089600776B6C /* TTPhotoCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTPhotoCollectionViewCell.m; sourceTree = "<group>"; };
-		CABDD8D419F4443200776B6C /* TTFriendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTFriendViewController.h; sourceTree = "<group>"; };
-		CABDD8D519F4443200776B6C /* TTFriendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTFriendViewController.m; sourceTree = "<group>"; };
-		CABDD8D719F4447700776B6C /* TTCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTCollectionViewCell.h; sourceTree = "<group>"; };
-		CABDD8D819F4447700776B6C /* TTCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTCollectionViewCell.m; sourceTree = "<group>"; };
-		CAEA694619F1D5F2002695B3 /* TTFriendTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTFriendTableViewController.h; sourceTree = "<group>"; };
-		CAEA694719F1D5F2002695B3 /* TTFriendTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTFriendTableViewController.m; sourceTree = "<group>"; };
-=======
 		E219456319F32087005C3E56 /* TTArtistViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTArtistViewCell.h; sourceTree = "<group>"; };
 		E219456419F32087005C3E56 /* TTArtistViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTArtistViewCell.m; sourceTree = "<group>"; };
 		E219456619F3653B005C3E56 /* TTArtist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTArtist.h; sourceTree = "<group>"; };
@@ -109,7 +89,6 @@
 		E219457419F3AF84005C3E56 /* TTAlbumArtistSongViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTAlbumArtistSongViewCell.m; sourceTree = "<group>"; };
 		E219457619F3AFAB005C3E56 /* TTAlbumArtistTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTAlbumArtistTableViewController.h; sourceTree = "<group>"; };
 		E219457719F3AFAB005C3E56 /* TTAlbumArtistTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTAlbumArtistTableViewController.m; sourceTree = "<group>"; };
->>>>>>> FETCH_HEAD
 		E257F49F19E81E9100EF4FBB /* TTSong.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTSong.h; sourceTree = "<group>"; };
 		E257F4A019E81E9100EF4FBB /* TTSong.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTSong.m; sourceTree = "<group>"; };
 		E2E9362F19E86A6900BFE068 /* default-artwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default-artwork.png"; sourceTree = "<group>"; };
@@ -225,7 +204,6 @@
 				BAC0326E19CB95CF0062C291 /* Artists */,
 				E219457219F3AF2B005C3E56 /* AlbumsArtists */,
 				BAC0327219CB96720062C291 /* Songs */,
-				CAEA694A19F1D610002695B3 /* Friends */,
 				E257F49E19E81D6F00EF4FBB /* Model */,
 				BADD936819C563B1000E0898 /* Images.xcassets */,
 				BADD935419C563B1000E0898 /* Supporting Files */,
@@ -255,23 +233,6 @@
 			name = Login;
 			sourceTree = "<group>";
 		};
-<<<<<<< HEAD
-		CAEA694A19F1D610002695B3 /* Friends */ = {
-			isa = PBXGroup;
-			children = (
-				CAEA694619F1D5F2002695B3 /* TTFriendTableViewController.h */,
-				CAEA694719F1D5F2002695B3 /* TTFriendTableViewController.m */,
-				CABDD8CC19F400A400776B6C /* TTFriendCollectionViewController.h */,
-				CABDD8CD19F400A400776B6C /* TTFriendCollectionViewController.m */,
-				CABDD8CF19F4089600776B6C /* TTPhotoCollectionViewCell.h */,
-				CABDD8D019F4089600776B6C /* TTPhotoCollectionViewCell.m */,
-				CABDD8D419F4443200776B6C /* TTFriendViewController.h */,
-				CABDD8D519F4443200776B6C /* TTFriendViewController.m */,
-				CABDD8D719F4447700776B6C /* TTCollectionViewCell.h */,
-				CABDD8D819F4447700776B6C /* TTCollectionViewCell.m */,
-			);
-			name = Friends;
-=======
 		E219457219F3AF2B005C3E56 /* AlbumsArtists */ = {
 			isa = PBXGroup;
 			children = (
@@ -281,7 +242,6 @@
 				E219457719F3AFAB005C3E56 /* TTAlbumArtistTableViewController.m */,
 			);
 			name = AlbumsArtists;
->>>>>>> FETCH_HEAD
 			sourceTree = "<group>";
 		};
 		E257F49E19E81D6F00EF4FBB /* Model */ = {
@@ -465,11 +425,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-<<<<<<< HEAD
-				CAEA694819F1D5F2002695B3 /* TTFriendTableViewController.m in Sources */,
-=======
 				E219457119F39B96005C3E56 /* TTAlbumViewCell.m in Sources */,
->>>>>>> FETCH_HEAD
 				E257F4A119E81E9100EF4FBB /* TTSong.m in Sources */,
 				BADD935E19C563B1000E0898 /* TTAppDelegate.m in Sources */,
 				BAC0327519CB969E0062C291 /* TTSongTableViewController.m in Sources */,
@@ -479,23 +435,13 @@
 				E2E9363D19E8D1EC00BFE068 /* UIImage+Resize.m in Sources */,
 				E219456519F32087005C3E56 /* TTArtistViewCell.m in Sources */,
 				E2E9363E19E8D1EC00BFE068 /* UIImage+RoundedCorner.m in Sources */,
-<<<<<<< HEAD
-				CABDD8CE19F400A400776B6C /* TTFriendCollectionViewController.m in Sources */,
-=======
 				E219456B19F39A8C005C3E56 /* TTAlbum.m in Sources */,
 				E219457519F3AF84005C3E56 /* TTAlbumArtistSongViewCell.m in Sources */,
 				E219456819F3653B005C3E56 /* TTArtist.m in Sources */,
->>>>>>> FETCH_HEAD
 				BAC0327119CB96040062C291 /* TTArtistTableViewController.m in Sources */,
-				CABDD8D619F4443200776B6C /* TTFriendViewController.m in Sources */,
 				BADD935A19C563B1000E0898 /* main.m in Sources */,
-<<<<<<< HEAD
-				CABDD8D919F4447700776B6C /* TTCollectionViewCell.m in Sources */,
-=======
 				37041AB919EDE70200DE7AA3 /* TTNowPlayingViewController.m in Sources */,
->>>>>>> FETCH_HEAD
 				E2E9363419E8804200BFE068 /* TTAlbumTableViewController.m in Sources */,
-				CABDD8D119F4089600776B6C /* TTPhotoCollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -627,12 +573,8 @@
 					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-<<<<<<< HEAD
-				TARGETED_DEVICE_FAMILY = 1;
-=======
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
->>>>>>> FETCH_HEAD
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -658,12 +600,8 @@
 					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-<<<<<<< HEAD
-				TARGETED_DEVICE_FAMILY = 1;
-=======
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
->>>>>>> FETCH_HEAD
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

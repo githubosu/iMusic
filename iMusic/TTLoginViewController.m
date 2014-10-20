@@ -11,8 +11,6 @@
 @interface TTLoginViewController ()
 
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
-@property (strong, nonatomic) NSMutableData *imageData;
-@property (strong, nonatomic) IBOutlet UIButton *logoutButton;
 
 @end
 
@@ -52,13 +50,13 @@
  */
 
 
-//-(void)viewDidAppear:(BOOL)animated
-//{
-//    if ([PFUser currentUser] && [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) {
-//        [self updateUserInformation];
-//        [self performSegueWithIdentifier:@"loginToTabBarSegue" sender:self];
-//    }
-//}
+-(void)viewDidAppear:(BOOL)animated
+{
+    if ([PFUser currentUser] && [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) {
+        [self updateUserInformation];
+        [self performSegueWithIdentifier:@"loginToTabBarSegue" sender:self];
+    }
+}
 
 #pragma mark - IBActions
 - (IBAction)loginButtonPressed:(UIButton *)sender
@@ -86,14 +84,10 @@
             [self performSegueWithIdentifier:@"loginToTabBarSegue" sender:self];
         }
     }];
+    
+    
+    
 }
-
-- (IBAction)logoutButtonPressed:(UIButton *)sender
-{
-    [PFUser logOut];
-    [self.navigationController popToRootViewControllerAnimated:YES];
-}
-
 
 #pragma mark - Helper Meothod
 
@@ -104,18 +98,6 @@
     [request startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
         if (!error) {
             NSDictionary *userDictionary = (NSDictionary *)result;
-            
-            //create URL
-            NSString *facebookID = userDictionary[@"id"];
-            NSURL *pictureURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large&return_ssl_resources=1",facebookID]];
-            
-            [FBRequestConnection startForMeWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
-                if (!error) {
-                    [[PFUser currentUser] setObject:[result objectForKey:@"id"] forKey:@"fbId"];
-                    [[PFUser currentUser] saveInBackground];
-                }
-            }];
-            
             NSMutableDictionary *userProfile = [[NSMutableDictionary alloc] initWithCapacity:8];
             if (userDictionary[@"name"]) {
                 userProfile[@"name"] = userDictionary[@"name"];
@@ -136,14 +118,8 @@
                 userProfile[@"interested_in"] = userDictionary[@"interested_in"];
             }
             
-            if ([pictureURL absoluteString]) {
-                userProfile[@"pictureURL"] = [pictureURL absoluteString];
-            }
-            
             [[PFUser currentUser] setObject:userProfile forKey:@"profile"];
             [[PFUser currentUser] saveInBackground];
-            
-            [self requestImage];
         }
         else {
             NSLog(@"Error in FB request %@", error);
@@ -151,59 +127,6 @@
     }];
     
 }
-
--(void)uploadPFFileToParse:(UIImage *)image
-{
-    NSData *imageData = UIImageJPEGRepresentation(image, 0.8);
-    if (!imageData) {
-        NSLog(@"imageData was not found.");
-        return;
-    }
-    PFFile *photoFile = [PFFile fileWithData:imageData];
-    [photoFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if (succeeded) {
-            PFObject *photo = [PFObject objectWithClassName:@"Photo"];
-            [photo setObject:[PFUser currentUser] forKey:@"user"];
-            [photo setObject:photoFile forKey:@"image"];
-            [photo saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-                if (succeeded) {
-                     NSLog(@"Photo saved successfully");
-                }
-            }];
-        }
-    }];
-}
-
--(void)requestImage
-{
-    PFQuery *query = [PFQuery queryWithClassName:@"Photo"];
-    [query whereKey:@"user" equalTo:[PFUser currentUser]];
-    [query countObjectsInBackgroundWithBlock:^(int number, NSError *error) {
-        if (number == 0) {
-            PFUser *user =[PFUser currentUser];
-            self.imageData = [[NSMutableData alloc] init];
-            
-            NSURL *profilePictureURL = [NSURL URLWithString:user[@"profile"][@"pictureURL"]];
-            NSURLRequest *urlRequest = [NSURLRequest requestWithURL:profilePictureURL cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:4.0f];
-            NSURLConnection *urlConnection = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
-            if (!urlConnection) {
-                NSLog(@"Failed to Download Picture");
-            }
-        }
-    }];
-}
-
--(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
-{
-    [self.imageData appendData:data];
-}
-
--(void)connectionDidFinishLoading:(NSURLConnection *)connection
-{
-    UIImage *profileImage = [UIImage imageWithData:self.imageData];
-    [self uploadPFFileToParse:profileImage];
-}
-
 
 -(void)getFriendList
 {
@@ -217,7 +140,7 @@
              for (NSDictionary *friendObject in friendObjects) {
                  [friendIds addObject:[friendObject objectForKey:@"id"]];
              }
-             [[PFUser currentUser] setObject:friendIds forKey:@"friendId"];
+             [[PFUser currentUser] setObject:friendIds forKey:@"friend"];
              [[PFUser currentUser] saveInBackground];
          }
      }

@@ -29,22 +29,12 @@
                                     <action selector="loginButtonPressed:" destination="KAO-oJ-cF0" eventType="touchUpInside" id="HWf-mu-eom"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NHL-0k-h7F">
-                                <rect key="frame" x="137" y="514" width="49" height="30"/>
-                                <state key="normal" title="Logout">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="logoutButtonPressed:" destination="KAO-oJ-cF0" eventType="touchUpInside" id="5Wz-4O-PV4"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="ZCl-jH-Hgj"/>
                     <connections>
                         <outlet property="activityIndicator" destination="plt-KJ-128" id="WFF-MZ-ntE"/>
-                        <outlet property="logoutButton" destination="NHL-0k-h7F" id="j0G-Et-Jbv"/>
                         <segue destination="8YX-ce-x5E" kind="push" identifier="loginToTabBarSegue" id="G1k-2l-Wyg"/>
                     </connections>
                 </viewController>
@@ -67,12 +57,11 @@
                         <segue destination="Bhe-0S-o41" kind="relationship" relationship="viewControllers" id="UiC-5h-x7z"/>
                         <segue destination="ljO-10-HKh" kind="relationship" relationship="viewControllers" id="SD4-Eo-rOX"/>
                         <segue destination="fS6-yS-bdP" kind="relationship" relationship="viewControllers" id="WR3-Qu-enY"/>
-                        <segue destination="vHr-0w-G4Z" kind="relationship" relationship="viewControllers" id="Ofy-uo-3xl"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FNP-y4-bzi" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="541" y="180"/>
+            <point key="canvasLocation" x="632" y="180"/>
         </scene>
         <!--Artists-->
         <scene sceneID="kWl-nx-61r">
@@ -170,8 +159,6 @@
             </objects>
             <point key="canvasLocation" x="1638" y="-33"/>
         </scene>
-<<<<<<< HEAD
-=======
         <!--Now Playing-->
         <scene sceneID="bup-Ss-oXl">
             <objects>
@@ -235,7 +222,6 @@
             </objects>
             <point key="canvasLocation" x="2120" y="-33"/>
         </scene>
->>>>>>> FETCH_HEAD
         <!--Albums-->
         <scene sceneID="tKs-ce-P8Q">
             <objects>
@@ -292,31 +278,6 @@
             </objects>
             <point key="canvasLocation" x="1638" y="660"/>
         </scene>
-<<<<<<< HEAD
-        <!--Friends-->
-        <scene sceneID="8Tr-Xp-0oT">
-            <objects>
-                <tableViewController id="QAp-ue-HRS" customClass="TTFriendTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="aex-pq-9O1">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" textLabel="dL0-Zj-5bK" detailTextLabel="6bl-Lv-tic" rowHeight="44" style="IBUITableViewCellStyleSubtitle" id="dMm-GG-pjv">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dMm-GG-pjv" id="lDP-rl-Cvy">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dL0-Zj-5bK">
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6bl-Lv-tic">
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
-=======
         <!--Album Artist Table View Controller-->
         <scene sceneID="g7X-nE-X6h">
             <objects>
@@ -362,185 +323,18 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LbI-Il-dmu">
                                             <rect key="frame" x="265" y="11" width="50" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
->>>>>>> FETCH_HEAD
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-<<<<<<< HEAD
-                                    <segue destination="ika-hE-da5" kind="push" id="Fxl-lW-kpv"/>
-=======
                                     <outlet property="duration" destination="LbI-Il-dmu" id="Y1Y-H0-m6L"/>
                                     <outlet property="songTitle" destination="fjC-qs-rSk" id="cdO-ph-oLL"/>
->>>>>>> FETCH_HEAD
                                 </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
-<<<<<<< HEAD
-                            <outlet property="dataSource" destination="QAp-ue-HRS" id="4Yd-Pc-3mC"/>
-                            <outlet property="delegate" destination="QAp-ue-HRS" id="aZf-5u-bSO"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Friends" id="lZv-Mm-Del"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="g2z-my-lm6" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1650" y="1323"/>
-        </scene>
-        <!--Friend Collection View Controller-->
-        <scene sceneID="YM7-Za-zrG">
-            <objects>
-                <collectionViewController id="ika-hE-da5" customClass="TTFriendCollectionViewController" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="8cv-zb-bjG">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="udr-Nl-Axi">
-                            <size key="itemSize" width="155" height="155"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        </collectionViewFlowLayout>
-                        <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Photo Cell" id="QCB-72-eYl" customClass="TTPhotoCollectionViewCell">
-                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="155" height="155"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                                <size key="customSize" width="155" height="155"/>
-                            </collectionViewCell>
-                        </cells>
-                        <connections>
-                            <outlet property="dataSource" destination="ika-hE-da5" id="4QF-5p-zzG"/>
-                            <outlet property="delegate" destination="ika-hE-da5" id="ckC-aX-rRh"/>
-                        </connections>
-                    </collectionView>
-                    <navigationItem key="navigationItem" id="vUD-Nd-BFC"/>
-                </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4PO-AC-pzD" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2079" y="1323"/>
-        </scene>
-        <!--Music List-->
-        <scene sceneID="Ao9-dh-RTk">
-            <objects>
-                <tableViewController title="Music List" id="qyj-sc-UkR" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="rlf-i4-xXB">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="ExQ-mO-Kie">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ExQ-mO-Kie" id="pxt-cD-hf2">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="qyj-sc-UkR" id="jBh-No-upf"/>
-                            <outlet property="delegate" destination="qyj-sc-UkR" id="NgL-NE-kBk"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="WGD-Hw-FSV"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="k6J-1e-1dh" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="541" y="1564"/>
-        </scene>
-        <!--Friends-->
-        <scene sceneID="osG-k9-VcU">
-            <objects>
-                <navigationController title="Friends" id="RJ3-K6-Xa4" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Friends" id="IMl-hE-NFU"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vOR-NI-Gxw">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="QAp-ue-HRS" kind="relationship" relationship="rootViewController" id="At9-TM-glq"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="uC1-E9-cJB" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1110" y="1328"/>
-        </scene>
-        <!--Friends-->
-        <scene sceneID="Xjj-gt-Rib">
-            <objects>
-                <viewController title="Friends" id="vHr-0w-G4Z" customClass="TTFriendViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="SWk-L4-ugN"/>
-                        <viewControllerLayoutGuide type="bottom" id="1mU-uh-eAw"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="YmS-UI-yiY">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="MzF-rQ-ZZq">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="hRP-vh-Tt1">
-                                    <size key="itemSize" width="152" height="155"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="5" minY="5" maxX="5" maxY="5"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Photo Cell" id="r4V-7W-Yvd" customClass="TTCollectionViewCell">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="152" height="155"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aQ1-7q-pCM">
-                                                    <rect key="frame" x="0.0" y="0.0" width="155" height="155"/>
-                                                </imageView>
-                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="pmO-HY-Q5O">
-                                                    <rect key="frame" x="67" y="68" width="20" height="20"/>
-                                                    <color key="color" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                </activityIndicatorView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FYt-PE-DGR">
-                                                    <rect key="frame" x="0.0" y="134" width="145" height="16"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                    <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                        <size key="customSize" width="152" height="155"/>
-                                        <connections>
-                                            <outlet property="activityIndicator" destination="pmO-HY-Q5O" id="u6G-H1-duY"/>
-                                            <outlet property="friendImage" destination="aQ1-7q-pCM" id="W1N-A1-eSo"/>
-                                            <outlet property="nameLabel" destination="FYt-PE-DGR" id="z3A-cc-PH5"/>
-                                            <segue destination="qyj-sc-UkR" kind="push" id="GdW-Tn-T9f"/>
-                                        </connections>
-                                    </collectionViewCell>
-                                </cells>
-                                <connections>
-                                    <outlet property="dataSource" destination="vHr-0w-G4Z" id="tFq-0L-1G0"/>
-                                    <outlet property="delegate" destination="vHr-0w-G4Z" id="Xp0-Pr-h7a"/>
-                                </connections>
-                            </collectionView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Friends" id="Fyc-yQ-wwk"/>
-                    <connections>
-                        <outlet property="imageCollectionView" destination="MzF-rQ-ZZq" id="plM-aO-e8q"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lhX-Bb-1On" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="541" y="863"/>
-=======
                             <outlet property="dataSource" destination="fLi-vr-DnM" id="b3h-Tz-P8k"/>
                             <outlet property="delegate" destination="fLi-vr-DnM" id="DBY-a6-Ngs"/>
                         </connections>
@@ -555,7 +349,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dAf-qN-4Cd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2925" y="660"/>
->>>>>>> FETCH_HEAD
         </scene>
         <!--Albums-->
         <scene sceneID="feI-Rr-pTx">
