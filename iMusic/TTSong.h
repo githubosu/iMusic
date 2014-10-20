@@ -7,12 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-
+@import MediaPlayer;
 @interface TTSong : NSObject
 @property (nonatomic, strong) NSString *songTitle;
 @property (nonatomic, strong) NSString *album;
 @property (nonatomic, strong) NSString *artist;
-@property (nonatomic, strong) NSString *artwork;
+@property (nonatomic, strong) MPMediaItemArtwork *artwork;
 @property (nonatomic, assign) long duration;
 @property (nonatomic, strong) NSURL *songURL;
 
