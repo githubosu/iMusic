@@ -15,4 +15,5 @@
 @property (nonatomic, assign) NSInteger songCount;
 @property (nonatomic, strong) MPMediaItemArtwork *artwork;
 @property (nonatomic, strong) NSString *duration;
+@property (nonatomic, strong) NSNumber *artistPersistentId;
 @end

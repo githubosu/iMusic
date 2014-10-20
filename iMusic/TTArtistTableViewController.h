@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "TTArtistViewCell.h"
+#import "TTAlbumArtistTableViewController.h"
 @import MediaPlayer;
 @interface TTArtistTableViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource>
 
