@@ -7,6 +7,7 @@
 //
 
 #import "TTAlbumArtistTableViewController.h"
+#import "TTNowPlayingViewController.h"
 #import "UIImage+Resize.h"
 @interface TTAlbumArtistTableViewController ()
 @property (nonatomic, strong) NSMutableArray *songs;
@@ -59,7 +60,7 @@
                 song.artist = [item valueForProperty:MPMediaItemPropertyArtist];
                 song.artwork = [item valueForProperty:MPMediaItemPropertyArtwork];
                 song.songTitle = [item valueForProperty:MPMediaItemPropertyTitle];
-                song.duration = [[item valueForProperty:MPMediaItemPropertyPlaybackDuration] longValue];
+                song.duration = [item valueForProperty:MPMediaItemPropertyPlaybackDuration];
                 [self.songs addObject:song];
             }
         }
@@ -100,7 +101,7 @@
                 song.artist = [item valueForProperty:MPMediaItemPropertyArtist];
                 song.artwork = [item valueForProperty:MPMediaItemPropertyArtwork];
                 song.songTitle = [item valueForProperty:MPMediaItemPropertyTitle];
-                song.duration = [[item valueForProperty:MPMediaItemPropertyPlaybackDuration] longValue];
+                song.duration = [item valueForProperty:MPMediaItemPropertyPlaybackDuration];
                 [self.songs addObject:song];
             }
         }
@@ -133,7 +134,7 @@
     
     TTSong *song = [self.songs objectAtIndex:indexPath.row];
     cell.songTitle.text = song.songTitle;
-    long durationInSecs = song.duration;
+    int durationInSecs = song.duration.intValue;
     int minutes = durationInSecs / 60;
     int seconds = durationInSecs % 60;
     cell.duration.text = [NSString stringWithFormat:@"%02d:%02d", minutes, seconds];
@@ -179,14 +180,20 @@
 }
 */
 
-/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([[segue identifier] isEqualToString:@"PlayerSegue"])
+    {
+        TTNowPlayingViewController *Player = (TTNowPlayingViewController*) segue.destinationViewController;
+        NSIndexPath *songIndexPath = [self.tableView indexPathForSelectedRow];
+        
+        Player.currentSong = [self.songs objectAtIndex:[songIndexPath row]];
+    }
 }
-*/
 
 @end

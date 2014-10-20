@@ -33,8 +33,8 @@
     self.artwork = NULL;
     
     //Set max value for duration slider
-    [self.durSlider setMaximumValue:self.audioPlayer.currentItem.duration.value/self.audioPlayer.currentItem.duration.timescale];
-    long songDur = self.currentSong.duration;
+    int songDur = self.currentSong.duration.intValue;
+    [self.durSlider setMaximumValue:songDur];
     int songMins = (int) songDur / 60;
     int songSecs = (int) songDur % 60;
     self.durLabel.text = [NSString stringWithFormat:@"%02d:%02d", songMins, songSecs];

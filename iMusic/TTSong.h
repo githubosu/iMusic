@@ -13,7 +13,7 @@
 @property (nonatomic, strong) NSString *album;
 @property (nonatomic, strong) NSString *artist;
 @property (nonatomic, strong) MPMediaItemArtwork *artwork;
-@property (nonatomic, assign) long duration;
+@property (nonatomic, assign) NSString *duration;
 @property (nonatomic, strong) NSURL *songURL;
 
 @end
