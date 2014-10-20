@@ -61,6 +61,7 @@
                 song.artwork = [item valueForProperty:MPMediaItemPropertyArtwork];
                 song.songTitle = [item valueForProperty:MPMediaItemPropertyTitle];
                 song.duration = [item valueForProperty:MPMediaItemPropertyPlaybackDuration];
+                song.songURL = [item valueForProperty:MPMediaItemPropertyAssetURL];
                 [self.songs addObject:song];
             }
         }
@@ -102,6 +103,7 @@
                 song.artwork = [item valueForProperty:MPMediaItemPropertyArtwork];
                 song.songTitle = [item valueForProperty:MPMediaItemPropertyTitle];
                 song.duration = [item valueForProperty:MPMediaItemPropertyPlaybackDuration];
+                song.songURL = [item valueForProperty:MPMediaItemPropertyAssetURL];
                 [self.songs addObject:song];
             }
         }
