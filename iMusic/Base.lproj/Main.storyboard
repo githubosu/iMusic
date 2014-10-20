@@ -63,7 +63,7 @@
             </objects>
             <point key="canvasLocation" x="632" y="180"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Artists-->
         <scene sceneID="kWl-nx-61r">
             <objects>
                 <tableViewController id="Qdp-Xg-Oog" customClass="TTArtistTableViewController" sceneMemberID="viewController">
@@ -81,6 +81,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
+
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1n7-Jg-2ES">
                                             <rect key="frame" x="2" y="2" width="78" height="45.5"/>
                                         </imageView>
@@ -94,15 +95,20 @@
                                             <rect key="frame" x="85" y="5" width="227" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+
                                 <connections>
                                     <outlet property="albumSongCountLabel" destination="npy-rv-BqW" id="dw6-bR-Rvc"/>
                                     <outlet property="artistArtworkImage" destination="1n7-Jg-2ES" id="nUO-1I-dKr"/>
                                     <outlet property="artistTitle" destination="QOK-fo-nfL" id="jaL-GV-CnW"/>
                                 </connections>
+
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -110,13 +116,13 @@
                             <outlet property="delegate" destination="Qdp-Xg-Oog" id="ODY-bQ-Ni8"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="sWv-QK-60q"/>
+                    <navigationItem key="navigationItem" title="Artists" id="sWv-QK-60q"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oHT-Ri-ZfZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1642" y="-766"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Songs-->
         <scene sceneID="j8v-zo-oJs">
             <objects>
                 <tableViewController id="ell-k3-rhm" customClass="TTSongTableViewController" sceneMemberID="viewController">
@@ -125,7 +131,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Song Cell" textLabel="Qwv-z2-Q8z" style="IBUITableViewCellStyleDefault" id="kbR-vJ-yjC">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Song Cell" textLabel="Qwv-z2-Q8z" style="IBUITableViewCellStyleDefault" id="kbR-vJ-yjC">
                                 <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kbR-vJ-yjC" id="1nX-pe-06l">
@@ -135,11 +141,15 @@
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Qwv-z2-Q8z">
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <segue destination="PHA-8a-sG8" kind="push" identifier="PlayerSegue" id="k6H-QH-qTm"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -147,13 +157,76 @@
                             <outlet property="delegate" destination="ell-k3-rhm" id="Wuw-RI-BVw"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="Y4B-wH-f5X"/>
+                    <navigationItem key="navigationItem" title="Songs" id="Y4B-wH-f5X"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fr9-xw-Kcc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1638" y="-33"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Now Playing-->
+        <scene sceneID="bup-Ss-oXl">
+            <objects>
+                <viewController storyboardIdentifier="Player" id="PHA-8a-sG8" customClass="TTNowPlayingViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vaI-RN-2vH"/>
+                        <viewControllerLayoutGuide type="bottom" id="CHJ-CP-cBL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="97g-ri-oqP">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="nKo-sF-EgH">
+                                <rect key="frame" x="14" y="393" width="292" height="31"/>
+                                <color key="minimumTrackTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="maximumTrackTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="sliderDragged:" destination="PHA-8a-sG8" eventType="valueChanged" id="U9L-eB-3RX"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Song" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zo4-pT-err">
+                                <rect key="frame" x="16" y="449" width="288" height="26"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S3U-Yh-aul">
+                                <rect key="frame" x="16" y="81" width="288" height="288"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dur" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pOJ-oW-dW7">
+                                <rect key="frame" x="254" y="420" width="50" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oJf-fe-4dh">
+                                <rect key="frame" x="16" y="420" width="50" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Artist" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bnf-2T-iCK">
+                                <rect key="frame" x="16" y="483" width="288" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Now Playing" id="Xuc-jK-Few"/>
+                    <connections>
+                        <outlet property="artistLabel" destination="bnf-2T-iCK" id="qdN-tA-s39"/>
+                        <outlet property="curDurLabel" destination="oJf-fe-4dh" id="Cwf-OC-xFS"/>
+                        <outlet property="durLabel" destination="pOJ-oW-dW7" id="t9o-qe-tXG"/>
+                        <outlet property="durSlider" destination="nKo-sF-EgH" id="hlK-ou-e6N"/>
+                        <outlet property="songLabel" destination="zo4-pT-err" id="sDq-mV-M0O"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8ZN-d4-ejd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2120" y="-33"/>
+        </scene>
+        <!--Albums-->
         <scene sceneID="tKs-ce-P8Q">
             <objects>
                 <tableViewController id="HHh-97-ppn" customClass="TTAlbumTableViewController" sceneMemberID="viewController">
@@ -170,11 +243,12 @@
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WzD-hx-64W">
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -182,7 +256,7 @@
                             <outlet property="delegate" destination="HHh-97-ppn" id="tDp-rF-Ehh"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="gCs-l7-GWo"/>
+                    <navigationItem key="navigationItem" title="Albums" id="gCs-l7-GWo"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bpz-op-c8j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -1,0 +1,26 @@
+//
+//  TTNowPlayingViewController.h
+//  iMusic
+//
+//  Created by Dan Meehan on 10/14/14.
+//  Copyright (c) 2014 edu.osu.trinh.47. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
+#import "TTSong.h"
+
+@interface TTNowPlayingViewController : UIViewController
+
+@property (strong, nonatomic) TTSong *currentSong;
+@property (strong, nonatomic) AVPlayer *audioPlayer;
+
+@property (strong, nonatomic) IBOutlet UILabel *songLabel;
+@property (strong, nonatomic) IBOutlet UILabel *artistLabel;
+@property (strong, nonatomic) IBOutlet UIImage *artwork;
+
+@property (weak, nonatomic) IBOutlet UISlider *durSlider;
+@property (weak, nonatomic) IBOutlet UILabel *durLabel;
+@property (weak, nonatomic) IBOutlet UILabel *curDurLabel;
+
+@end
