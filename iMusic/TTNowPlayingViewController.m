@@ -26,6 +26,8 @@
     self.audioPlayer = [[AVPlayer alloc] initWithURL: currentSongPath];
     NSLog(@"Player URL: %@", self.currentSong.songURL);
     [self.audioPlayer play];
+    [self.playPause setSelected:YES];
+    NSLog(@"%d", self.playPause.selected);
     
     //Display song info and cover art
     if (self.currentSong.songURL != nil) {
@@ -50,15 +52,16 @@
 
     UIImage *resizedImage = NULL;
     
-    [self configurePlayer];
+    [self loopPlayer];
 }
 
+//Slider drag action to seek to a specific time in the song
 - (IBAction)sliderDragged:(id)sender {
     [self.audioPlayer seekToTime:CMTimeMakeWithSeconds((int)(self.durSlider.value) , 1)];
 }
 
-
--(void) configurePlayer {
+//Loop to update UI with current song playback info
+-(void) loopPlayer {
     __block TTNowPlayingViewController * weakSelf = self;
 
     [self.audioPlayer addPeriodicTimeObserverForInterval:CMTimeMakeWithSeconds(1, 1) queue:NULL usingBlock:^(CMTime time) {
@@ -86,4 +89,13 @@
 }
 */
 
+//Play or pause music when button tapped
+- (IBAction)togglePlayPause:(id)sender {
+    if (self.playPause.selected) {
+        [self.audioPlayer pause];
+    } else {
+        [self.audioPlayer play];
+    }
+    self.playPause.selected = !self.playPause.selected;
+}
 @end

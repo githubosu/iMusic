@@ -23,4 +23,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *durLabel;
 @property (weak, nonatomic) IBOutlet UILabel *curDurLabel;
 
+@property (strong, nonatomic) IBOutlet UIButton *playPause;
+
 @end
