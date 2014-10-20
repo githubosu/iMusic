@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		37041AB919EDE70200DE7AA3 /* TTNowPlayingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37041AB819EDE70200DE7AA3 /* TTNowPlayingViewController.m */; };
 		37DA621119D5A5D600E89387 /* FacebookSDK.h in Frameworks */ = {isa = PBXBuildFile; fileRef = 37DA621019D5A5D600E89387 /* FacebookSDK.h */; };
 		A214D2459425482FA098883D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D724DC070B54EA4A3830D2D /* libPods.a */; };
 		BAC0327119CB96040062C291 /* TTArtistTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC0327019CB96040062C291 /* TTArtistTableViewController.m */; };
@@ -24,11 +25,20 @@
 		BADD937219C563B1000E0898 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BADD935119C563B1000E0898 /* UIKit.framework */; };
 		BAFA654419C56BFE00A7937D /* TTLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAFA654319C56BFE00A7937D /* TTLoginViewController.m */; };
 		BAFA654719C576C800A7937D /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAFA654619C576C800A7937D /* ParseFacebookUtils.framework */; };
+<<<<<<< HEAD
 		CABDD8CE19F400A400776B6C /* TTFriendCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CABDD8CD19F400A400776B6C /* TTFriendCollectionViewController.m */; };
 		CABDD8D119F4089600776B6C /* TTPhotoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CABDD8D019F4089600776B6C /* TTPhotoCollectionViewCell.m */; };
 		CABDD8D619F4443200776B6C /* TTFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CABDD8D519F4443200776B6C /* TTFriendViewController.m */; };
 		CABDD8D919F4447700776B6C /* TTCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CABDD8D819F4447700776B6C /* TTCollectionViewCell.m */; };
 		CAEA694819F1D5F2002695B3 /* TTFriendTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAEA694719F1D5F2002695B3 /* TTFriendTableViewController.m */; };
+=======
+		E219456519F32087005C3E56 /* TTArtistViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E219456419F32087005C3E56 /* TTArtistViewCell.m */; };
+		E219456819F3653B005C3E56 /* TTArtist.m in Sources */ = {isa = PBXBuildFile; fileRef = E219456719F3653B005C3E56 /* TTArtist.m */; };
+		E219456B19F39A8C005C3E56 /* TTAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = E219456A19F39A8C005C3E56 /* TTAlbum.m */; };
+		E219457119F39B96005C3E56 /* TTAlbumViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E219457019F39B96005C3E56 /* TTAlbumViewCell.m */; };
+		E219457519F3AF84005C3E56 /* TTAlbumArtistSongViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E219457419F3AF84005C3E56 /* TTAlbumArtistSongViewCell.m */; };
+		E219457819F3AFAB005C3E56 /* TTAlbumArtistTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E219457719F3AFAB005C3E56 /* TTAlbumArtistTableViewController.m */; };
+>>>>>>> FETCH_HEAD
 		E257F4A119E81E9100EF4FBB /* TTSong.m in Sources */ = {isa = PBXBuildFile; fileRef = E257F4A019E81E9100EF4FBB /* TTSong.m */; };
 		E2E9363019E86A6900BFE068 /* default-artwork.png in Resources */ = {isa = PBXBuildFile; fileRef = E2E9362F19E86A6900BFE068 /* default-artwork.png */; };
 		E2E9363419E8804200BFE068 /* TTAlbumTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E9363319E8804200BFE068 /* TTAlbumTableViewController.m */; };
@@ -49,6 +59,8 @@
 
 /* Begin PBXFileReference section */
 		1D724DC070B54EA4A3830D2D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		37041AB719EDE70200DE7AA3 /* TTNowPlayingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTNowPlayingViewController.h; sourceTree = "<group>"; };
+		37041AB819EDE70200DE7AA3 /* TTNowPlayingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTNowPlayingViewController.m; sourceTree = "<group>"; };
 		37DA621019D5A5D600E89387 /* FacebookSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FacebookSDK.h; path = "Pods/Facebook-iOS-SDK/src/FacebookSDK.h"; sourceTree = "<group>"; };
 		37DA621419D5A9FF00E89387 /* libPods-Parse.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-Parse.a"; path = "Pods/build/Debug-iphoneos/libPods-Parse.a"; sourceTree = "<group>"; };
 		B2A758E248BC41D0A9C9A19F /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
@@ -73,6 +85,7 @@
 		BAFA654219C56BFE00A7937D /* TTLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTLoginViewController.h; sourceTree = "<group>"; };
 		BAFA654319C56BFE00A7937D /* TTLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTLoginViewController.m; sourceTree = "<group>"; };
 		BAFA654619C576C800A7937D /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseFacebookUtils.framework; path = "../../../../Downloads/parse-library-1.3.0/ParseFacebookUtils.framework"; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		CABDD8CC19F400A400776B6C /* TTFriendCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTFriendCollectionViewController.h; sourceTree = "<group>"; };
 		CABDD8CD19F400A400776B6C /* TTFriendCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTFriendCollectionViewController.m; sourceTree = "<group>"; };
 		CABDD8CF19F4089600776B6C /* TTPhotoCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTPhotoCollectionViewCell.h; sourceTree = "<group>"; };
@@ -83,6 +96,20 @@
 		CABDD8D819F4447700776B6C /* TTCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTCollectionViewCell.m; sourceTree = "<group>"; };
 		CAEA694619F1D5F2002695B3 /* TTFriendTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTFriendTableViewController.h; sourceTree = "<group>"; };
 		CAEA694719F1D5F2002695B3 /* TTFriendTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTFriendTableViewController.m; sourceTree = "<group>"; };
+=======
+		E219456319F32087005C3E56 /* TTArtistViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTArtistViewCell.h; sourceTree = "<group>"; };
+		E219456419F32087005C3E56 /* TTArtistViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTArtistViewCell.m; sourceTree = "<group>"; };
+		E219456619F3653B005C3E56 /* TTArtist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTArtist.h; sourceTree = "<group>"; };
+		E219456719F3653B005C3E56 /* TTArtist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTArtist.m; sourceTree = "<group>"; };
+		E219456919F39A8C005C3E56 /* TTAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTAlbum.h; sourceTree = "<group>"; };
+		E219456A19F39A8C005C3E56 /* TTAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTAlbum.m; sourceTree = "<group>"; };
+		E219456F19F39B96005C3E56 /* TTAlbumViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTAlbumViewCell.h; sourceTree = "<group>"; };
+		E219457019F39B96005C3E56 /* TTAlbumViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTAlbumViewCell.m; sourceTree = "<group>"; };
+		E219457319F3AF84005C3E56 /* TTAlbumArtistSongViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTAlbumArtistSongViewCell.h; sourceTree = "<group>"; };
+		E219457419F3AF84005C3E56 /* TTAlbumArtistSongViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTAlbumArtistSongViewCell.m; sourceTree = "<group>"; };
+		E219457619F3AFAB005C3E56 /* TTAlbumArtistTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTAlbumArtistTableViewController.h; sourceTree = "<group>"; };
+		E219457719F3AFAB005C3E56 /* TTAlbumArtistTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTAlbumArtistTableViewController.m; sourceTree = "<group>"; };
+>>>>>>> FETCH_HEAD
 		E257F49F19E81E9100EF4FBB /* TTSong.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTSong.h; sourceTree = "<group>"; };
 		E257F4A019E81E9100EF4FBB /* TTSong.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTSong.m; sourceTree = "<group>"; };
 		E2E9362F19E86A6900BFE068 /* default-artwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default-artwork.png"; sourceTree = "<group>"; };
@@ -123,9 +150,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		37041ABA19EDE70500DE7AA3 /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				37041AB719EDE70200DE7AA3 /* TTNowPlayingViewController.h */,
+				37041AB819EDE70200DE7AA3 /* TTNowPlayingViewController.m */,
+			);
+			name = Player;
+			sourceTree = "<group>";
+		};
 		BAC0326E19CB95CF0062C291 /* Artists */ = {
 			isa = PBXGroup;
 			children = (
+				E219456319F32087005C3E56 /* TTArtistViewCell.h */,
+				E219456419F32087005C3E56 /* TTArtistViewCell.m */,
 				BAC0326F19CB96040062C291 /* TTArtistTableViewController.h */,
 				BAC0327019CB96040062C291 /* TTArtistTableViewController.m */,
 			);
@@ -181,9 +219,11 @@
 				BADD935C19C563B1000E0898 /* TTAppDelegate.h */,
 				BADD935D19C563B1000E0898 /* TTAppDelegate.m */,
 				BADD935F19C563B1000E0898 /* Main.storyboard */,
+				37041ABA19EDE70500DE7AA3 /* Player */,
 				BAFA654519C56C0700A7937D /* Login */,
 				E2E9363119E8801300BFE068 /* Albums */,
 				BAC0326E19CB95CF0062C291 /* Artists */,
+				E219457219F3AF2B005C3E56 /* AlbumsArtists */,
 				BAC0327219CB96720062C291 /* Songs */,
 				CAEA694A19F1D610002695B3 /* Friends */,
 				E257F49E19E81D6F00EF4FBB /* Model */,
@@ -215,6 +255,7 @@
 			name = Login;
 			sourceTree = "<group>";
 		};
+<<<<<<< HEAD
 		CAEA694A19F1D610002695B3 /* Friends */ = {
 			isa = PBXGroup;
 			children = (
@@ -230,6 +271,17 @@
 				CABDD8D819F4447700776B6C /* TTCollectionViewCell.m */,
 			);
 			name = Friends;
+=======
+		E219457219F3AF2B005C3E56 /* AlbumsArtists */ = {
+			isa = PBXGroup;
+			children = (
+				E219457319F3AF84005C3E56 /* TTAlbumArtistSongViewCell.h */,
+				E219457419F3AF84005C3E56 /* TTAlbumArtistSongViewCell.m */,
+				E219457619F3AFAB005C3E56 /* TTAlbumArtistTableViewController.h */,
+				E219457719F3AFAB005C3E56 /* TTAlbumArtistTableViewController.m */,
+			);
+			name = AlbumsArtists;
+>>>>>>> FETCH_HEAD
 			sourceTree = "<group>";
 		};
 		E257F49E19E81D6F00EF4FBB /* Model */ = {
@@ -237,6 +289,10 @@
 			children = (
 				E257F49F19E81E9100EF4FBB /* TTSong.h */,
 				E257F4A019E81E9100EF4FBB /* TTSong.m */,
+				E219456619F3653B005C3E56 /* TTArtist.h */,
+				E219456719F3653B005C3E56 /* TTArtist.m */,
+				E219456919F39A8C005C3E56 /* TTAlbum.h */,
+				E219456A19F39A8C005C3E56 /* TTAlbum.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -254,6 +310,8 @@
 			children = (
 				E2E9363219E8804200BFE068 /* TTAlbumTableViewController.h */,
 				E2E9363319E8804200BFE068 /* TTAlbumTableViewController.m */,
+				E219456F19F39B96005C3E56 /* TTAlbumViewCell.h */,
+				E219457019F39B96005C3E56 /* TTAlbumViewCell.m */,
 			);
 			name = Albums;
 			sourceTree = "<group>";
@@ -407,19 +465,35 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+<<<<<<< HEAD
 				CAEA694819F1D5F2002695B3 /* TTFriendTableViewController.m in Sources */,
+=======
+				E219457119F39B96005C3E56 /* TTAlbumViewCell.m in Sources */,
+>>>>>>> FETCH_HEAD
 				E257F4A119E81E9100EF4FBB /* TTSong.m in Sources */,
 				BADD935E19C563B1000E0898 /* TTAppDelegate.m in Sources */,
 				BAC0327519CB969E0062C291 /* TTSongTableViewController.m in Sources */,
+				E219457819F3AFAB005C3E56 /* TTAlbumArtistTableViewController.m in Sources */,
 				BAFA654419C56BFE00A7937D /* TTLoginViewController.m in Sources */,
 				E2E9363C19E8D1EC00BFE068 /* UIImage+Alpha.m in Sources */,
 				E2E9363D19E8D1EC00BFE068 /* UIImage+Resize.m in Sources */,
+				E219456519F32087005C3E56 /* TTArtistViewCell.m in Sources */,
 				E2E9363E19E8D1EC00BFE068 /* UIImage+RoundedCorner.m in Sources */,
+<<<<<<< HEAD
 				CABDD8CE19F400A400776B6C /* TTFriendCollectionViewController.m in Sources */,
+=======
+				E219456B19F39A8C005C3E56 /* TTAlbum.m in Sources */,
+				E219457519F3AF84005C3E56 /* TTAlbumArtistSongViewCell.m in Sources */,
+				E219456819F3653B005C3E56 /* TTArtist.m in Sources */,
+>>>>>>> FETCH_HEAD
 				BAC0327119CB96040062C291 /* TTArtistTableViewController.m in Sources */,
 				CABDD8D619F4443200776B6C /* TTFriendViewController.m in Sources */,
 				BADD935A19C563B1000E0898 /* main.m in Sources */,
+<<<<<<< HEAD
 				CABDD8D919F4447700776B6C /* TTCollectionViewCell.m in Sources */,
+=======
+				37041AB919EDE70200DE7AA3 /* TTNowPlayingViewController.m in Sources */,
+>>>>>>> FETCH_HEAD
 				E2E9363419E8804200BFE068 /* TTAlbumTableViewController.m in Sources */,
 				CABDD8D119F4089600776B6C /* TTPhotoCollectionViewCell.m in Sources */,
 			);
@@ -539,6 +613,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/MPBr2013/Downloads/parse-library-1.3.0",
@@ -552,7 +627,12 @@
 					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+<<<<<<< HEAD
 				TARGETED_DEVICE_FAMILY = 1;
+=======
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
+>>>>>>> FETCH_HEAD
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -564,6 +644,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/MPBr2013/Downloads/parse-library-1.3.0",
@@ -577,7 +658,12 @@
 					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+<<<<<<< HEAD
 				TARGETED_DEVICE_FAMILY = 1;
+=======
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
+>>>>>>> FETCH_HEAD
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
