@@ -322,7 +322,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="MzF-rQ-ZZq">
-                                <rect key="frame" x="0.0" y="64" width="320" height="519"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="hRP-vh-Tt1">
                                     <size key="itemSize" width="152" height="155"/>
@@ -354,6 +354,7 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <size key="customSize" width="152" height="155"/>
                                         <connections>
                                             <outlet property="activityIndicator" destination="pmO-HY-Q5O" id="u6G-H1-duY"/>
                                             <outlet property="friendImage" destination="aQ1-7q-pCM" id="W1N-A1-eSo"/>
