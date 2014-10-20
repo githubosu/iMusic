@@ -50,7 +50,7 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" id="JQR-rB-NYL">
                         <rect key="frame" x="0.0" y="431" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
                         <segue destination="Bhe-0S-o41" kind="relationship" relationship="viewControllers" id="UiC-5h-x7z"/>
@@ -125,6 +125,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="sectionIndexBackgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Song Cell" textLabel="Qwv-z2-Q8z" style="IBUITableViewCellStyleDefault" id="kbR-vJ-yjC">
                                 <rect key="frame" x="0.0" y="86" width="320" height="44"/>
@@ -143,7 +144,7 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
-                                    <segue destination="PHA-8a-sG8" kind="push" identifier="PlayerSegue" id="k6H-QH-qTm"/>
+                                    <segue destination="PHA-8a-sG8" kind="push" identifier="SongPlayerSegue" id="k6H-QH-qTm"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -228,7 +229,9 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="22" sectionFooterHeight="22" id="8TP-b9-csw">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="sectionIndexColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="sectionIndexBackgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Album Cell" id="5Oz-u9-oXS" customClass="TTAlbumViewCell">
                                 <autoresizingMask key="autoresizingMask"/>
@@ -280,6 +283,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="sectionIndexBackgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="8c1-c8-iRa">
                             <rect key="frame" x="0.0" y="64" width="320" height="144"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -328,7 +332,7 @@
                                 <connections>
                                     <outlet property="duration" destination="LbI-Il-dmu" id="Y1Y-H0-m6L"/>
                                     <outlet property="songTitle" destination="fjC-qs-rSk" id="cdO-ph-oLL"/>
-                                    <segue destination="PHA-8a-sG8" kind="push" identifier="PlayerSegue" id="03h-vI-UZP"/>
+                                    <segue destination="PHA-8a-sG8" kind="push" identifier="AlbumArtistPlayerSegue" id="03h-vI-UZP"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -356,6 +360,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="hlG-E7-WI9">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     </navigationBar>
                     <connections>
                         <segue destination="HHh-97-ppn" kind="relationship" relationship="rootViewController" id="fxH-Ke-1BH"/>
@@ -372,6 +377,7 @@
                     <tabBarItem key="tabBarItem" title="Songs" id="UeV-Me-yWH"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="QF1-H2-tmn">
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     </navigationBar>
                     <connections>
                         <segue destination="ell-k3-rhm" kind="relationship" relationship="rootViewController" id="4mH-6s-wTA"/>
@@ -388,6 +394,7 @@
                     <tabBarItem key="tabBarItem" title="Artists" id="RjD-zx-S63"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ejU-RG-7vo">
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     </navigationBar>
                     <connections>
                         <segue destination="Qdp-Xg-Oog" kind="relationship" relationship="rootViewController" id="zt3-o5-f2v"/>
@@ -405,6 +412,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="qMo-eJ-vDJ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -441,7 +449,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="iPB-rK-NMc"/>
-        <segue reference="03h-vI-UZP"/>
+        <segue reference="k6H-QH-qTm"/>
+        <segue reference="wqh-iJ-fb5"/>
     </inferredMetricsTieBreakers>
 </document>

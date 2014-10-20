@@ -28,8 +28,14 @@
     [self.audioPlayer play];
     
     //Display song info and cover art
-    self.songLabel.text = self.currentSong.songTitle;
-    self.artistLabel.text = self.currentSong.artist;
+    if (self.currentSong.songURL != nil) {
+        self.songLabel.text = self.currentSong.songTitle;
+        self.artistLabel.text = self.currentSong.artist;
+    } else {
+        self.songLabel.text = @"Error: song not found on device";
+        self.artistLabel.text = @"";
+    }
+    
     self.artwork = NULL;
     
     //Set max value for duration slider

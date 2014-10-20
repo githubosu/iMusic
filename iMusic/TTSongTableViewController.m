@@ -157,13 +157,12 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    if ([[segue identifier] isEqualToString:@"PlayerSegue"])
+    if ([[segue identifier] isEqualToString:@"SongPlayerSegue"])
     {
         TTNowPlayingViewController *Player = (TTNowPlayingViewController*) segue.destinationViewController;
         NSIndexPath *songIndexPath = [self.tableView indexPathForSelectedRow];
         
         Player.currentSong = [self.songs objectAtIndex:[songIndexPath row]];
-        NSLog(@"Song list URL: %@", Player.currentSong.songURL);
     }
 }
 
