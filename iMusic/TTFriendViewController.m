@@ -88,10 +88,15 @@
     PFUser *friendList = self.friendUsers[indexPath.row];
     //NSLog(@"%@", friendList);
     NSURL *url = [NSURL URLWithString:friendList[@"profile"][@"pictureURL"]];
-    //NSLog(@"%@", url);
-    NSData *data = [NSData dataWithContentsOfURL:url];
     cell.backgroundColor = [UIColor whiteColor];
-    cell.friendImage.image = [UIImage imageWithData:data];
+    //NSLog(@"%@", url);
+    if (url == nil ) {
+        cell.friendImage.image = [UIImage imageNamed:@"defaultUserIcon.png"];
+    }
+    else {
+        NSData *data = [NSData dataWithContentsOfURL:url];
+        cell.friendImage.image = [UIImage imageWithData:data];
+    }
     cell.nameLabel.text = friendList[@"profile"][@"name"];
     [cell.activityIndicator startAnimating];
     cell.activityIndicator.hidden = YES;

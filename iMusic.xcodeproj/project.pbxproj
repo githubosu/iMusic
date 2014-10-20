@@ -24,6 +24,7 @@
 		BADD937219C563B1000E0898 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BADD935119C563B1000E0898 /* UIKit.framework */; };
 		BAFA654419C56BFE00A7937D /* TTLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAFA654319C56BFE00A7937D /* TTLoginViewController.m */; };
 		BAFA654719C576C800A7937D /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAFA654619C576C800A7937D /* ParseFacebookUtils.framework */; };
+		CA776D0D19F4A343002C74B3 /* defaultUserIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = CA776D0C19F4A343002C74B3 /* defaultUserIcon.png */; };
 		CABDD8CE19F400A400776B6C /* TTFriendCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CABDD8CD19F400A400776B6C /* TTFriendCollectionViewController.m */; };
 		CABDD8D119F4089600776B6C /* TTPhotoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CABDD8D019F4089600776B6C /* TTPhotoCollectionViewCell.m */; };
 		CABDD8D619F4443200776B6C /* TTFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CABDD8D519F4443200776B6C /* TTFriendViewController.m */; };
@@ -73,6 +74,7 @@
 		BAFA654219C56BFE00A7937D /* TTLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTLoginViewController.h; sourceTree = "<group>"; };
 		BAFA654319C56BFE00A7937D /* TTLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTLoginViewController.m; sourceTree = "<group>"; };
 		BAFA654619C576C800A7937D /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseFacebookUtils.framework; path = "../../../../Downloads/parse-library-1.3.0/ParseFacebookUtils.framework"; sourceTree = "<group>"; };
+		CA776D0C19F4A343002C74B3 /* defaultUserIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = defaultUserIcon.png; sourceTree = "<group>"; };
 		CABDD8CC19F400A400776B6C /* TTFriendCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTFriendCollectionViewController.h; sourceTree = "<group>"; };
 		CABDD8CD19F400A400776B6C /* TTFriendCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTFriendCollectionViewController.m; sourceTree = "<group>"; };
 		CABDD8CF19F4089600776B6C /* TTPhotoCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTPhotoCollectionViewCell.h; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 				CAEA694A19F1D610002695B3 /* Friends */,
 				E257F49E19E81D6F00EF4FBB /* Model */,
 				BADD936819C563B1000E0898 /* Images.xcassets */,
+				CA776D0C19F4A343002C74B3 /* defaultUserIcon.png */,
 				BADD935419C563B1000E0898 /* Supporting Files */,
 			);
 			path = iMusic;
@@ -354,6 +357,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BADD936919C563B1000E0898 /* Images.xcassets in Resources */,
+				CA776D0D19F4A343002C74B3 /* defaultUserIcon.png in Resources */,
 				E2E9363019E86A6900BFE068 /* default-artwork.png in Resources */,
 				BADD935819C563B1000E0898 /* InfoPlist.strings in Resources */,
 				BADD936119C563B1000E0898 /* Main.storyboard in Resources */,
