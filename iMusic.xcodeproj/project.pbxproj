@@ -10,6 +10,9 @@
 		37041AB919EDE70200DE7AA3 /* TTNowPlayingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37041AB819EDE70200DE7AA3 /* TTNowPlayingViewController.m */; };
 		37DA621119D5A5D600E89387 /* FacebookSDK.h in Frameworks */ = {isa = PBXBuildFile; fileRef = 37DA621019D5A5D600E89387 /* FacebookSDK.h */; };
 		A214D2459425482FA098883D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D724DC070B54EA4A3830D2D /* libPods.a */; };
+		BA9C98BA19FAD92500047D58 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA9C98B919FAD92500047D58 /* Main.storyboard */; };
+		BA9C98BD19FADC3000047D58 /* TTFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA9C98BC19FADC3000047D58 /* TTFriendViewController.m */; };
+		BA9C98C019FADCD500047D58 /* TTImageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BA9C98BF19FADCD500047D58 /* TTImageCollectionViewCell.m */; };
 		BAC0327119CB96040062C291 /* TTArtistTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC0327019CB96040062C291 /* TTArtistTableViewController.m */; };
 		BAC0327519CB969E0062C291 /* TTSongTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC0327419CB969E0062C291 /* TTSongTableViewController.m */; };
 		BADD934E19C563B1000E0898 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BADD934D19C563B1000E0898 /* Foundation.framework */; };
@@ -18,7 +21,6 @@
 		BADD935819C563B1000E0898 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BADD935619C563B1000E0898 /* InfoPlist.strings */; };
 		BADD935A19C563B1000E0898 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BADD935919C563B1000E0898 /* main.m */; };
 		BADD935E19C563B1000E0898 /* TTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BADD935D19C563B1000E0898 /* TTAppDelegate.m */; };
-		BADD936119C563B1000E0898 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BADD935F19C563B1000E0898 /* Main.storyboard */; };
 		BADD936919C563B1000E0898 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BADD936819C563B1000E0898 /* Images.xcassets */; };
 		BADD937019C563B1000E0898 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BADD936F19C563B1000E0898 /* XCTest.framework */; };
 		BADD937119C563B1000E0898 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BADD934D19C563B1000E0898 /* Foundation.framework */; };
@@ -56,6 +58,11 @@
 		37DA621019D5A5D600E89387 /* FacebookSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FacebookSDK.h; path = "Pods/Facebook-iOS-SDK/src/FacebookSDK.h"; sourceTree = "<group>"; };
 		37DA621419D5A9FF00E89387 /* libPods-Parse.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-Parse.a"; path = "Pods/build/Debug-iphoneos/libPods-Parse.a"; sourceTree = "<group>"; };
 		B2A758E248BC41D0A9C9A19F /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		BA9C98B919FAD92500047D58 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		BA9C98BB19FADC3000047D58 /* TTFriendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTFriendViewController.h; sourceTree = "<group>"; };
+		BA9C98BC19FADC3000047D58 /* TTFriendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTFriendViewController.m; sourceTree = "<group>"; };
+		BA9C98BE19FADCD500047D58 /* TTImageCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTImageCollectionViewCell.h; sourceTree = "<group>"; };
+		BA9C98BF19FADCD500047D58 /* TTImageCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTImageCollectionViewCell.m; sourceTree = "<group>"; };
 		BAC0326F19CB96040062C291 /* TTArtistTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTArtistTableViewController.h; sourceTree = "<group>"; };
 		BAC0327019CB96040062C291 /* TTArtistTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTArtistTableViewController.m; sourceTree = "<group>"; };
 		BAC0327319CB969E0062C291 /* TTSongTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTSongTableViewController.h; sourceTree = "<group>"; };
@@ -70,7 +77,6 @@
 		BADD935B19C563B1000E0898 /* iMusic-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iMusic-Prefix.pch"; sourceTree = "<group>"; };
 		BADD935C19C563B1000E0898 /* TTAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTAppDelegate.h; sourceTree = "<group>"; };
 		BADD935D19C563B1000E0898 /* TTAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTAppDelegate.m; sourceTree = "<group>"; };
-		BADD936019C563B1000E0898 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BADD936819C563B1000E0898 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		BADD936E19C563B1000E0898 /* iMusicTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iMusicTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BADD936F19C563B1000E0898 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -138,6 +144,17 @@
 			name = Player;
 			sourceTree = "<group>";
 		};
+		BA7F4ED319FACEB800E1577D /* Friends */ = {
+			isa = PBXGroup;
+			children = (
+				BA9C98BB19FADC3000047D58 /* TTFriendViewController.h */,
+				BA9C98BC19FADC3000047D58 /* TTFriendViewController.m */,
+				BA9C98BE19FADCD500047D58 /* TTImageCollectionViewCell.h */,
+				BA9C98BF19FADCD500047D58 /* TTImageCollectionViewCell.m */,
+			);
+			name = Friends;
+			sourceTree = "<group>";
+		};
 		BAC0326E19CB95CF0062C291 /* Artists */ = {
 			isa = PBXGroup;
 			children = (
@@ -195,9 +212,9 @@
 		BADD935319C563B1000E0898 /* iMusic */ = {
 			isa = PBXGroup;
 			children = (
+				BA9C98B919FAD92500047D58 /* Main.storyboard */,
 				BADD935C19C563B1000E0898 /* TTAppDelegate.h */,
 				BADD935D19C563B1000E0898 /* TTAppDelegate.m */,
-				BADD935F19C563B1000E0898 /* Main.storyboard */,
 				37041ABA19EDE70500DE7AA3 /* Player */,
 				BAFA654519C56C0700A7937D /* Login */,
 				E2E9363119E8801300BFE068 /* Albums */,
@@ -207,6 +224,7 @@
 				E257F49E19E81D6F00EF4FBB /* Model */,
 				BADD936819C563B1000E0898 /* Images.xcassets */,
 				BADD935419C563B1000E0898 /* Supporting Files */,
+				BA7F4ED319FACEB800E1577D /* Friends */,
 			);
 			path = iMusic;
 			sourceTree = "<group>";
@@ -374,7 +392,7 @@
 				BADD936919C563B1000E0898 /* Images.xcassets in Resources */,
 				E2E9363019E86A6900BFE068 /* default-artwork.png in Resources */,
 				BADD935819C563B1000E0898 /* InfoPlist.strings in Resources */,
-				BADD936119C563B1000E0898 /* Main.storyboard in Resources */,
+				BA9C98BA19FAD92500047D58 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,6 +449,7 @@
 				BAC0327519CB969E0062C291 /* TTSongTableViewController.m in Sources */,
 				E219457819F3AFAB005C3E56 /* TTAlbumArtistTableViewController.m in Sources */,
 				BAFA654419C56BFE00A7937D /* TTLoginViewController.m in Sources */,
+				BA9C98C019FADCD500047D58 /* TTImageCollectionViewCell.m in Sources */,
 				E2E9363C19E8D1EC00BFE068 /* UIImage+Alpha.m in Sources */,
 				E2E9363D19E8D1EC00BFE068 /* UIImage+Resize.m in Sources */,
 				E219456519F32087005C3E56 /* TTArtistViewCell.m in Sources */,
@@ -439,6 +458,7 @@
 				E219457519F3AF84005C3E56 /* TTAlbumArtistSongViewCell.m in Sources */,
 				E219456819F3653B005C3E56 /* TTArtist.m in Sources */,
 				BAC0327119CB96040062C291 /* TTArtistTableViewController.m in Sources */,
+				BA9C98BD19FADC3000047D58 /* TTFriendViewController.m in Sources */,
 				BADD935A19C563B1000E0898 /* main.m in Sources */,
 				37041AB919EDE70200DE7AA3 /* TTNowPlayingViewController.m in Sources */,
 				E2E9363419E8804200BFE068 /* TTAlbumTableViewController.m in Sources */,
@@ -469,14 +489,6 @@
 				BADD935719C563B1000E0898 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		BADD935F19C563B1000E0898 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BADD936019C563B1000E0898 /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
