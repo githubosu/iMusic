@@ -17,7 +17,7 @@
 
 @property (strong, nonatomic) IBOutlet UILabel *songLabel;
 @property (strong, nonatomic) IBOutlet UILabel *artistLabel;
-@property (strong, nonatomic) IBOutlet UIImage *artwork;
+@property (strong, nonatomic) IBOutlet UIImageView *artwork;
 
 @property (weak, nonatomic) IBOutlet UISlider *durSlider;
 @property (weak, nonatomic) IBOutlet UILabel *durLabel;

@@ -233,6 +233,7 @@
                     <navigationItem key="navigationItem" title="Now Playing" id="Xuc-jK-Few"/>
                     <connections>
                         <outlet property="artistLabel" destination="bnf-2T-iCK" id="qdN-tA-s39"/>
+                        <outlet property="artwork" destination="S3U-Yh-aul" id="9vF-m7-s77"/>
                         <outlet property="curDurLabel" destination="oJf-fe-4dh" id="Cwf-OC-xFS"/>
                         <outlet property="durLabel" destination="pOJ-oW-dW7" id="t9o-qe-tXG"/>
                         <outlet property="durSlider" destination="nKo-sF-EgH" id="hlK-ou-e6N"/>
@@ -242,7 +243,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8ZN-d4-ejd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3063" y="-33"/>
+            <point key="canvasLocation" x="3041" y="-33"/>
         </scene>
         <!--Albums-->
         <scene sceneID="tKs-ce-P8Q">
@@ -582,7 +583,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="k6H-QH-qTm"/>
         <segue reference="wqh-iJ-fb5"/>
+        <segue reference="03h-vI-UZP"/>
     </inferredMetricsTieBreakers>
 </document>

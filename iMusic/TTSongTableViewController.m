@@ -95,7 +95,7 @@
     
     if (itemArtwork != nil) {
         NSLog(@"found art");
-        albumArtworkImage = [itemArtwork imageWithSize:CGSizeMake(256.0f, 256.0f)];
+        albumArtworkImage = [itemArtwork imageWithSize:itemArtwork.bounds.size];
         resizedImage = [albumArtworkImage resizedImage: CGSizeMake(256.0f, 256.0f) interpolationQuality: kCGInterpolationLow];
     }
     

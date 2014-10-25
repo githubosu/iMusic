@@ -27,7 +27,6 @@
     NSLog(@"Player URL: %@", self.currentSong.songURL);
     [self.audioPlayer play];
     [self.playPause setSelected:YES];
-    NSLog(@"%d", self.playPause.selected);
     
     //Display song info and cover art
     if (self.currentSong.songURL != nil) {
@@ -38,8 +37,6 @@
         self.artistLabel.text = @"";
     }
     
-    self.artwork = NULL;
-    
     //Set max value for duration slider
     int songDur = self.currentSong.duration.intValue;
     [self.durSlider setMaximumValue:songDur];
@@ -48,9 +45,21 @@
     self.durLabel.text = [NSString stringWithFormat:@"%02d:%02d", songMins, songSecs];
 
     
-    MPMediaItemArtwork *itemArtwork = self.currentSong.artwork;
-
+    UIImage *albumArtworkImage = NULL;
     UIImage *resizedImage = NULL;
+    MPMediaItemArtwork *itemArtwork = self.currentSong.artwork;
+    
+    if (itemArtwork != nil) {
+        albumArtworkImage = [itemArtwork imageWithSize:itemArtwork.bounds.size];
+        resizedImage = [albumArtworkImage resizedImage: CGSizeMake(256.0f, 256.0f) interpolationQuality: kCGInterpolationLow];
+    }
+    
+    if (albumArtworkImage) {
+        self.artwork.image = resizedImage;
+    } else { // no album artwork
+        //NSLog(@"No ALBUM ARTWORK");
+        self.artwork.image = [[UIImage imageNamed:@"default-artwork.png"] resizedImage: CGSizeMake(256.0f, 256.0f) interpolationQuality: kCGInterpolationLow];
+    }
     
     [self loopPlayer];
 }

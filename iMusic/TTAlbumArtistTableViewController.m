@@ -36,7 +36,7 @@
         MPMediaItemArtwork *itemArtwork = self.album.artwork;
         
         if (itemArtwork != nil) {
-            albumArtworkImage = [itemArtwork imageWithSize:CGSizeMake(256.0f, 256.0f)];
+            albumArtworkImage = [itemArtwork imageWithSize:itemArtwork.bounds.size];
             resizedImage = [albumArtworkImage resizedImage: CGSizeMake(256.0f, 256.0f) interpolationQuality: kCGInterpolationLow];
         }
         
@@ -78,7 +78,7 @@
         MPMediaItemArtwork *itemArtwork = self.artist.artwork;
         
         if (itemArtwork != nil) {
-            artistArtworkImage = [itemArtwork imageWithSize:CGSizeMake(256.0f, 256.0f)];
+            artistArtworkImage = [itemArtwork imageWithSize:itemArtwork.bounds.size];
             resizedImage = [artistArtworkImage resizedImage: CGSizeMake(256.0f, 256.0f) interpolationQuality: kCGInterpolationLow];
         }
         
@@ -195,7 +195,6 @@
         NSIndexPath *songIndexPath = [self.tableView indexPathForSelectedRow];
         
         Player.currentSong = [self.songs objectAtIndex:[songIndexPath row]];
-        NSLog(@"AA song URL: %@",  Player.currentSong.songURL);
     }
 }
 
