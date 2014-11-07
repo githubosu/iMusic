@@ -10,3 +10,5 @@ TODO:
 3.  Play queue (Dan)
 4.  Youtube (??)
 5.  Music Player UI (Dan)
+6.  Settings (??)
+7.  Search (??)
