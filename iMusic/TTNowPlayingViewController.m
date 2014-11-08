@@ -81,6 +81,49 @@
         weakSelf.curDurLabel.text = [NSString stringWithFormat:@"%02d:%02d",curMins,curSecs];
         weakSelf.durSlider.value = curTime;
     }];
+    
+    // Storing data to Parse
+    PFObject *song = [PFObject objectWithClassName:@"Song"];
+    [song setObject:[PFUser currentUser] forKey:@"user"];
+    [song setObject:self.currentSong.songTitle forKey:@"title"];
+    [song setObject:self.currentSong.album forKey:@"album"];
+    [song setObject:self.currentSong.artist forKey:@"artist"];
+    UIImage *albumArtworkImage = NULL;
+    UIImage *resizedImage = NULL;
+    MPMediaItemArtwork *itemArtwork = [self.currentSong artwork];
+    
+    if (itemArtwork != nil) {
+        NSLog(@"found art");
+        albumArtworkImage = [itemArtwork imageWithSize:itemArtwork.bounds.size];
+        resizedImage = [albumArtworkImage resizedImage: CGSizeMake(256.0f, 256.0f) interpolationQuality: kCGInterpolationLow];
+    }
+    
+    if (albumArtworkImage) {
+        NSData *imageData = UIImageJPEGRepresentation(resizedImage, 0.8);
+        // Save artwork image in Parse
+        PFFile *photoFile = [PFFile fileWithData:imageData];
+        [photoFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if (succeeded) {
+                NSLog(@"Artwork saved");
+                
+                [song setObject:photoFile forKey:@"artwork"];
+                [song saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                    if (succeeded) {
+                        NSLog(@"Song saved successfully");
+                    }
+                }];
+            }
+        }];
+    } else { // no album artwork
+        NSLog(@"No ALBUM ARTWORK");
+        /*cell.imageView.image = [[UIImage imageNamed:@"default-artwork.png"] resizedImage: CGSizeMake(256.0f, 256.0f) interpolationQuality: kCGInterpolationLow];*/
+        [song saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if (succeeded) {
+                NSLog(@"Song saved successfully");
+            }
+        }];
+    }
+
 }
 
 - (void)didReceiveMemoryWarning {
