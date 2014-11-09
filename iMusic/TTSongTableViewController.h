@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 @import MediaPlayer;
-@interface TTSongTableViewController : UITableViewController
+@interface TTSongTableViewController : UITableViewController<UISearchDisplayDelegate, UISearchBarDelegate>
+@property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
 
 @end

@@ -52,13 +52,13 @@
  */
 
 
-//-(void)viewDidAppear:(BOOL)animated
-//{
-//    if ([PFUser currentUser] && [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) {
-//        [self updateUserInformation];
-//        [self performSegueWithIdentifier:@"loginToTabBarSegue" sender:self];
-//    }
-//}
+-(void)viewDidAppear:(BOOL)animated
+{
+    if ([PFUser currentUser] && [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) {
+        [self updateUserInformation];
+        [self performSegueWithIdentifier:@"loginToTabBarSegue" sender:self];
+    }
+}
 
 #pragma mark - IBActions
 - (IBAction)loginButtonPressed:(UIButton *)sender

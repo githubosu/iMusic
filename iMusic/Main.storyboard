@@ -68,11 +68,12 @@
                         <segue destination="ljO-10-HKh" kind="relationship" relationship="viewControllers" id="SD4-Eo-rOX"/>
                         <segue destination="fS6-yS-bdP" kind="relationship" relationship="viewControllers" id="WR3-Qu-enY"/>
                         <segue destination="06I-Bq-ian" kind="relationship" relationship="viewControllers" id="CaC-lZ-kgO"/>
+                        <segue destination="ZuD-Ro-e12" kind="relationship" relationship="viewControllers" id="Tnb-uJ-QeP"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FNP-y4-bzi" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="632" y="180"/>
+            <point key="canvasLocation" x="668" y="180"/>
         </scene>
         <!--Artists-->
         <scene sceneID="kWl-nx-61r">
@@ -138,8 +139,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="sectionIndexBackgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search Songs" id="OQJ-uu-Ee7">
+                            <rect key="frame" x="0.0" y="64" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="ell-k3-rhm" id="ze7-dt-8Os"/>
+                            </connections>
+                        </searchBar>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Song Cell" textLabel="Qwv-z2-Q8z" style="IBUITableViewCellStyleDefault" id="kbR-vJ-yjC">
+                            <tableViewCell tag="1" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Song Cell" textLabel="Qwv-z2-Q8z" style="IBUITableViewCellStyleDefault" id="kbR-vJ-yjC">
                                 <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kbR-vJ-yjC" id="1nX-pe-06l">
@@ -166,8 +175,21 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Songs" id="Y4B-wH-f5X"/>
+                    <connections>
+                        <outlet property="searchBar" destination="OQJ-uu-Ee7" id="FqC-og-xb2"/>
+                        <outlet property="searchDisplayController" destination="y9j-jN-5r5" id="vto-Vn-Dda"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fr9-xw-Kcc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="y9j-jN-5r5">
+                    <connections>
+                        <outlet property="delegate" destination="ell-k3-rhm" id="xGO-td-t32"/>
+                        <outlet property="searchBar" destination="OQJ-uu-Ee7" id="9TO-qU-C0y"/>
+                        <outlet property="searchContentsController" destination="ell-k3-rhm" id="p0U-td-Nnw"/>
+                        <outlet property="searchResultsDataSource" destination="ell-k3-rhm" id="jre-hp-nBp"/>
+                        <outlet property="searchResultsDelegate" destination="ell-k3-rhm" id="xGi-gO-bEd"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="1638" y="-33"/>
         </scene>
@@ -375,6 +397,53 @@
             </objects>
             <point key="canvasLocation" x="2301" y="72"/>
         </scene>
+        <!--Playlist Table View Controller-->
+        <scene sceneID="uRI-iL-Z3h">
+            <objects>
+                <tableViewController id="EF6-1N-hJX" customClass="TTPlaylistTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="87S-yu-tgm">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="playlistCell" textLabel="wgk-UG-xgW" detailTextLabel="27j-Ou-k9J" style="IBUITableViewCellStyleSubtitle" id="MmM-4q-yZg">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MmM-4q-yZg" id="Ewc-aQ-7Ig">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wgk-UG-xgW">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="27j-Ou-k9J">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="EF6-1N-hJX" id="MeZ-W5-E5y"/>
+                            <outlet property="delegate" destination="EF6-1N-hJX" id="HNU-UA-tfp"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="Fzd-tq-d6l">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="8Lz-a2-zhM">
+                            <connections>
+                                <action selector="addPlaylist:" destination="EF6-1N-hJX" id="efo-b6-2fK"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VjO-pN-xp7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="162" y="920"/>
+        </scene>
         <!--Friends-->
         <scene sceneID="V8m-GS-25Z">
             <objects>
@@ -438,7 +507,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DPs-EP-Y1W" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="632" y="1525"/>
+            <point key="canvasLocation" x="1164" y="1525"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="Kb6-xg-GFB">
@@ -465,7 +534,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f3i-SB-h4H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1023" y="1525"/>
+            <point key="canvasLocation" x="1555" y="1525"/>
         </scene>
         <!--Albums-->
         <scene sceneID="feI-Rr-pTx">
@@ -555,7 +624,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Pe-9Q-8G2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2608" y="756"/>
+            <point key="canvasLocation" x="3140" y="756"/>
         </scene>
         <!--Friends-->
         <scene sceneID="DPt-4X-B2n">
@@ -574,7 +643,26 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uDw-0I-agT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="632" y="869"/>
+            <point key="canvasLocation" x="1164" y="869"/>
+        </scene>
+        <!--Playlists-->
+        <scene sceneID="dpc-7O-h7h">
+            <objects>
+                <navigationController title="Playlists" automaticallyAdjustsScrollViewInsets="NO" id="ZuD-Ro-e12" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Playlists" id="ShR-bc-RQe"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wW9-Ae-EGi">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="EF6-1N-hJX" kind="relationship" relationship="rootViewController" id="oNP-9i-UCc"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Wp-yy-XPN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-370" y="920"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -583,7 +671,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="wqh-iJ-fb5"/>
-        <segue reference="03h-vI-UZP"/>
+        <segue reference="iPB-rK-NMc"/>
+        <segue reference="k6H-QH-qTm"/>
     </inferredMetricsTieBreakers>
 </document>
