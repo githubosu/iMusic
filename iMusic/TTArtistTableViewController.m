@@ -238,7 +238,11 @@
         //NSLog(@"Inside segue.");
         TTAlbumArtistTableViewController *vc = (TTAlbumArtistTableViewController *)[segue destinationViewController];
         NSIndexPath *path = [self.tableView indexPathForSelectedRow];
-        vc.artist = [self.artists objectAtIndex:path.row];
+        //songIndexPath = [self.tableView indexPathForSelectedRow];
+        NSString *sectionTitle = [self.artistSectionTitle objectAtIndex:path.section];
+        NSArray *artistSongs = [self.artistIndex objectForKey:sectionTitle];
+
+        vc.artist = [artistSongs objectAtIndex:path.row];
     }}
 
 

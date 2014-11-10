@@ -58,7 +58,18 @@
                 TTSong *song = [[TTSong alloc] init];
                 song.album = [item valueForProperty:MPMediaItemPropertyAlbumTitle];
                 song.artist = [item valueForProperty:MPMediaItemPropertyArtist];
-                song.artwork = [item valueForProperty:MPMediaItemPropertyArtwork];
+                UIImage *songArtworkImage = NULL;
+                MPMediaItemArtwork *itemArtwork = [item valueForProperty:MPMediaItemPropertyArtwork];
+                if (itemArtwork != nil) {
+                    songArtworkImage = [itemArtwork imageWithSize:itemArtwork.bounds.size];
+                }
+                if (songArtworkImage) {
+                    song.artwork = itemArtwork;
+                } else { // no song artwork
+                    //NSLog(@"No ALBUM ARTWORK");
+                    song.artwork = self.album.artwork;
+                }
+                //song.artwork = [item valueForProperty:MPMediaItemPropertyArtwork];
                 song.songTitle = [item valueForProperty:MPMediaItemPropertyTitle];
                 song.duration = [item valueForProperty:MPMediaItemPropertyPlaybackDuration];
                 song.songURL = [item valueForProperty:MPMediaItemPropertyAssetURL];
@@ -100,7 +111,18 @@
                 TTSong *song = [[TTSong alloc] init];
                 song.album = [item valueForProperty:MPMediaItemPropertyAlbumTitle];
                 song.artist = [item valueForProperty:MPMediaItemPropertyArtist];
-                song.artwork = [item valueForProperty:MPMediaItemPropertyArtwork];
+                UIImage *songArtworkImage = NULL;
+                MPMediaItemArtwork *itemArtwork = [item valueForProperty:MPMediaItemPropertyArtwork];
+                if (itemArtwork != nil) {
+                    songArtworkImage = [itemArtwork imageWithSize:itemArtwork.bounds.size];
+                }
+                if (songArtworkImage) {
+                    song.artwork = itemArtwork;
+                } else { // no song artwork
+                    //NSLog(@"No ALBUM ARTWORK");
+                    song.artwork = self.artist.artwork;
+                }
+                //song.artwork = [item valueForProperty:MPMediaItemPropertyArtwork];
                 song.songTitle = [item valueForProperty:MPMediaItemPropertyTitle];
                 song.duration = [item valueForProperty:MPMediaItemPropertyPlaybackDuration];
                 song.songURL = [item valueForProperty:MPMediaItemPropertyAssetURL];

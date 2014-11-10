@@ -88,6 +88,16 @@
     [song setObject:self.currentSong.songTitle forKey:@"title"];
     [song setObject:self.currentSong.album forKey:@"album"];
     [song setObject:self.currentSong.artist forKey:@"artist"];
+    // Get FbId
+    FBRequest *request =[FBRequest requestForMe];
+    [request startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+        if (!error) {
+            NSDictionary *userDictionary = (NSDictionary *)result;
+            NSString *facebookID = userDictionary[@"id"];
+            NSLog(@"FB ID: %@", facebookID);
+            [song setObject:facebookID forKey:@"fbId"];
+        }
+    }];
     UIImage *albumArtworkImage = NULL;
     UIImage *resizedImage = NULL;
     MPMediaItemArtwork *itemArtwork = [self.currentSong artwork];
