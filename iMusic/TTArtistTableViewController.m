@@ -12,6 +12,9 @@
 #import "UIImage+Resize.h"
 @interface TTArtistTableViewController ()
 @property (nonatomic, strong) NSMutableArray *artists;
+@property (nonatomic, strong) NSMutableDictionary *artistIndex;
+@property (nonatomic, strong) NSString *letters;
+@property (nonatomic, strong) NSMutableArray *artistSectionTitle;
 @end
 
 @implementation TTArtistTableViewController
@@ -30,6 +33,27 @@
         _artists = [[NSMutableArray alloc]init];
     }
     return _artists;
+}
+
+- (NSMutableDictionary *) artistIndex {
+    if(!_artistIndex) {
+        _artistIndex = [[NSMutableDictionary alloc]init];
+    }
+    return _artistIndex;
+}
+
+- (NSMutableArray *) artistSectionTitle {
+    if(!_artistSectionTitle) {
+        _artistSectionTitle = [[NSMutableArray alloc]init];
+    }
+    return _artistSectionTitle;
+}
+
+- (NSString *) letters {
+    if(!_letters) {
+        _letters = @"ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    }
+    return _letters;
 }
 
 - (void)viewDidLoad
@@ -66,8 +90,29 @@
         artist.artwork = [item valueForProperty:MPMediaItemPropertyArtwork];
         artist.artistPersistentId = [item valueForProperty:MPMediaItemPropertyArtistPersistentID];
         [self.artists addObject:artist];
+        // Add artist title to the dictionary for indexed list
+        unichar c = [[artist.artistTitle uppercaseString] characterAtIndex:0];
+        NSCharacterSet *charSet = [NSCharacterSet characterSetWithCharactersInString:self.letters];
+        NSString *key = @"";
+        if ([charSet characterIsMember:c]) {
+            key = [NSString stringWithFormat:@"%C",c];
+        } else {
+            key = @"#";
+        }
+        NSMutableArray *tempArray = [self.artistIndex valueForKey:key];
+        if([tempArray count] > 0) {
+            [tempArray addObject:artist];
+        } else {
+            tempArray = [[NSMutableArray alloc] init];
+            [tempArray addObject:artist];
+        }
+        [self.artistIndex setValue:tempArray forKey:key];
     }
-    
+    NSLog(@"Dictionary...");
+    NSLog(@"%@", self.artistIndex);
+    self.artistSectionTitle = [NSMutableArray arrayWithArray:[[self.artistIndex allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)]];
+    NSLog(@"Song Section Title...");
+    NSLog(@"%@", self.artistSectionTitle);
 }
 
 - (void)didReceiveMemoryWarning
@@ -81,13 +126,25 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 1;
+    return [self.artistSectionTitle count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [self.artists count];
+    NSString *sectionTitle = [self.artistSectionTitle objectAtIndex:section];
+    NSArray *sectionSongs = [self.artistIndex objectForKey:sectionTitle];
+    return [sectionSongs count];
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return [self.artistSectionTitle objectAtIndex:section];
+}
+
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
+{
+    return self.artistSectionTitle;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -99,7 +156,11 @@
         //cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
         cell = [[TTArtistViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
-    TTArtist *artist = [self.artists objectAtIndex:indexPath.row];
+    //TTArtist *artist = [self.artists objectAtIndex:indexPath.row];
+    NSString *sectionTitle = [self.artistSectionTitle objectAtIndex:indexPath.section];
+    NSArray *sectionSongs = [self.artistIndex objectForKey:sectionTitle];
+    TTArtist *artist = [sectionSongs objectAtIndex:indexPath.row];
+    
     UIImage *albumArtworkImage = NULL;
     UIImage *resizedImage = NULL;
     MPMediaItemArtwork *itemArtwork = artist.artwork;

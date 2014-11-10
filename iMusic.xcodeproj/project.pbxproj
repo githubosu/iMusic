@@ -39,6 +39,9 @@
 		E2E9363C19E8D1EC00BFE068 /* UIImage+Alpha.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E9363719E8D1EC00BFE068 /* UIImage+Alpha.m */; };
 		E2E9363D19E8D1EC00BFE068 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E9363919E8D1EC00BFE068 /* UIImage+Resize.m */; };
 		E2E9363E19E8D1EC00BFE068 /* UIImage+RoundedCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E9363B19E8D1EC00BFE068 /* UIImage+RoundedCorner.m */; };
+		E2F13E6E1A0DE22E00D6A6FE /* Data.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E2F13E6C1A0DE22E00D6A6FE /* Data.xcdatamodeld */; };
+		E2F13E701A0E022F00D6A6FE /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2F13E6F1A0E022F00D6A6FE /* CoreData.framework */; };
+		E2F13E731A0E0E6000D6A6FE /* TTPlaylistTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F13E721A0E0E6000D6A6FE /* TTPlaylistTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +109,10 @@
 		E2E9363919E8D1EC00BFE068 /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
 		E2E9363A19E8D1EC00BFE068 /* UIImage+RoundedCorner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+RoundedCorner.h"; sourceTree = "<group>"; };
 		E2E9363B19E8D1EC00BFE068 /* UIImage+RoundedCorner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+RoundedCorner.m"; sourceTree = "<group>"; };
+		E2F13E6D1A0DE22E00D6A6FE /* Data.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Data.xcdatamodel; sourceTree = "<group>"; };
+		E2F13E6F1A0E022F00D6A6FE /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		E2F13E711A0E0E6000D6A6FE /* TTPlaylistTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTPlaylistTableViewController.h; path = ../TTPlaylistTableViewController.h; sourceTree = "<group>"; };
+		E2F13E721A0E0E6000D6A6FE /* TTPlaylistTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTPlaylistTableViewController.m; path = ../TTPlaylistTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +120,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2F13E701A0E022F00D6A6FE /* CoreData.framework in Frameworks */,
 				37DA621119D5A5D600E89387 /* FacebookSDK.h in Frameworks */,
 				BADD935019C563B1000E0898 /* CoreGraphics.framework in Frameworks */,
 				BADD935219C563B1000E0898 /* UIKit.framework in Frameworks */,
@@ -197,6 +205,7 @@
 		BADD934C19C563B1000E0898 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E2F13E6F1A0E022F00D6A6FE /* CoreData.framework */,
 				37DA621419D5A9FF00E89387 /* libPods-Parse.a */,
 				37DA621019D5A5D600E89387 /* FacebookSDK.h */,
 				BAFA654619C576C800A7937D /* ParseFacebookUtils.framework */,
@@ -212,6 +221,7 @@
 		BADD935319C563B1000E0898 /* iMusic */ = {
 			isa = PBXGroup;
 			children = (
+				E2F13E6C1A0DE22E00D6A6FE /* Data.xcdatamodeld */,
 				BA9C98B919FAD92500047D58 /* Main.storyboard */,
 				BADD935C19C563B1000E0898 /* TTAppDelegate.h */,
 				BADD935D19C563B1000E0898 /* TTAppDelegate.m */,
@@ -221,6 +231,7 @@
 				BAC0326E19CB95CF0062C291 /* Artists */,
 				E219457219F3AF2B005C3E56 /* AlbumsArtists */,
 				BAC0327219CB96720062C291 /* Songs */,
+				E2F13E741A0E0E6D00D6A6FE /* Playlists */,
 				E257F49E19E81D6F00EF4FBB /* Model */,
 				BADD936819C563B1000E0898 /* Images.xcassets */,
 				BADD935419C563B1000E0898 /* Supporting Files */,
@@ -305,6 +316,15 @@
 				E2E9363B19E8D1EC00BFE068 /* UIImage+RoundedCorner.m */,
 			);
 			name = UIImageResize;
+			sourceTree = "<group>";
+		};
+		E2F13E741A0E0E6D00D6A6FE /* Playlists */ = {
+			isa = PBXGroup;
+			children = (
+				E2F13E711A0E0E6000D6A6FE /* TTPlaylistTableViewController.h */,
+				E2F13E721A0E0E6000D6A6FE /* TTPlaylistTableViewController.m */,
+			);
+			name = Playlists;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -450,6 +470,7 @@
 				E219457819F3AFAB005C3E56 /* TTAlbumArtistTableViewController.m in Sources */,
 				BAFA654419C56BFE00A7937D /* TTLoginViewController.m in Sources */,
 				BA9C98C019FADCD500047D58 /* TTImageCollectionViewCell.m in Sources */,
+				E2F13E6E1A0DE22E00D6A6FE /* Data.xcdatamodeld in Sources */,
 				E2E9363C19E8D1EC00BFE068 /* UIImage+Alpha.m in Sources */,
 				E2E9363D19E8D1EC00BFE068 /* UIImage+Resize.m in Sources */,
 				E219456519F32087005C3E56 /* TTArtistViewCell.m in Sources */,
@@ -459,6 +480,7 @@
 				E219456819F3653B005C3E56 /* TTArtist.m in Sources */,
 				BAC0327119CB96040062C291 /* TTArtistTableViewController.m in Sources */,
 				BA9C98BD19FADC3000047D58 /* TTFriendViewController.m in Sources */,
+				E2F13E731A0E0E6000D6A6FE /* TTPlaylistTableViewController.m in Sources */,
 				BADD935A19C563B1000E0898 /* main.m in Sources */,
 				37041AB919EDE70200DE7AA3 /* TTNowPlayingViewController.m in Sources */,
 				E2E9363419E8804200BFE068 /* TTAlbumTableViewController.m in Sources */,
@@ -689,6 +711,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E2F13E6C1A0DE22E00D6A6FE /* Data.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E2F13E6D1A0DE22E00D6A6FE /* Data.xcdatamodel */,
+			);
+			currentVersion = E2F13E6D1A0DE22E00D6A6FE /* Data.xcdatamodel */;
+			path = Data.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = BADD934219C563B1000E0898 /* Project object */;
 }

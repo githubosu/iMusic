@@ -11,6 +11,9 @@
 #import "UIImage+Resize.h"
 @interface TTAlbumTableViewController ()
 @property (nonatomic, strong) NSMutableArray *albums;
+@property (nonatomic, strong) NSMutableDictionary *albumIndex;
+@property (nonatomic, strong) NSString *letters;
+@property (nonatomic, strong) NSMutableArray *albumSectionTitle;
 @end
 
 @implementation TTAlbumTableViewController
@@ -29,6 +32,27 @@
         _albums = [[NSMutableArray alloc]init];
     }
     return _albums;
+}
+
+- (NSMutableDictionary *) albumIndex {
+    if(!_albumIndex) {
+        _albumIndex = [[NSMutableDictionary alloc]init];
+    }
+    return _albumIndex;
+}
+
+- (NSMutableArray *) albumSectionTitle {
+    if(!_albumSectionTitle) {
+        _albumSectionTitle = [[NSMutableArray alloc]init];
+    }
+    return _albumSectionTitle;
+}
+
+- (NSString *) letters {
+    if(!_letters) {
+        _letters = @"ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    }
+    return _letters;
 }
 
 - (void)viewDidLoad {
@@ -57,7 +81,29 @@
         album.songCount = songCount;
         album.duration = duration;
         [self.albums addObject:album];
+        // Add album title to the dictionary for indexed list
+        unichar c = [[album.albumTitle uppercaseString] characterAtIndex:0];
+        NSCharacterSet *charSet = [NSCharacterSet characterSetWithCharactersInString:self.letters];
+        NSString *key = @"";
+        if ([charSet characterIsMember:c]) {
+            key = [NSString stringWithFormat:@"%C",c];
+        } else {
+            key = @"#";
+        }
+        NSMutableArray *tempArray = [self.albumIndex valueForKey:key];
+        if([tempArray count] > 0) {
+            [tempArray addObject:album];
+        } else {
+            tempArray = [[NSMutableArray alloc] init];
+            [tempArray addObject:album];
+        }
+        [self.albumIndex setValue:tempArray forKey:key];
     }
+    NSLog(@"Dictionary...");
+    NSLog(@"%@", self.albumIndex);
+    self.albumSectionTitle = [NSMutableArray arrayWithArray:[[self.albumIndex allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)]];
+    NSLog(@"Song Section Title...");
+    NSLog(@"%@", self.albumSectionTitle);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -67,14 +113,28 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
     // Return the number of sections.
-    return 1;
+    return [self.albumSectionTitle count];
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
     // Return the number of rows in the section.
-    return [self.albums count];
+    NSString *sectionTitle = [self.albumSectionTitle objectAtIndex:section];
+    NSArray *sectionSongs = [self.albumIndex objectForKey:sectionTitle];
+    return [sectionSongs count];
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return [self.albumSectionTitle objectAtIndex:section];
+}
+
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
+{
+    return self.albumSectionTitle;
 }
 
 
@@ -89,7 +149,11 @@
     
     UIImage *albumArtworkImage = NULL;
     UIImage *resizedImage = NULL;
-    TTAlbum *album = [self.albums objectAtIndex:indexPath.row];
+    //TTAlbum *album = [self.albums objectAtIndex:indexPath.row];
+    NSString *sectionTitle = [self.albumSectionTitle objectAtIndex:indexPath.section];
+    NSArray *sectionSongs = [self.albumIndex objectForKey:sectionTitle];
+    TTAlbum *album = [sectionSongs objectAtIndex:indexPath.row];
+    
     MPMediaItemArtwork *itemArtwork = album.artwork;
     
     if (itemArtwork != nil) {
