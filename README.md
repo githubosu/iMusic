@@ -11,4 +11,5 @@ TODO:
 4.  Youtube (??)
 5.  Music Player UI (Dan)
 6.  Settings (??)
-7.  Search (??)
+7.  Search (Vivek)
+8.  Shake to shuffle (??)
