@@ -22,6 +22,8 @@
     
     [PFFacebookUtils initializeFacebook];
     
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+    
     return YES;
 }
 
