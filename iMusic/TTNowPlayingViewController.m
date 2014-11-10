@@ -50,6 +50,7 @@
     MPMediaItemArtwork *itemArtwork = self.currentSong.artwork;
     
     if (itemArtwork != nil) {
+        NSLog(@"found artwork");
         albumArtworkImage = [itemArtwork imageWithSize:itemArtwork.bounds.size];
         resizedImage = [albumArtworkImage resizedImage: CGSizeMake(256.0f, 256.0f) interpolationQuality: kCGInterpolationLow];
     }
@@ -88,18 +89,18 @@
     [song setObject:self.currentSong.songTitle forKey:@"title"];
     [song setObject:self.currentSong.album forKey:@"album"];
     [song setObject:self.currentSong.artist forKey:@"artist"];
-    UIImage *albumArtworkImage = NULL;
-    UIImage *resizedImage = NULL;
-    MPMediaItemArtwork *itemArtwork = [self.currentSong artwork];
+    UIImage *albumArtImage = NULL;
+    UIImage *resizedArt = NULL;
+    MPMediaItemArtwork *itemArt = [self.currentSong artwork];
     
-    if (itemArtwork != nil) {
+    if (itemArt != nil) {
         NSLog(@"found art");
-        albumArtworkImage = [itemArtwork imageWithSize:itemArtwork.bounds.size];
-        resizedImage = [albumArtworkImage resizedImage: CGSizeMake(256.0f, 256.0f) interpolationQuality: kCGInterpolationLow];
+        albumArtImage = [itemArt imageWithSize:itemArt.bounds.size];
+        resizedArt = [albumArtImage resizedImage: CGSizeMake(256.0f, 256.0f) interpolationQuality: kCGInterpolationLow];
     }
     
-    if (albumArtworkImage) {
-        NSData *imageData = UIImageJPEGRepresentation(resizedImage, 0.8);
+    if (albumArtImage) {
+        NSData *imageData = UIImageJPEGRepresentation(resizedArt, 0.8);
         // Save artwork image in Parse
         PFFile *photoFile = [PFFile fileWithData:imageData];
         [photoFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
