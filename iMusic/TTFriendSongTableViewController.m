@@ -23,7 +23,7 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    NSLog(@"%@",self.friendUser[@"fbId"]);
+    //NSLog(@"%@",self.friendUser[@"fbId"]);
     PFQuery *query = [PFQuery queryWithClassName:@"Song"];
     [query whereKey:@"fbId" equalTo:self.friendUser[@"fbId"]];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
@@ -63,15 +63,16 @@
     
     // Configure the cell...
     PFObject *imageObject = [self.songArray objectAtIndex:indexPath.row];
-    NSLog(@"%@", imageObject);
+    //NSLog(@"%@", imageObject);
     PFFile *imageFile = [imageObject objectForKey:@"artwork"];
-    NSLog(@"%@", imageFile);
+   //NSLog(@"%@", imageFile);
     
     [imageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
         if (!error) {
             cell.albumArtworkImage.image = [UIImage imageWithData:data];
             cell.songLabel.text = imageObject[@"title"];
-            cell.albumLabel.text = imageObject[@"artist"];
+            cell.albumLabel.text = imageObject[@"album"];
+            cell.artistLabel.text = imageObject[@"artist"];
         }
     }];
     

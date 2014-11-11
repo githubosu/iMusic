@@ -12,5 +12,6 @@
 @property (strong, nonatomic) IBOutlet UIImageView *albumArtworkImage;
 @property (strong, nonatomic) IBOutlet UILabel *songLabel;
 @property (strong, nonatomic) IBOutlet UILabel *albumLabel;
+@property (strong, nonatomic) IBOutlet UILabel *artistLabel;
 
 @end

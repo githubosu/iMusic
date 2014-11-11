@@ -167,6 +167,7 @@
 				BA6779F61A125C0F00193CDB /* TTFriendSongTableViewCell.m */,
 			);
 			name = "Friend Song";
+			path = iMusic;
 			sourceTree = "<group>";
 		};
 		BA7F4ED319FACEB800E1577D /* Friends */ = {
@@ -204,6 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				BADD935319C563B1000E0898 /* iMusic */,
+				BA6779F81A1270CB00193CDB /* Friend Song */,
 				BADD934C19C563B1000E0898 /* Frameworks */,
 				BADD934B19C563B1000E0898 /* Products */,
 				B2A758E248BC41D0A9C9A19F /* Pods.xcconfig */,
@@ -238,7 +240,6 @@
 		BADD935319C563B1000E0898 /* iMusic */ = {
 			isa = PBXGroup;
 			children = (
-				BA6779F81A1270CB00193CDB /* Friend Song */,
 				E2F13E6C1A0DE22E00D6A6FE /* Data.xcdatamodeld */,
 				BA9C98B919FAD92500047D58 /* Main.storyboard */,
 				BADD935C19C563B1000E0898 /* TTAppDelegate.h */,

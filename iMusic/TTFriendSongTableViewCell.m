@@ -12,6 +12,7 @@
 @synthesize albumArtworkImage;
 @synthesize songLabel;
 @synthesize albumLabel;
+@synthesize artistLabel;
 
 - (void)awakeFromNib {
     // Initialization code
