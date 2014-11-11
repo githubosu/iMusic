@@ -7,6 +7,7 @@
 //
 
 #import "TTFriendViewController.h"
+#import "TTFriendSongTableViewController.h"
 
 @interface TTFriendViewController ()
 @property (strong, nonatomic) NSArray *friendObjects;
@@ -51,15 +52,21 @@
     }];
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"FriendToSongSegue"]) {
+        TTImageCollectionViewCell *cell = (TTImageCollectionViewCell *)sender;
+        NSIndexPath *indexPath = [self.imagesCollection indexPathForCell:cell];
+        TTFriendSongTableViewController *destViewController = segue.destinationViewController;
+        destViewController.friendUser = self.friendUsers[indexPath.row];
+    };
 }
-*/
+
 
 #pragma mark <UICollectionViewDataSource>
 
