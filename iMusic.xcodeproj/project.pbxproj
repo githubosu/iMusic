@@ -10,6 +10,8 @@
 		37041AB919EDE70200DE7AA3 /* TTNowPlayingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37041AB819EDE70200DE7AA3 /* TTNowPlayingViewController.m */; };
 		37DA621119D5A5D600E89387 /* FacebookSDK.h in Frameworks */ = {isa = PBXBuildFile; fileRef = 37DA621019D5A5D600E89387 /* FacebookSDK.h */; };
 		A214D2459425482FA098883D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D724DC070B54EA4A3830D2D /* libPods.a */; };
+		BA6779F41A117DFE00193CDB /* TTFriendSongTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA6779F31A117DFE00193CDB /* TTFriendSongTableViewController.m */; };
+		BA6779F71A125C0F00193CDB /* TTFriendSongTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BA6779F61A125C0F00193CDB /* TTFriendSongTableViewCell.m */; };
 		BA9C98BA19FAD92500047D58 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA9C98B919FAD92500047D58 /* Main.storyboard */; };
 		BA9C98BD19FADC3000047D58 /* TTFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA9C98BC19FADC3000047D58 /* TTFriendViewController.m */; };
 		BA9C98C019FADCD500047D58 /* TTImageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BA9C98BF19FADCD500047D58 /* TTImageCollectionViewCell.m */; };
@@ -61,6 +63,10 @@
 		37DA621019D5A5D600E89387 /* FacebookSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FacebookSDK.h; path = "Pods/Facebook-iOS-SDK/src/FacebookSDK.h"; sourceTree = "<group>"; };
 		37DA621419D5A9FF00E89387 /* libPods-Parse.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-Parse.a"; path = "Pods/build/Debug-iphoneos/libPods-Parse.a"; sourceTree = "<group>"; };
 		B2A758E248BC41D0A9C9A19F /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		BA6779F21A117DFE00193CDB /* TTFriendSongTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTFriendSongTableViewController.h; sourceTree = "<group>"; };
+		BA6779F31A117DFE00193CDB /* TTFriendSongTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTFriendSongTableViewController.m; sourceTree = "<group>"; };
+		BA6779F51A125C0F00193CDB /* TTFriendSongTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTFriendSongTableViewCell.h; sourceTree = "<group>"; };
+		BA6779F61A125C0F00193CDB /* TTFriendSongTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTFriendSongTableViewCell.m; sourceTree = "<group>"; };
 		BA9C98B919FAD92500047D58 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		BA9C98BB19FADC3000047D58 /* TTFriendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTFriendViewController.h; sourceTree = "<group>"; };
 		BA9C98BC19FADC3000047D58 /* TTFriendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTFriendViewController.m; sourceTree = "<group>"; };
@@ -152,6 +158,18 @@
 			name = Player;
 			sourceTree = "<group>";
 		};
+		BA6779F81A1270CB00193CDB /* Friend Song */ = {
+			isa = PBXGroup;
+			children = (
+				BA6779F21A117DFE00193CDB /* TTFriendSongTableViewController.h */,
+				BA6779F31A117DFE00193CDB /* TTFriendSongTableViewController.m */,
+				BA6779F51A125C0F00193CDB /* TTFriendSongTableViewCell.h */,
+				BA6779F61A125C0F00193CDB /* TTFriendSongTableViewCell.m */,
+			);
+			name = "Friend Song";
+			path = iMusic;
+			sourceTree = "<group>";
+		};
 		BA7F4ED319FACEB800E1577D /* Friends */ = {
 			isa = PBXGroup;
 			children = (
@@ -187,6 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				BADD935319C563B1000E0898 /* iMusic */,
+				BA6779F81A1270CB00193CDB /* Friend Song */,
 				BADD934C19C563B1000E0898 /* Frameworks */,
 				BADD934B19C563B1000E0898 /* Products */,
 				B2A758E248BC41D0A9C9A19F /* Pods.xcconfig */,
@@ -463,6 +482,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA6779F41A117DFE00193CDB /* TTFriendSongTableViewController.m in Sources */,
 				E219457119F39B96005C3E56 /* TTAlbumViewCell.m in Sources */,
 				E257F4A119E81E9100EF4FBB /* TTSong.m in Sources */,
 				BADD935E19C563B1000E0898 /* TTAppDelegate.m in Sources */,
@@ -474,6 +494,7 @@
 				E2E9363C19E8D1EC00BFE068 /* UIImage+Alpha.m in Sources */,
 				E2E9363D19E8D1EC00BFE068 /* UIImage+Resize.m in Sources */,
 				E219456519F32087005C3E56 /* TTArtistViewCell.m in Sources */,
+				BA6779F71A125C0F00193CDB /* TTFriendSongTableViewCell.m in Sources */,
 				E2E9363E19E8D1EC00BFE068 /* UIImage+RoundedCorner.m in Sources */,
 				E219456B19F39A8C005C3E56 /* TTAlbum.m in Sources */,
 				E219457519F3AF84005C3E56 /* TTAlbumArtistSongViewCell.m in Sources */,
