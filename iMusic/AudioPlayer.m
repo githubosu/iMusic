@@ -1,6 +1,3 @@
-//  An audio player developed using a singleton pattern to prevent overlapping playback
-//  from multiple AVPlayer instances
-//
 //  AudioPlayer.m
 //  iMusic
 //
@@ -16,8 +13,9 @@
 + (id)getPlayer {
     static AudioPlayer *instance = nil;
     @synchronized(self) {
-        if (instance == nil)
-    instance = [[self alloc] init];
+        if (instance == nil) {
+            instance = [[self alloc] init];
+        }
     }
     return instance;
 }
@@ -31,12 +29,51 @@
 
 // Enqueue a new song
 - (void) enqueue: (TTSong*) song {
-    [_songQueue insertObject: song atIndex: [_songQueue count]];
+    [_songQueue addObject: song];
 }
 
-// Clear play queue
-- (void) clearQueue {
-    [_musicPlayer removeAllItems];
+// Set player queue from given array
+- (void) setQueue:(NSArray*)songs {
+    _songQueue = [[NSMutableArray alloc] initWithArray:songs];
+}
+
+// Set the index to desired value
+- (void) setIndex:(int) index {
+    _index = index;
+}
+
+//Get current song
+- (TTSong*) nowPlaying {
+    return [_songQueue objectAtIndex: _index];
+}
+
+// Play music player
+- (void) play {
+    [_musicPlayer play];
+}
+
+// Pause music player
+- (void) pause {
+    [_musicPlayer pause];
+}
+
+// Start music player from the current index in the queue
+- (void) startPlayer {
+    NSURL *url = [[_songQueue objectAtIndex:_index] songURL];
+    _musicPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:NULL];
+    [_musicPlayer play];
+    
+    //audioPlayer.actionAtItemEnd = AVPlayerActionAtItemEndNone;
+    
+    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playerItemDidReachEnd:) name:AVPlayerItemDidPlayToEndTimeNotification object:[audioPlayer currentItem]];
+    
+}
+
+// Advance the music player to the next song in the queue (or back to the beginning)
+- (void) nextSong {
+    [_musicPlayer stop];
+    _index = (_index + 1) % [_songQueue count];
+    [self startPlayer];
 }
 
 @end

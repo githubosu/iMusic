@@ -1,3 +1,5 @@
+//  An audio player developed using a singleton pattern to prevent overlapping playback
+//  from multiple AVPlayer instances
 //
 //  AudioPlayer.h
 //  iMusic
@@ -15,12 +17,21 @@
 #import <AVFoundation/AVFoundation.h>
 #import "TTSong.h"
 
-@interface AudioPlayer : AVQueuePlayer
+@interface AudioPlayer : AVAudioPlayer
 
-@property (nonatomic, strong) AVQueuePlayer *musicPlayer;
-@property (nonatomic, strong) TTSong *currentSong;
+@property (nonatomic, strong) AVAudioPlayer *musicPlayer;
 @property (nonatomic, strong) NSMutableArray *songQueue;
+@property (nonatomic, assign) NSInteger index;
 
 + (id)getPlayer;
+- (TTSong*) dequeue;
+- (void) enqueue: (TTSong*) song;
+- (void) setQueue: (NSArray*) songs;
+- (void) setIndex: (int) index;
+- (TTSong*) nowPlaying;
+- (void) play;
+- (void) pause;
+- (void) startPlayer;
+- (void) nextSong;
 
 @end
