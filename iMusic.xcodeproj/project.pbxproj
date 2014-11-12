@@ -158,11 +158,6 @@
 			name = Player;
 			sourceTree = "<group>";
 		};
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> parent of ffc4f9f... Merge branch 'play-queue'
 		BA6779F81A1270CB00193CDB /* Friend Song */ = {
 			isa = PBXGroup;
 			children = (
@@ -173,23 +168,6 @@
 			);
 			name = "Friend Song";
 			path = iMusic;
-<<<<<<< HEAD
-=======
-=======
->>>>>>> play-queue
-		37BC8D401A111E780039FE70 /* AudioPlayer */ = {
-			isa = PBXGroup;
-			children = (
-				37BC8D411A111EB60039FE70 /* AudioPlayer.h */,
-				37BC8D421A111ED00039FE70 /* AudioPlayer.m */,
-			);
-			name = AudioPlayer;
-<<<<<<< HEAD
->>>>>>> play-queue
-=======
->>>>>>> play-queue
-=======
->>>>>>> parent of ffc4f9f... Merge branch 'play-queue'
 			sourceTree = "<group>";
 		};
 		BA7F4ED319FACEB800E1577D /* Friends */ = {
