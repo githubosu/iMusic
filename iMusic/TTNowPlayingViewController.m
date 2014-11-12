@@ -21,14 +21,26 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    //Get instance of audio player and start playing
+    // Get instance of audio player and start playing
     AudioPlayer *music = [AudioPlayer getPlayer];
     [music startPlayer];
     [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateTime:) userInfo:nil repeats:YES];
     self.currentSong = music.nowPlaying;
     [self.playPause setSelected:YES];
     
-    //Display song info and cover art
+    // Set UI for current song
+    [self setUI];
+    
+    // Notify when a new player item begins
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeSong:) name:@"nextSong" object:nil];
+    
+    // Store song data to Parse
+    [self storeData];
+}
+
+// Set UI elements to reflect current song
+- (void) setUI {
+    // Display song info and cover art
     if (self.currentSong.songURL != nil) {
         self.songLabel.text = self.currentSong.songTitle;
         self.artistLabel.text = self.currentSong.artist;
@@ -37,13 +49,13 @@
         self.artistLabel.text = @"";
     }
     
-    //Set max value for duration slider
+    // Set max value for duration slider
     int songDur = self.currentSong.duration.intValue;
     [self.durSlider setMaximumValue:songDur];
     int songMins = (int) songDur / 60;
     int songSecs = (int) songDur % 60;
     self.durLabel.text = [NSString stringWithFormat:@"%02d:%02d", songMins, songSecs];
-
+    
     
     UIImage *albumArtworkImage = NULL;
     UIImage *resizedImage = NULL;
@@ -60,21 +72,15 @@
         //NSLog(@"No ALBUM ARTWORK");
         self.artwork.image = [[UIImage imageNamed:@"default-artwork.png"] resizedImage: CGSizeMake(256.0f, 256.0f) interpolationQuality: kCGInterpolationLow];
     }
-    
-    // Notify when a new player item begins
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(currentItemIs:) name:AVPlayerItemDidPlayToEndTimeNotification object:[music nowPlaying]];
-    
-    
-    [self storeData];
 }
 
-//Slider drag action to seek to a specific time in the song
+// Slider drag action to seek to a specific time in the song
 - (IBAction)sliderDragged:(id)sender {
     AudioPlayer *music = [AudioPlayer getPlayer];
     music.musicPlayer.currentTime = _durSlider.value;
 }
 
-//Update slider and song timer
+// Update slider and song timer
 - (void)updateTime:(NSTimer *)timer {
     AudioPlayer *music = [AudioPlayer getPlayer];
     int time = music.musicPlayer.currentTime;
@@ -82,7 +88,7 @@
     _curDurLabel.text = [NSString stringWithFormat:@"%02d:%02d", time / 60, time % 60];
 }
 
-//Store the current song data to Parse for Facebook integration
+// Store the current song data to Parse for Facebook integration
 -(void) storeData {
 
     PFObject *song = [PFObject objectWithClassName:@"Song"];
@@ -125,7 +131,6 @@
             }
         }];
     }
-
 }
 
 - (void)didReceiveMemoryWarning {
@@ -143,7 +148,7 @@
 }
 */
 
-//Play or pause music when button tapped
+// Play or pause music when button tapped
 - (IBAction)togglePlayPause:(id)sender {
     
     AudioPlayer *music = [AudioPlayer getPlayer];
@@ -156,12 +161,12 @@
 }
 
 
-//Change song info when new song starts
-- (void)currentItemIs:(NSNotification *)notification
-{
+// Change song info when new song starts
+- (void) changeSong:(NSNotification *)note {
     AudioPlayer *music = [AudioPlayer getPlayer];
-    TTSong *s = [music dequeue];
-    [music enqueue:s];
+    NSLog(@"Updating player UI");
+    self.currentSong = [music nowPlaying];
+    [self setUI];
 }
 
 @end

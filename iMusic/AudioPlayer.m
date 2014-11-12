@@ -42,7 +42,7 @@
     _index = index;
 }
 
-//Get current song
+// Get current song
 - (TTSong*) nowPlaying {
     return [_songQueue objectAtIndex: _index];
 }
@@ -63,10 +63,7 @@
     _musicPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:NULL];
     [_musicPlayer play];
     
-    //audioPlayer.actionAtItemEnd = AVPlayerActionAtItemEndNone;
-    
-    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playerItemDidReachEnd:) name:AVPlayerItemDidPlayToEndTimeNotification object:[audioPlayer currentItem]];
-    
+    [_musicPlayer setDelegate: (id)self];
 }
 
 // Advance the music player to the next song in the queue (or back to the beginning)
@@ -74,6 +71,18 @@
     [_musicPlayer stop];
     _index = (_index + 1) % [_songQueue count];
     [self startPlayer];
+}
+
+// Advance to the next song when one song is completed
+-(void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag {
+    NSLog(@"Finished song");
+    if (flag) {
+        [self nextSong];
+        
+        //Post notification to update player UI
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"nextSong" object:nil];
+
+    }
 }
 
 @end
