@@ -20,15 +20,27 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    //Start playing audio
-    NSURL *currentSongPath = self.currentSong.songURL;
-    self.audioPlayer = [[AVPlayer alloc] initWithURL: currentSongPath];
-    NSLog(@"Player URL: %@", self.currentSong.songURL);
-    [self.audioPlayer play];
+    
+    // Get instance of audio player and start playing
+    AudioPlayer *music = [AudioPlayer getPlayer];
+    [music startPlayer];
+    [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateTime:) userInfo:nil repeats:YES];
+    self.currentSong = music.nowPlaying;
     [self.playPause setSelected:YES];
     
-    //Display song info and cover art
+    // Set UI for current song
+    [self setUI];
+    
+    // Notify when a new player item begins
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeSong:) name:@"nextSong" object:nil];
+    
+    // Store song data to Parse
+    [self storeData];
+}
+
+// Set UI elements to reflect current song
+- (void) setUI {
+    // Display song info and cover art
     if (self.currentSong.songURL != nil) {
         self.songLabel.text = self.currentSong.songTitle;
         self.artistLabel.text = self.currentSong.artist;
@@ -37,13 +49,13 @@
         self.artistLabel.text = @"";
     }
     
-    //Set max value for duration slider
+    // Set max value for duration slider
     int songDur = self.currentSong.duration.intValue;
     [self.durSlider setMaximumValue:songDur];
     int songMins = (int) songDur / 60;
     int songSecs = (int) songDur % 60;
     self.durLabel.text = [NSString stringWithFormat:@"%02d:%02d", songMins, songSecs];
-
+    
     
     UIImage *albumArtworkImage = NULL;
     UIImage *resizedImage = NULL;
@@ -60,29 +72,25 @@
         //NSLog(@"No ALBUM ARTWORK");
         self.artwork.image = [[UIImage imageNamed:@"default-artwork.png"] resizedImage: CGSizeMake(256.0f, 256.0f) interpolationQuality: kCGInterpolationLow];
     }
-    
-    [self loopPlayer];
 }
 
-//Slider drag action to seek to a specific time in the song
+// Slider drag action to seek to a specific time in the song
 - (IBAction)sliderDragged:(id)sender {
-    [self.audioPlayer seekToTime:CMTimeMakeWithSeconds((int)(self.durSlider.value) , 1)];
+    AudioPlayer *music = [AudioPlayer getPlayer];
+    music.musicPlayer.currentTime = _durSlider.value;
 }
 
-//Loop to update UI with current song playback info
--(void) loopPlayer {
-    __block TTNowPlayingViewController * weakSelf = self;
+// Update slider and song timer
+- (void)updateTime:(NSTimer *)timer {
+    AudioPlayer *music = [AudioPlayer getPlayer];
+    int time = music.musicPlayer.currentTime;
+    _durSlider.value = time;
+    _curDurLabel.text = [NSString stringWithFormat:@"%02d:%02d", time / 60, time % 60];
+}
 
-    [self.audioPlayer addPeriodicTimeObserverForInterval:CMTimeMakeWithSeconds(1, 1) queue:NULL usingBlock:^(CMTime time) {
-        if(!time.value) {return;}
-        int curTime = (int)((weakSelf.audioPlayer.currentTime.value)/weakSelf.audioPlayer.currentTime.timescale);
-        int curMins = (int)(curTime/60);
-        int curSecs = (int)(curTime%60);
-        weakSelf.curDurLabel.text = [NSString stringWithFormat:@"%02d:%02d",curMins,curSecs];
-        weakSelf.durSlider.value = curTime;
-    }];
+// Store the current song data to Parse for Facebook integration
+-(void) storeData {
     
-    // Storing data to Parse
     PFObject *song = [PFObject objectWithClassName:@"Song"];
     [song setObject:[PFUser currentUser] forKey:@"user"];
     [song setObject:self.currentSong.songTitle forKey:@"title"];
@@ -123,7 +131,6 @@
             }
         }];
     }
-
 }
 
 - (void)didReceiveMemoryWarning {
@@ -132,22 +139,33 @@
 }
 
 /*
-#pragma mark - Navigation
+ #pragma mark - Navigation
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
-//Play or pause music when button tapped
+// Play or pause music when button tapped
 - (IBAction)togglePlayPause:(id)sender {
+    
+    AudioPlayer *music = [AudioPlayer getPlayer];
     if (self.playPause.selected) {
-        [self.audioPlayer pause];
+        [music pause];
     } else {
-        [self.audioPlayer play];
+        [music play];
     }
     self.playPause.selected = !self.playPause.selected;
 }
+
+
+// Change song info when new song starts
+- (void) changeSong:(NSNotification *)note {
+    AudioPlayer *music = [AudioPlayer getPlayer];
+    NSLog(@"Updating player UI");
+    self.currentSong = [music nowPlaying];
+    [self setUI];
+}
+
 @end

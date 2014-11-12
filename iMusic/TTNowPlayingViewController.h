@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 #import "TTSong.h"
+#import "AudioPlayer.h"
 
 @interface TTNowPlayingViewController : UIViewController
 

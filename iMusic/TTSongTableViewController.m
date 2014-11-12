@@ -295,20 +295,20 @@
     // Pass the selected object to the new view controller.
     if ([[segue identifier] isEqualToString:@"SongPlayerSegue"])
     {
-        TTNowPlayingViewController *Player = (TTNowPlayingViewController*) segue.destinationViewController;
-        NSIndexPath *songIndexPath;
-        TTSong *song;
-        //if (self.searchDisplayController.active) {
+        NSInteger index;
         if(sender == self.searchDisplayController.searchResultsTableView) {
-            songIndexPath = [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow];
-            song = [self.filteredSongs objectAtIndex:songIndexPath.row];
+            index = [[self.searchDisplayController.searchResultsTableView indexPathForSelectedRow] row];
         } else {
-            songIndexPath = [self.tableView indexPathForSelectedRow];
-            NSString *sectionTitle = [self.songSectionTitle objectAtIndex:songIndexPath.section];
-            NSArray *sectionSongs = [self.songIndex objectForKey:sectionTitle];
-            song = [sectionSongs objectAtIndex:songIndexPath.row];
+            index = [[self.tableView indexPathForSelectedRow] row];
         }
-        Player.currentSong = song;
+        
+        //Get audio player instance and reset it
+        AudioPlayer *music = [AudioPlayer getPlayer];
+        [music pause];
+        
+        //Pass song list to player
+        [music setQueue:_songs];
+        [music setIndex:index];
     }
 }
 
