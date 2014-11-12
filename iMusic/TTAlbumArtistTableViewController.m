@@ -191,14 +191,10 @@
     // Pass the selected object to the new view controller.
     if ([[segue identifier] isEqualToString:@"AlbumArtistPlayerSegue"])
     {
-        //Get audio player instance and reset it
-        AudioPlayer *music = [AudioPlayer getPlayer];
-        [music pause];
+        TTNowPlayingViewController *Player = (TTNowPlayingViewController*) segue.destinationViewController;
+        NSIndexPath *songIndexPath = [self.tableView indexPathForSelectedRow];
         
-        //Pass song list to player
-        [music setQueue:_songs];
-        NSInteger index = [[self.tableView indexPathForSelectedRow] row];
-        [music setIndex:index];
+        Player.currentSong = [self.songs objectAtIndex:[songIndexPath row]];
     }
 }
 

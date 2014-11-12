@@ -228,6 +228,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dur" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pOJ-oW-dW7">
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                                 <rect key="frame" x="254" y="333" width="50" height="21"/>
 =======
                                 <rect key="frame" x="254" y="331" width="50" height="21"/>
@@ -235,11 +236,15 @@
 =======
                                 <rect key="frame" x="254" y="331" width="50" height="21"/>
 >>>>>>> play-queue
+=======
+                                <rect key="frame" x="254" y="333" width="50" height="21"/>
+>>>>>>> parent of ffc4f9f... Merge branch 'play-queue'
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oJf-fe-4dh">
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
                                 <rect key="frame" x="16" y="333" width="50" height="21"/>
@@ -249,6 +254,9 @@
 =======
                                 <rect key="frame" x="16" y="331" width="50" height="21"/>
 >>>>>>> play-queue
+=======
+                                <rect key="frame" x="16" y="333" width="50" height="21"/>
+>>>>>>> parent of ffc4f9f... Merge branch 'play-queue'
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -265,6 +273,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Song" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zo4-pT-err">
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                                 <rect key="frame" x="16" y="388" width="288" height="26"/>
 =======
                                 <rect key="frame" x="16" y="381" width="288" height="26"/>
@@ -272,6 +281,9 @@
 =======
                                 <rect key="frame" x="16" y="381" width="288" height="26"/>
 >>>>>>> play-queue
+=======
+                                <rect key="frame" x="16" y="388" width="288" height="26"/>
+>>>>>>> parent of ffc4f9f... Merge branch 'play-queue'
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -283,6 +295,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Artist" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bnf-2T-iCK">
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                                 <rect key="frame" x="16" y="422" width="288" height="21"/>
 =======
                                 <rect key="frame" x="16" y="414" width="288" height="21"/>
@@ -290,6 +303,9 @@
 =======
                                 <rect key="frame" x="16" y="414" width="288" height="21"/>
 >>>>>>> play-queue
+=======
+                                <rect key="frame" x="16" y="422" width="288" height="21"/>
+>>>>>>> parent of ffc4f9f... Merge branch 'play-queue'
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
