@@ -17,4 +17,5 @@
     #import <FacebookSDK/FacebookSDK.h>
     #import <ParseFacebookUtils/PFFacebookUtils.h>
     #import <CoreData/CoreData.h>
+    #import "SVProgressHUD.h"
 #endif

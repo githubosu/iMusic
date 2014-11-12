@@ -72,6 +72,7 @@ typedef NS_ENUM(NSInteger, FBIOSVersion) {
 + (NSBundle *)facebookSDKBundle;
 // Returns YES when the bundle identifier is for one of the native facebook apps
 + (BOOL)isFacebookBundleIdentifier:(NSString *)bundleIdentifier;
++ (BOOL)isSafariBundleIdentifier:(NSString *)bundleIdentifier;
 
 #pragma mark - Permissions
 
@@ -91,10 +92,12 @@ typedef NS_ENUM(NSInteger, FBIOSVersion) {
 
 + (NSString *)newUUIDString;
 + (NSString *)attributionID;
-+ (NSString *)advertiserID;
++ (NSString *)advertiserOrAnonymousID:(BOOL)accessAdvertisingID;
 + (FBAdvertisingTrackingStatus)advertisingTrackingStatus;
-+ (void)updateParametersWithEventUsageLimitsAndBundleInfo:(NSMutableDictionary *)parameters
-                          accessAdvertisingTrackingStatus:(BOOL)accessAdvertisingTrackingStatus;
++ (NSMutableDictionary<FBGraphObject> *)activityParametersDictionaryForEvent:(NSString *)eventCategory
+                                                        includeAttributionID:(BOOL)includeAttributionID
+                                                          implicitEventsOnly:(BOOL)implicitEventsOnly
+                                                   shouldAccessAdvertisingID:(BOOL)shouldAccessAdvertisingID;
 
 #pragma mark - JSON Encode / Decode
 

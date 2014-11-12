@@ -124,6 +124,31 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    //NSLog(@"Inside scrollViewDidScroll; content offset y: %f",scrollView.contentOffset.y);
+    /*UISearchBar *searchBar = self.searchBar;
+    CGRect rect = searchBar.frame;
+    rect.origin.y = MIN(0, scrollView.contentOffset.y);
+    searchBar.frame = rect;*/
+    //self.searchBar.frame = CGRectMake(0,MAX(0,scrollView.contentOffset.y),320,44);
+    /*UISearchBar *searchBar = self.searchDisplayController.searchBar;
+    CGRect rect = searchBar.frame;
+    rect.origin.y = MAX(0, scrollView.contentOffset.y);
+    searchBar.frame = rect;*/
+    // get the table and search bar bounds
+    /*CGRect tableBounds = self.tableView.bounds;
+    CGRect searchBarFrame = self.searchBar.frame;
+    
+    // make sure the search bar stays at the table's original x and y as the content moves
+    self.searchBar.frame = CGRectMake(tableBounds.origin.x,
+                                      tableBounds.origin.y,
+                                      searchBarFrame.size.width,
+                                      searchBarFrame.size.height
+                                      );
+     */
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
