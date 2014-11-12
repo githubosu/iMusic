@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TTNowPlayingViewController.h"
 
 @interface TTPlaylistTableViewController : UITableViewController<UIAlertViewDelegate>
 @property (strong) NSMutableArray *playlists;
