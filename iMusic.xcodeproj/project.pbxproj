@@ -162,6 +162,7 @@
 			sourceTree = "<group>";
 		};
 <<<<<<< HEAD
+<<<<<<< HEAD
 		BA6779F81A1270CB00193CDB /* Friend Song */ = {
 			isa = PBXGroup;
 			children = (
@@ -173,6 +174,8 @@
 			name = "Friend Song";
 			path = iMusic;
 =======
+=======
+>>>>>>> play-queue
 		37BC8D401A111E780039FE70 /* AudioPlayer */ = {
 			isa = PBXGroup;
 			children = (
@@ -180,6 +183,9 @@
 				37BC8D421A111ED00039FE70 /* AudioPlayer.m */,
 			);
 			name = AudioPlayer;
+<<<<<<< HEAD
+>>>>>>> play-queue
+=======
 >>>>>>> play-queue
 			sourceTree = "<group>";
 		};
