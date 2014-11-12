@@ -63,6 +63,7 @@
     _musicPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:NULL];
     [_musicPlayer play];
     
+    // Set delegate to implement song switching
     [_musicPlayer setDelegate: (id)self];
 }
 
@@ -79,7 +80,7 @@
     if (flag) {
         [self nextSong];
         
-        //Post notification to update player UI
+        // Post notification to update player UI
         [[NSNotificationCenter defaultCenter] postNotificationName:@"nextSong" object:nil];
 
     }
