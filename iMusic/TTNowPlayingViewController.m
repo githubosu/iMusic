@@ -34,8 +34,10 @@
     // Notify when a new player item begins
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeSong:) name:@"nextSong" object:nil];
     
-    // Store song data to Parse
-    [self storeData];
+    if (self.currentSong.songURL != nil) {
+        // Store song data to Parse
+        [self storeData];
+    }
 }
 
 // Set UI elements to reflect current song
@@ -92,54 +94,59 @@
 -(void) storeData {
     
     PFObject *song = [PFObject objectWithClassName:@"Song"];
-    [song setObject:[PFUser currentUser] forKey:@"user"];
-    [song setObject:self.currentSong.songTitle forKey:@"title"];
-    [song setObject:self.currentSong.album forKey:@"album"];
-    [song setObject:self.currentSong.artist forKey:@"artist"];
-    // Get FbId
-    FBRequest *request =[FBRequest requestForMe];
-    [request startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
-        if (!error) {
-            NSDictionary *userDictionary = (NSDictionary *)result;
-            NSString *facebookID = userDictionary[@"id"];
-            NSLog(@"FB ID: %@", facebookID);
-            [song setObject:facebookID forKey:@"fbId"];
-        }
-    }];
-    UIImage *albumArtworkImage = NULL;
-    UIImage *resizedImage = NULL;
-    MPMediaItemArtwork *itemArtwork = [self.currentSong artwork];
-    
-    if (itemArtwork != nil) {
-        NSLog(@"found art");
-        albumArtworkImage = [itemArtwork imageWithSize:itemArtwork.bounds.size];
-        resizedImage = [albumArtworkImage resizedImage: CGSizeMake(256.0f, 256.0f) interpolationQuality: kCGInterpolationLow];
-    }
-    
-    if (albumArtworkImage) {
-        NSData *imageData = UIImageJPEGRepresentation(resizedImage, 0.8);
-        // Save artwork image in Parse
-        PFFile *photoFile = [PFFile fileWithData:imageData];
-        [photoFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-            if (succeeded) {
-                NSLog(@"Artwork saved");
+    @try {
+        [song setObject:[PFUser currentUser] forKey:@"user"];
+        [song setObject:self.currentSong.songTitle forKey:@"title"];
+        [song setObject:self.currentSong.album forKey:@"album"];
+        [song setObject:self.currentSong.artist forKey:@"artist"];
+        // Get FbId
+        FBRequest *request =[FBRequest requestForMe];
+        [request startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+            if (!error) {
+                NSDictionary *userDictionary = (NSDictionary *)result;
+                NSString *facebookID = userDictionary[@"id"];
+                NSLog(@"FB ID: %@", facebookID);
+                [song setObject:facebookID forKey:@"fbId"];
+                UIImage *albumArtworkImage = NULL;
+                UIImage *resizedImage = NULL;
+                MPMediaItemArtwork *itemArtwork = [self.currentSong artwork];
                 
-                [song setObject:photoFile forKey:@"artwork"];
-                [song saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-                    if (succeeded) {
-                        NSLog(@"Song saved successfully");
-                    }
-                }];
+                if (itemArtwork != nil) {
+                    NSLog(@"found art");
+                    albumArtworkImage = [itemArtwork imageWithSize:itemArtwork.bounds.size];
+                    resizedImage = [albumArtworkImage resizedImage: CGSizeMake(256.0f, 256.0f) interpolationQuality: kCGInterpolationLow];
+                }
+                
+                if (albumArtworkImage) {
+                    NSData *imageData = UIImageJPEGRepresentation(resizedImage, 0.8);
+                    // Save artwork image in Parse
+                    PFFile *photoFile = [PFFile fileWithData:imageData];
+                    [photoFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                        if (succeeded) {
+                            NSLog(@"Artwork saved");
+                            
+                            [song setObject:photoFile forKey:@"artwork"];
+                            [song saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                                if (succeeded) {
+                                    NSLog(@"Song saved successfully");
+                                }
+                            }];
+                        }
+                    }];
+                } else { // no album artwork
+                    NSLog(@"No ALBUM ARTWORK");
+                    /*cell.imageView.image = [[UIImage imageNamed:@"default-artwork.png"] resizedImage: CGSizeMake(256.0f, 256.0f) interpolationQuality: kCGInterpolationLow];*/
+                    [song saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                        if (succeeded) {
+                            NSLog(@"Song saved successfully");
+                        }
+                    }];
+                }
+                
             }
         }];
-    } else { // no album artwork
-        NSLog(@"No ALBUM ARTWORK");
-        /*cell.imageView.image = [[UIImage imageNamed:@"default-artwork.png"] resizedImage: CGSizeMake(256.0f, 256.0f) interpolationQuality: kCGInterpolationLow];*/
-        [song saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-            if (succeeded) {
-                NSLog(@"Song saved successfully");
-            }
-        }];
+    } @catch(NSException *exception) {
+        NSLog(@"Exception caught while storing song data to Parse: %@", exception);
     }
 }
 
@@ -178,6 +185,11 @@
     NSLog(@"Updating player UI");
     self.currentSong = [music nowPlaying];
     [self setUI];
+    
+    if(self.currentSong.songURL != nil) {
+        // Store song data to Parse
+        [self storeData];
+    }
 }
 
 @end
