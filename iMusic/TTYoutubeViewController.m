@@ -34,7 +34,6 @@
                                  @"showinfo" : @0,
                                  @"modestbranding" : @1
                                  };*/
-    //self.playerView.delegate = self;
     
     // Adding youtube player view programatically
     
@@ -59,6 +58,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     self.playerView = [[YTPlayerView alloc] initWithFrame: CGRectMake(0, 130, 320, 200)];
     self.playerView.backgroundColor = [UIColor lightGrayColor];
+    self.playerView.delegate = self;
     [self.view addSubview:self.playerView];
     NSDictionary *playerVars = @{
                                  @"controls" : @2,
