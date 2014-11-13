@@ -482,13 +482,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view autoresizesSubviews="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wNV-K5-YE9" customClass="YTPlayerView">
-                                <rect key="frame" x="0.0" y="131" width="320" height="240"/>
-                                <color key="backgroundColor" red="0.0" green="0.80954830680000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="awf-gr-cZj">
-                                <rect key="frame" x="8" y="72" width="302" height="52"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <rect key="frame" x="8" y="69" width="302" height="60"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <color key="textColor" red="0.32023358590000001" green="0.32023358590000001" blue="0.32023358590000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -497,7 +493,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="39v-xe-O5x"/>
                     <connections>
-                        <outlet property="playerView" destination="wNV-K5-YE9" id="TJV-Ll-qXb"/>
                         <outlet property="videoTitleLabel" destination="awf-gr-cZj" id="PwZ-uY-qHd"/>
                     </connections>
                 </viewController>

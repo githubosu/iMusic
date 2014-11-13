@@ -9,7 +9,7 @@
 #import "TTYoutubeViewController.h"
 
 @interface TTYoutubeViewController ()
-
+//@property (nonatomic, strong) YTPlayerView *playerView;
 @end
 
 @implementation TTYoutubeViewController
@@ -22,7 +22,7 @@
     // at: https://developers.google.com/youtube/player_parameters?playerVersion=HTML5
     NSDictionary *playerVars = @{
                                  @"controls" : @2,
-                                 @"playsinline" : @0,
+                                 @"playsinline" : @1,
                                  @"autohide" : @1,
                                  @"showinfo" : @0,
                                  @"modestbranding" : @1
@@ -34,13 +34,41 @@
                                  @"showinfo" : @0,
                                  @"modestbranding" : @1
                                  };*/
-    self.playerView.delegate = self;
+    //self.playerView.delegate = self;
+    
+    // Adding youtube player view programatically
+    
+    //UIWindow* window = [UIApplication sharedApplication].keyWindow;
+    //UIWindow *window = self.view.window;
+    
+    
+    
     if(self.youtube != nil) {
         self.videoTitleLabel.text = self.youtube.videoTitle;
-        [self.playerView loadWithVideoId:self.youtube.videoId playerVars:playerVars];
+        //[self.playerView loadWithVideoId:self.youtube.videoId playerVars:playerVars];
+        
     } else {
         NSLog(@"No video id found.");
     }
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [self.playerView removeFromSuperview];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    self.playerView = [[YTPlayerView alloc] initWithFrame: CGRectMake(0, 130, 320, 200)];
+    self.playerView.backgroundColor = [UIColor lightGrayColor];
+    [self.view addSubview:self.playerView];
+    NSDictionary *playerVars = @{
+                                 @"controls" : @2,
+                                 @"playsinline" : @1,
+                                 @"autohide" : @1,
+                                 @"showinfo" : @0,
+                                 @"modestbranding" : @1
+                                 };
+
+    [self.playerView loadWithVideoId:self.youtube.videoId playerVars:playerVars];
 }
 
 - (void)didReceiveMemoryWarning {
