@@ -696,7 +696,7 @@
         <scene sceneID="feI-Rr-pTx">
             <objects>
                 <navigationController title="Albums" id="fS6-yS-bdP" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Albums" id="TF2-zh-1Tl"/>
+                    <tabBarItem key="tabBarItem" title="Albums" image="Album" selectedImage="Album" id="TF2-zh-1Tl"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="hlG-E7-WI9">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -720,7 +720,7 @@
         <scene sceneID="akf-Di-ZEU">
             <objects>
                 <navigationController title="Songs" definesPresentationContext="YES" id="ljO-10-HKh" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Songs" id="UeV-Me-yWH"/>
+                    <tabBarItem key="tabBarItem" title="Songs" image="Song" selectedImage="Song" id="UeV-Me-yWH"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="QF1-H2-tmn">
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -743,7 +743,7 @@
         <scene sceneID="D2R-22-ug3">
             <objects>
                 <navigationController title="Artists" definesPresentationContext="YES" id="Bhe-0S-o41" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Artists" id="RjD-zx-S63"/>
+                    <tabBarItem key="tabBarItem" title="Artists" image="Artist" selectedImage="Artist" id="RjD-zx-S63"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="ejU-RG-7vo">
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -817,7 +817,7 @@
         <scene sceneID="DPt-4X-B2n">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="06I-Bq-ian" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Friends" id="rsY-Ty-mV8"/>
+                    <tabBarItem key="tabBarItem" title="Friends" image="Friends" selectedImage="Friends" id="rsY-Ty-mV8"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="hVY-Ic-4za">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -843,7 +843,7 @@
         <scene sceneID="dpc-7O-h7h">
             <objects>
                 <navigationController title="Playlists" automaticallyAdjustsScrollViewInsets="NO" id="ZuD-Ro-e12" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Playlists" id="ShR-bc-RQe"/>
+                    <tabBarItem key="tabBarItem" title="Playlists" image="Playlist" selectedImage="Playlist" id="ShR-bc-RQe"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="wW9-Ae-EGi">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -885,18 +885,20 @@
             <point key="canvasLocation" x="-654" y="1584"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Album" width="35" height="35"/>
+        <image name="Artist" width="35" height="35"/>
+        <image name="Friends" width="35" height="35"/>
+        <image name="Playlist" width="35" height="35"/>
+        <image name="Song" width="35" height="35"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-
-        <segue reference="k6H-QH-qTm"/>
-        <segue reference="iPB-rK-NMc"/>
-
-        <segue reference="nrw-3e-ohu"/>
         <segue reference="03h-vI-UZP"/>
-
+        <segue reference="nrw-3e-ohu"/>
     </inferredMetricsTieBreakers>
 </document>
