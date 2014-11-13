@@ -71,11 +71,12 @@
                         <segue destination="fS6-yS-bdP" kind="relationship" relationship="viewControllers" id="WR3-Qu-enY"/>
                         <segue destination="06I-Bq-ian" kind="relationship" relationship="viewControllers" id="CaC-lZ-kgO"/>
                         <segue destination="ZuD-Ro-e12" kind="relationship" relationship="viewControllers" id="Tnb-uJ-QeP"/>
+                        <segue destination="TQv-VD-6hn" kind="relationship" relationship="viewControllers" id="Plr-GN-vbM"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FNP-y4-bzi" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="668" y="180"/>
+            <point key="canvasLocation" x="636" y="180"/>
         </scene>
         <!--Artists-->
         <scene sceneID="kWl-nx-61r">
@@ -149,7 +150,7 @@
                         <color key="sectionIndexColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="sectionIndexBackgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search Songs" translucent="NO" id="OQJ-uu-Ee7">
-                            <rect key="frame" x="0.0" y="64" width="320" height="44"/>
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             <color key="barTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -214,7 +215,7 @@
                         <viewControllerLayoutGuide type="bottom" id="CHJ-CP-cBL"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="97g-ri-oqP">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="nKo-sF-EgH">
@@ -253,7 +254,6 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S3U-Yh-aul">
-                                <rect key="frame" x="16" y="16" width="288" height="288"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Artist" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bnf-2T-iCK">
@@ -342,7 +342,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="AlbumArtistSongListView" id="fLi-vr-DnM" customClass="TTAlbumArtistTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="olC-Cl-edc">
-                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -468,7 +468,96 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VjO-pN-xp7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="162" y="920"/>
+            <point key="canvasLocation" x="2130" y="1560"/>
+        </scene>
+        <!--Youtube-->
+        <scene sceneID="oJ5-qd-dN6">
+            <objects>
+                <viewController title="Youtube" id="QOm-J5-YAD" customClass="TTYoutubeViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8ka-2F-m6j"/>
+                        <viewControllerLayoutGuide type="bottom" id="Snv-Mi-Ckr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="V4e-iJ-kVg">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="awf-gr-cZj">
+                                <rect key="frame" x="8" y="69" width="302" height="60"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <color key="textColor" red="0.32023358590000001" green="0.32023358590000001" blue="0.32023358590000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="39v-xe-O5x"/>
+                    <connections>
+                        <outlet property="videoTitleLabel" destination="awf-gr-cZj" id="PwZ-uY-qHd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pAa-Jo-LbZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="399" y="1584"/>
+        </scene>
+        <!--Youtube Table View Controller-->
+        <scene sceneID="tqt-kb-3DJ">
+            <objects>
+                <tableViewController id="EkV-tG-r2E" customClass="TTYoutubeTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="MD2-8k-E6Q">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search Youtube" id="DF4-Sw-rhr">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="EkV-tG-r2E" id="FxS-BN-4fz"/>
+                            </connections>
+                        </searchBar>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="QB0-hB-Ejo" rowHeight="100" style="IBUITableViewCellStyleDefault" id="qnc-IR-SyR" customClass="TTYoutubeViewCell">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qnc-IR-SyR" id="ikV-ot-Bfj">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QB0-hB-Ejo">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="QOm-J5-YAD" kind="push" identifier="youtubeSegue" id="8UA-m4-NHG"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="EkV-tG-r2E" id="EHS-dj-jfm"/>
+                            <outlet property="delegate" destination="EkV-tG-r2E" id="56f-K7-TpO"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="J1Y-2T-rgx"/>
+                    <connections>
+                        <outlet property="searchBar" destination="DF4-Sw-rhr" id="zLv-Zd-3hO"/>
+                        <outlet property="searchDisplayController" destination="uBA-h1-bRk" id="mKO-c9-Wqe"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rJD-yE-64h" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="uBA-h1-bRk">
+                    <connections>
+                        <outlet property="delegate" destination="EkV-tG-r2E" id="DBU-S2-vdm"/>
+                        <outlet property="searchBar" destination="DF4-Sw-rhr" id="aPI-Vi-QKc"/>
+                        <outlet property="searchContentsController" destination="EkV-tG-r2E" id="DZr-fd-6Xm"/>
+                        <outlet property="searchResultsDataSource" destination="EkV-tG-r2E" id="8Vo-AS-ct2"/>
+                        <outlet property="searchResultsDelegate" destination="EkV-tG-r2E" id="eZg-Wc-IgD"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="-122" y="1584"/>
         </scene>
         <!--Friends-->
         <scene sceneID="V8m-GS-25Z">
@@ -537,7 +626,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DPs-EP-Y1W" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1164" y="1525"/>
+            <point key="canvasLocation" x="2444" y="2357"/>
         </scene>
         <!--Friend Song Table View Controller-->
         <scene sceneID="Kb6-xg-GFB">
@@ -601,7 +690,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f3i-SB-h4H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1555" y="1525"/>
+            <point key="canvasLocation" x="2835" y="2357"/>
         </scene>
         <!--Albums-->
         <scene sceneID="feI-Rr-pTx">
@@ -748,7 +837,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uDw-0I-agT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1164" y="869"/>
+            <point key="canvasLocation" x="3132" y="1509"/>
         </scene>
         <!--Playlists-->
         <scene sceneID="dpc-7O-h7h">
@@ -774,7 +863,26 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Wp-yy-XPN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-370" y="920"/>
+            <point key="canvasLocation" x="1598" y="1560"/>
+        </scene>
+        <!--Youtube Search-->
+        <scene sceneID="whz-yY-vkn">
+            <objects>
+                <navigationController title="Youtube Search" automaticallyAdjustsScrollViewInsets="NO" id="TQv-VD-6hn" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Youtube" id="gis-wJ-h7v"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZXT-xz-JLu">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="EkV-tG-r2E" kind="relationship" relationship="rootViewController" id="Tqb-gR-D92"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mfb-V8-tOS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-654" y="1584"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -783,7 +891,12 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+
         <segue reference="k6H-QH-qTm"/>
         <segue reference="iPB-rK-NMc"/>
+
+        <segue reference="nrw-3e-ohu"/>
+        <segue reference="03h-vI-UZP"/>
+
     </inferredMetricsTieBreakers>
 </document>
