@@ -163,8 +163,10 @@
     AudioPlayer *music = [AudioPlayer getPlayer];
     if (self.playPause.selected) {
         [music pause];
+        [sender setImage:[UIImage imageNamed:@"Play.png"] forState:UIControlStateNormal];
     } else {
         [music play];
+        [sender setImage:[UIImage imageNamed:@"Pause.png"] forState:UIControlStateSelected];
     }
     self.playPause.selected = !self.playPause.selected;
 }
