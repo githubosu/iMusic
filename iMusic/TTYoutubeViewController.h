@@ -11,5 +11,6 @@
 #import "TTYoutube.h"
 @interface TTYoutubeViewController : UIViewController
 @property (strong, nonatomic) IBOutlet YTPlayerView *playerView;
+@property (strong, nonatomic) IBOutlet UILabel *videoTitleLabel;
 @property (nonatomic, strong) TTYoutube *youtube;
 @end

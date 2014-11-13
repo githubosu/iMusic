@@ -12,6 +12,7 @@
 
 @interface TTYoutubeTableViewController ()
 @property (nonatomic, strong) NSMutableArray *searchResults;
+@property (nonatomic, strong) NSMutableArray *initialResults;
 @property (nonatomic, strong) NSMutableData *data;
 @property (nonatomic, strong) NSDictionary *videos;
 @property (nonatomic, strong) UISearchDisplayController *searchController;
@@ -19,7 +20,7 @@
 
 @implementation TTYoutubeTableViewController
 
-@synthesize searchResults, searchController;
+@synthesize searchResults, initialResults, searchController;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -31,7 +32,13 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     self.searchResults = [[NSMutableArray alloc]init];
+    self.initialResults = [[NSMutableArray alloc]init];
     // For testing
+    
+    [SVProgressHUD showWithStatus:@"Loading Videos..." maskType:SVProgressHUDMaskTypeClear];
+    
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+
     NSString *apiKey = @"AIzaSyAXwT5jS7mm-QMNAFDqDd_1jlWoBYcvTbc";
     NSString *urlString = [NSString stringWithFormat:@"https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&chart=mostPopular&key=%@", apiKey];
     NSURL *url = [NSURL URLWithString:urlString];
@@ -54,7 +61,12 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return [self.searchResults count];
+    if(tableView == self.searchDisplayController.searchResultsTableView) {
+        return [self.searchResults count];
+    } else {
+        return [self.initialResults count];
+    }
+
 }
 
 
@@ -69,22 +81,30 @@
         cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier forIndexPath:indexPath];
     }*/
     
-    TTYoutubeViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    TTYoutubeViewCell *cell = (TTYoutubeViewCell *)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
     
-    if (cell == nil) {
-        [tableView registerNib:[UINib nibWithNibName:@"youtubeCustomCell" bundle:nil] forCellReuseIdentifier:simpleTableIdentifier];
-        //[self.searchDisplayController.searchResultsTableView registerNib:[UINib nibWithNibName:@"youtubeCustomCell" bundle:nil] forCellReuseIdentifier:simpleTableIdentifier];
-        cell = [[TTYoutubeViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
+    if (!cell) {
+        [self.tableView registerNib:[UINib nibWithNibName:@"youtubeCustomCell" bundle:nil] forCellReuseIdentifier:simpleTableIdentifier];
+        /*[self.searchDisplayController.searchResultsTableView registerNib:[UINib nibWithNibName:@"youtubeCustomCell" bundle:nil] forCellReuseIdentifier:simpleTableIdentifier];
+        cell = [[TTYoutubeViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];*/
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"youtubeCustomCell" owner:self options:nil];
+        cell = [nib objectAtIndex:0];
+        cell.videoTitle.lineBreakMode = NSLineBreakByWordWrapping;
+        cell.videoTitle.numberOfLines = 0;
+        cell.videoDescription.lineBreakMode = NSLineBreakByWordWrapping;
+        cell.videoDescription.numberOfLines = 0;
     }
-    cell.videoTitle.lineBreakMode = NSLineBreakByWordWrapping;
-    cell.videoTitle.numberOfLines = 0;
-    cell.videoDescription.lineBreakMode = NSLineBreakByWordWrapping;
-    cell.videoDescription.numberOfLines = 0;
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(TTYoutubeViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    TTYoutube *youtube = [self.searchResults objectAtIndex:indexPath.row];
+    TTYoutube *youtube;
+    if(tableView == self.searchDisplayController.searchResultsTableView) {
+        youtube = [self.searchResults objectAtIndex:indexPath.row];
+    } else {
+        youtube = [self.initialResults objectAtIndex:indexPath.row];
+    }
+
     NSLog(@"Youtube Video Title: %@",youtube.videoTitle);
     cell.videoTitle.text = youtube.videoTitle;
     cell.videoDescription.text = youtube.videoDescription;
@@ -135,10 +155,8 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // Perform segue
-    if(tableView == self.searchDisplayController.searchResultsTableView) {
-        NSLog(@"About to perform segue...");
-        [self performSegueWithIdentifier:@"youtubeSegue" sender:tableView];
-    }
+    NSLog(@"About to perform segue...");
+    [self performSegueWithIdentifier:@"youtubeSegue" sender:tableView];
 }
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -151,15 +169,15 @@
         NSIndexPath *videoIndexPath;
         TTYoutube *youtube;
         //if (self.searchDisplayController.active) {
-        /*if(sender == self.searchDisplayController.searchResultsTableView) {
+        if(sender == self.searchDisplayController.searchResultsTableView) {
             videoIndexPath = [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow];
             youtube = [self.searchResults objectAtIndex:videoIndexPath.row];
         } else {
             videoIndexPath = [self.tableView indexPathForSelectedRow];
-            youtube = [self.searchResults objectAtIndex:videoIndexPath.row];
-        }*/
-        videoIndexPath = [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow];
-        youtube = [self.searchResults objectAtIndex:videoIndexPath.row];
+            youtube = [self.initialResults objectAtIndex:videoIndexPath.row];
+        }
+        //videoIndexPath = [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow];
+        //youtube = [self.searchResults objectAtIndex:videoIndexPath.row];
         NSLog(@"Title: %@, videoId: %@", youtube.videoTitle, youtube.videoId);
         Player.youtube = youtube;
     }
@@ -169,6 +187,7 @@
 #pragma mark - Search
 
 - (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString {
+    [self.searchResults removeAllObjects];
     return NO;
 }
 
@@ -212,9 +231,13 @@
     self.videos = [NSJSONSerialization JSONObjectWithData:self.data options:nil error:nil];
     
     NSLog(@"Videos: %@",self.videos);
-    
+    if(self.searchDisplayController.active) {
+        [self.searchResults removeAllObjects];
+    } else {
+        [self.initialResults removeAllObjects];
+    }
     NSArray *itemsArray = (NSArray *)[self.videos objectForKey:@"items"];
-    [self.searchResults removeAllObjects];
+
     for (NSDictionary *item in itemsArray) {
         NSDictionary *snippet = [item objectForKey:@"snippet"];
         NSDictionary *ids = [item objectForKey:@"id"];
@@ -233,9 +256,20 @@
         youtube.videoTitle = title;
         youtube.videoDescription = description;
         youtube.thumbnailURL = thumbnailURL;
-        [self.searchResults addObject:youtube];
+        if(self.searchDisplayController.active) {
+            [self.searchResults addObject:youtube];
+        } else {
+            [self.initialResults addObject:youtube];
+        }
     }
-    [self.searchDisplayController.searchResultsTableView reloadData];
+    if(self.searchDisplayController.active) {
+        [self.searchDisplayController.searchResultsTableView reloadData];
+        NSLog(@"Reload of search view...");
+    } else {
+        [self.tableView reloadData];
+        NSLog(@"Reload of table view...");
+    }
+    
     //[self.tableView reloadData];
 }
 

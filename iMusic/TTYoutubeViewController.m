@@ -36,6 +36,7 @@
                                  };*/
     self.playerView.delegate = self;
     if(self.youtube != nil) {
+        self.videoTitleLabel.text = self.youtube.videoTitle;
         [self.playerView loadWithVideoId:self.youtube.videoId playerVars:playerVars];
     } else {
         NSLog(@"No video id found.");
