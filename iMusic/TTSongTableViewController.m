@@ -321,10 +321,24 @@
     if ([[segue identifier] isEqualToString:@"SongPlayerSegue"])
     {
         NSInteger index;
+        NSMutableArray *songQueue;
         if(sender == self.searchDisplayController.searchResultsTableView) {
             index = [[self.searchDisplayController.searchResultsTableView indexPathForSelectedRow] row];
+            songQueue = self.filteredSongs;
         } else {
-            index = [[self.tableView indexPathForSelectedRow] row];
+            NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+            NSString *sectionTitle = [self.songSectionTitle objectAtIndex:indexPath.section];
+            NSArray *sectionSongs = [self.songIndex objectForKey:sectionTitle];
+            TTSong *song = [sectionSongs objectAtIndex:indexPath.row];
+            index = [self.songs indexOfObjectPassingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
+                if ([[(TTSong *)obj songTitle] isEqualToString:song.songTitle] && [[(TTSong *)obj songURL] isEqual:song.songURL]) {
+                    *stop = YES;
+                    return YES;
+                }
+                return NO;
+            }];
+            NSLog(@"Index: %d", index);
+            songQueue = self.songs;
         }
         
         //Get audio player instance and reset it
@@ -332,7 +346,7 @@
         [music pause];
         
         //Pass song list to player
-        [music setQueue:_songs];
+        [music setQueue:songQueue];
         [music setIndex:index];
     }
 }
