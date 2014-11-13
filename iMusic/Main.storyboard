@@ -71,11 +71,12 @@
                         <segue destination="fS6-yS-bdP" kind="relationship" relationship="viewControllers" id="WR3-Qu-enY"/>
                         <segue destination="06I-Bq-ian" kind="relationship" relationship="viewControllers" id="CaC-lZ-kgO"/>
                         <segue destination="ZuD-Ro-e12" kind="relationship" relationship="viewControllers" id="Tnb-uJ-QeP"/>
+                        <segue destination="PHA-8a-sG8" kind="relationship" relationship="viewControllers" id="FyJ-OO-258"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FNP-y4-bzi" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="668" y="180"/>
+            <point key="canvasLocation" x="662" y="180"/>
         </scene>
         <!--Artists-->
         <scene sceneID="kWl-nx-61r">
@@ -208,13 +209,13 @@
         <!--Now Playing-->
         <scene sceneID="bup-Ss-oXl">
             <objects>
-                <viewController storyboardIdentifier="Player" id="PHA-8a-sG8" customClass="TTNowPlayingViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Player" title="Now Playing" id="PHA-8a-sG8" customClass="TTNowPlayingViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vaI-RN-2vH"/>
                         <viewControllerLayoutGuide type="bottom" id="CHJ-CP-cBL"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="97g-ri-oqP">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
+                    <view key="view" autoresizesSubviews="NO" contentMode="scaleToFill" id="97g-ri-oqP">
+                        <rect key="frame" x="0.0" y="64" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="nKo-sF-EgH">
@@ -262,10 +263,20 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nDH-FC-Eaf">
+                                <rect key="frame" x="215" y="350" width="48" height="30"/>
+                                <state key="normal" title="Shuffle">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="shuffle:" destination="PHA-8a-sG8" eventType="touchUpInside" id="wP7-xY-dE7"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Now Playing" id="9W5-hP-DVN"/>
                     <navigationItem key="navigationItem" title="Now Playing" id="Xuc-jK-Few"/>
                     <connections>
                         <outlet property="artistLabel" destination="bnf-2T-iCK" id="qdN-tA-s39"/>
@@ -274,12 +285,13 @@
                         <outlet property="durLabel" destination="pOJ-oW-dW7" id="t9o-qe-tXG"/>
                         <outlet property="durSlider" destination="nKo-sF-EgH" id="hlK-ou-e6N"/>
                         <outlet property="playPause" destination="UqM-PG-t1e" id="T3P-ih-3zZ"/>
+                        <outlet property="shuffle" destination="nDH-FC-Eaf" id="eYZ-yw-JyF"/>
                         <outlet property="songLabel" destination="zo4-pT-err" id="sDq-mV-M0O"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8ZN-d4-ejd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3041" y="-33"/>
+            <point key="canvasLocation" x="2840" y="-21"/>
         </scene>
         <!--Albums-->
         <scene sceneID="tKs-ce-P8Q">
@@ -783,7 +795,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="k6H-QH-qTm"/>
         <segue reference="iPB-rK-NMc"/>
+        <segue reference="k6H-QH-qTm"/>
     </inferredMetricsTieBreakers>
 </document>

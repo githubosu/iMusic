@@ -164,8 +164,8 @@
 		375AD0271A1314D3002A0223 /* AudioPlayer */ = {
 			isa = PBXGroup;
 			children = (
-				375AD0281A1314ED002A0223 /* AudioPlayer.m */,
 				375AD02A1A1314F9002A0223 /* AudioPlayer.h */,
+				375AD0281A1314ED002A0223 /* AudioPlayer.m */,
 			);
 			name = AudioPlayer;
 			sourceTree = "<group>";

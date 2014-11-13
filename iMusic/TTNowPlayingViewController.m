@@ -38,6 +38,11 @@
     [self storeData];
 }
 
+// Set self as first responder (for shake-to-shuffle feature)
+- (void)viewDidAppear:(BOOL)animated {
+    [self becomeFirstResponder];
+}
+
 // Set UI elements to reflect current song
 - (void) setUI {
     // Display song info and cover art
@@ -151,21 +156,41 @@
 - (IBAction)togglePlayPause:(id)sender {
     
     AudioPlayer *music = [AudioPlayer getPlayer];
-    if (self.playPause.selected) {
+    if (_playPause.selected) {
         [music pause];
     } else {
         [music play];
     }
-    self.playPause.selected = !self.playPause.selected;
+    _playPause.selected = !_playPause.selected;
 }
 
+- (IBAction)shuffle:(id)sender {
+    _shuffle.selected = !_shuffle.selected;
+}
 
 // Change song info when new song starts
 - (void) changeSong:(NSNotification *)note {
     AudioPlayer *music = [AudioPlayer getPlayer];
     NSLog(@"Updating player UI");
-    self.currentSong = [music nowPlaying];
+    _currentSong = [music nowPlaying];
     [self setUI];
+}
+
+// Toggle shuffle when device is shaken
+- (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event {
+    if (motion == UIEventSubtypeMotionShake)
+    {
+        NSLog(@"Shuffling");
+        AudioPlayer *music = [AudioPlayer getPlayer];
+        [music shufflePlayer];
+        _shuffle.selected = !_shuffle.selected;
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"shake" object:self];
+    }
+}
+
+// Set as a first responder (for shake-to-shuffle feature)
+- (BOOL)canBecomeFirstResponder {
+    return YES;
 }
 
 @end

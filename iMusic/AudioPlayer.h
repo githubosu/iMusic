@@ -21,7 +21,9 @@
 
 @property (nonatomic, strong) AVAudioPlayer *musicPlayer;
 @property (nonatomic, strong) NSMutableArray *songQueue;
+@property (nonatomic, strong) NSMutableArray *shuffleQueue;
 @property (nonatomic, assign) NSInteger index;
+@property (nonatomic, assign) BOOL shuffle;
 
 + (id)getPlayer;
 - (TTSong*) dequeue;
@@ -33,5 +35,6 @@
 - (void) pause;
 - (void) startPlayer;
 - (void) nextSong;
+- (void) shufflePlayer;
 
 @end
