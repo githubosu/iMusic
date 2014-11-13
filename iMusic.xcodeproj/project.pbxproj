@@ -197,7 +197,8 @@
 			);
 			name = "Friend Song";
 			path = iMusic;
-
+			sourceTree = "<group>";
+		};
 		3E5AB4919FE37EBCDD412FF0 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
