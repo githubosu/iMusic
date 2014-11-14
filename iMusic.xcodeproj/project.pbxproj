@@ -72,7 +72,6 @@
 		375AD02A1A1314F9002A0223 /* AudioPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AudioPlayer.h; sourceTree = "<group>"; };
 		37DA621019D5A5D600E89387 /* FacebookSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FacebookSDK.h; path = "Pods/Facebook-iOS-SDK/src/FacebookSDK.h"; sourceTree = "<group>"; };
 		37DA621419D5A9FF00E89387 /* libPods-Parse.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-Parse.a"; path = "Pods/build/Debug-iphoneos/libPods-Parse.a"; sourceTree = "<group>"; };
-		B2A758E248BC41D0A9C9A19F /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		BA6779F21A117DFE00193CDB /* TTFriendSongTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTFriendSongTableViewController.h; sourceTree = "<group>"; };
 		BA6779F31A117DFE00193CDB /* TTFriendSongTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTFriendSongTableViewController.m; sourceTree = "<group>"; };
 		BA6779F51A125C0F00193CDB /* TTFriendSongTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTFriendSongTableViewCell.h; sourceTree = "<group>"; };
@@ -177,14 +176,22 @@
 			name = Player;
 			sourceTree = "<group>";
 		};
-
 		375AD0271A1314D3002A0223 /* AudioPlayer */ = {
 			isa = PBXGroup;
 			children = (
-				375AD0281A1314ED002A0223 /* AudioPlayer.m */,
 				375AD02A1A1314F9002A0223 /* AudioPlayer.h */,
+				375AD0281A1314ED002A0223 /* AudioPlayer.m */,
 			);
 			name = AudioPlayer;
+			sourceTree = "<group>";
+		};
+		3E5AB4919FE37EBCDD412FF0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				174C67D2AD2EB76A5E8BF35B /* Pods.debug.xcconfig */,
+				0CBA4F8DD2DE37272170B6DB /* Pods.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		BA6779F81A1270CB00193CDB /* Friend Song */ = {
@@ -197,15 +204,6 @@
 			);
 			name = "Friend Song";
 			path = iMusic;
-			sourceTree = "<group>";
-		};
-		3E5AB4919FE37EBCDD412FF0 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				174C67D2AD2EB76A5E8BF35B /* Pods.debug.xcconfig */,
-				0CBA4F8DD2DE37272170B6DB /* Pods.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 		BA7F4ED319FACEB800E1577D /* Friends */ = {
