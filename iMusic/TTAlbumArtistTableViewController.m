@@ -213,13 +213,14 @@
     // Pass the selected object to the new view controller.
     if ([[segue identifier] isEqualToString:@"AlbumArtistPlayerSegue"])
     {
+        NSInteger index = [[self.tableView indexPathForSelectedRow] row];
+        
         //Get audio player instance and reset it
         AudioPlayer *music = [AudioPlayer getPlayer];
         [music pause];
         
         //Pass song list to player
         [music setQueue:_songs];
-        NSInteger index = [[self.tableView indexPathForSelectedRow] row];
         [music setIndex:index];
     }
 }
