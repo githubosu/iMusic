@@ -54,20 +54,9 @@
 
 // Get current song
 - (TTSong*) nowPlaying {
-    
-    NSLog(@"Index: %d", _index);
-    NSLog(@"%hhd", _shuffle);
-    for (int i = 0; i < [_songQueue count]; i++) {
-        NSLog(@"Song queue: %d\t%@", i, [[_songQueue objectAtIndex:i] songTitle]);
-        NSLog(@"Shuf queue: %d\t%@", i, [[_shuffleQueue objectAtIndex:i] songTitle]);
-    }
-    
-    
     if (_shuffle) {
-        NSLog(@"Now Playing: %@", [[_shuffleQueue objectAtIndex:_index] songTitle]);
         return [_shuffleQueue objectAtIndex:_index];
     } else {
-        NSLog(@"Now Playing: %@", [[_songQueue objectAtIndex:_index] songTitle]);
         return [_songQueue objectAtIndex:_index];
     }
 }
@@ -111,12 +100,12 @@
 // Switch back and forth betrween the shuffle queue and regular queue
 - (void) shufflePlayer {
     TTSong *curr = [self nowPlaying];
+    _shuffle = !_shuffle;
     if (_shuffle) {
         _index = [_shuffleQueue indexOfObject:curr];
     } else {
         _index = [_songQueue indexOfObject:curr];
     }
-    _shuffle = !_shuffle;
 }
 
 // Advance to the next song when one song is completed

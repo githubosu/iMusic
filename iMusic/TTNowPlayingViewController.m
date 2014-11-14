@@ -42,6 +42,10 @@
 
 // Set UI elements to reflect current song
 - (void) setUI {
+    
+    AudioPlayer *music = [AudioPlayer getPlayer];
+    self.currentSong = [music nowPlaying];
+    
     // Display song info and cover art
     if (self.currentSong.songURL != nil) {
         self.songLabel.text = self.currentSong.songTitle;
@@ -76,7 +80,6 @@
     }
     
     //Match UI and audio player shuffle representations
-    AudioPlayer *music = [AudioPlayer getPlayer];
     if (_shuffle.selected != music.shuffle) {
         [self flipShuffleStatus];
     }
@@ -184,15 +187,20 @@
     self.playPause.selected = !self.playPause.selected;
 }
 
-// Toggle shuffle when device is shaken
+// Toggle shuffle and advance song when device is shaken
 - (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event {
     if (motion == UIEventSubtypeMotionShake)
     {
-        NSLog(@"Shuffling");
+        NSLog(@"Shake-to-shuffle");
         AudioPlayer *music = [AudioPlayer getPlayer];
         [music shufflePlayer];
         [self flipShuffleStatus];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"shake" object:self];
+        if (_shuffle.selected) {
+            [music nextSong];
+        }
+        [self setUI];
+        
     }
 }
 
