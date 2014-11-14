@@ -199,16 +199,18 @@
     //Populate search results;
     
     [SVProgressHUD showWithStatus:@"Loading Videos..." maskType:SVProgressHUDMaskTypeClear];
-    
+    NSLog(@"Loading Videos...");
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     //NSString *apiKey = @"AIzaSyC2PTX7MnDclRCRGa1YUpnM6hhb-HU5xB4";
     NSString *apiKey = @"AIzaSyAXwT5jS7mm-QMNAFDqDd_1jlWoBYcvTbc";
-    NSString *urlString = [NSString stringWithFormat:@"https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=%@&key=%@", searchBar.text, apiKey];
-    NSURL *url = [NSURL URLWithString:urlString];
+    NSString* urlText = searchBar.text;
+    NSString* urlTextEscaped = [urlText stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSString *urlString = [NSString stringWithFormat:@"https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=%@&key=%@", urlTextEscaped, apiKey];
+    //urlString = [urlString stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSURL *url = [NSURL URLWithString: urlString];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     [[NSURLConnection alloc] initWithRequest:request delegate:self];
     NSLog(@"JSON REQUESTED for : %@", urlString);
-    
     //[self.searchDisplayController.searchResultsTableView reloadData];
 }
 
