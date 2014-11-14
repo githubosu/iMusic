@@ -35,6 +35,16 @@
 // Set player queue from given array
 - (void) setQueue:(NSArray*)songs {
     _songQueue = [[NSMutableArray alloc] initWithArray:songs];
+    _shuffleQueue = [[NSMutableArray alloc] initWithArray:songs];
+    
+    // Randomly sort the shuffled queue
+    [_shuffleQueue sortUsingComparator: ^(id obj1, id obj2) {
+        int r = arc4random() % 2;
+        if (r == 0) {
+            return (NSComparisonResult)NSOrderedDescending;
+        }
+        return (NSComparisonResult)NSOrderedAscending;
+    }];
 }
 
 // Set the index to desired value
@@ -44,7 +54,22 @@
 
 // Get current song
 - (TTSong*) nowPlaying {
-    return [_songQueue objectAtIndex: _index];
+    
+    NSLog(@"Index: %d", _index);
+    NSLog(@"%hhd", _shuffle);
+    for (int i = 0; i < [_songQueue count]; i++) {
+        NSLog(@"Song queue: %d\t%@", i, [[_songQueue objectAtIndex:i] songTitle]);
+        NSLog(@"Shuf queue: %d\t%@", i, [[_shuffleQueue objectAtIndex:i] songTitle]);
+    }
+    
+    
+    if (_shuffle) {
+        NSLog(@"Now Playing: %@", [[_shuffleQueue objectAtIndex:_index] songTitle]);
+        return [_shuffleQueue objectAtIndex:_index];
+    } else {
+        NSLog(@"Now Playing: %@", [[_songQueue objectAtIndex:_index] songTitle]);
+        return [_songQueue objectAtIndex:_index];
+    }
 }
 
 // Play music player
@@ -59,7 +84,16 @@
 
 // Start music player from the current index in the queue
 - (void) startPlayer {
-    NSURL *url = [[_songQueue objectAtIndex:_index] songURL];
+    NSURL *url;
+    
+    // Choose between the normal or shuffled queue
+    if (_shuffle) {
+        url = [[_shuffleQueue objectAtIndex:_index] songURL];
+        NSLog(@"Starting Player shuffle: %@", [[_shuffleQueue objectAtIndex:_index] songTitle]);
+    } else {
+        url = [[_songQueue objectAtIndex:_index] songURL];
+        NSLog(@"Starting Player normal: %@", [[_songQueue objectAtIndex:_index] songTitle]);
+    }
     _musicPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:NULL];
     [_musicPlayer play];
     
@@ -72,6 +106,17 @@
     [_musicPlayer stop];
     _index = (_index + 1) % [_songQueue count];
     [self startPlayer];
+}
+
+// Switch back and forth betrween the shuffle queue and regular queue
+- (void) shufflePlayer {
+    TTSong *curr = [self nowPlaying];
+    if (_shuffle) {
+        _index = [_shuffleQueue indexOfObject:curr];
+    } else {
+        _index = [_songQueue indexOfObject:curr];
+    }
+    _shuffle = !_shuffle;
 }
 
 // Advance to the next song when one song is completed

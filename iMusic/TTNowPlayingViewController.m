@@ -34,8 +34,8 @@
     // Notify when a new player item begins
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeSong:) name:@"nextSong" object:nil];
     
+    // Store song data to Parse
     if (self.currentSong.songURL != nil) {
-        // Store song data to Parse
         [self storeData];
     }
 }
@@ -74,6 +74,12 @@
         //NSLog(@"No ALBUM ARTWORK");
         self.artwork.image = [[UIImage imageNamed:@"default-artwork.png"] resizedImage: CGSizeMake(256.0f, 256.0f) interpolationQuality: kCGInterpolationLow];
     }
+    
+    //Match UI and audio player shuffle representations
+    AudioPlayer *music = [AudioPlayer getPlayer];
+    if (_shuffle.selected != music.shuffle) {
+        [self flipShuffleStatus];
+    }
 }
 
 // Slider drag action to seek to a specific time in the song
@@ -85,7 +91,7 @@
 // Update slider and song timer
 - (void)updateTime:(NSTimer *)timer {
     AudioPlayer *music = [AudioPlayer getPlayer];
-    int time = music.musicPlayer.currentTime;
+    int time = (int) music.musicPlayer.currentTime;
     _durSlider.value = time;
     _curDurLabel.text = [NSString stringWithFormat:@"%02d:%02d", time / 60, time % 60];
 }
@@ -178,6 +184,24 @@
     self.playPause.selected = !self.playPause.selected;
 }
 
+// Toggle shuffle when device is shaken
+- (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event {
+    if (motion == UIEventSubtypeMotionShake)
+    {
+        NSLog(@"Shuffling");
+        AudioPlayer *music = [AudioPlayer getPlayer];
+        [music shufflePlayer];
+        [self flipShuffleStatus];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"shake" object:self];
+    }
+}
+
+//Shuffle button press
+- (IBAction)shuffle:(id)sender {
+    AudioPlayer *music = [AudioPlayer getPlayer];
+    [music shufflePlayer];
+    [self flipShuffleStatus];
+}
 
 // Change song info when new song starts
 - (void) changeSong:(NSNotification *)note {
@@ -189,6 +213,15 @@
     if(self.currentSong.songURL != nil) {
         // Store song data to Parse
         [self storeData];
+    }
+}
+
+- (void) flipShuffleStatus {
+    _shuffle.selected = !_shuffle.selected;
+    if (_shuffle.selected) {
+        [_shuffle setImage:[UIImage imageNamed:@"Shuffle_active"] forState:UIControlStateSelected];
+    } else {
+        [_shuffle setImage:[UIImage imageNamed:@"Shuffle"] forState:UIControlStateNormal];
     }
 }
 
