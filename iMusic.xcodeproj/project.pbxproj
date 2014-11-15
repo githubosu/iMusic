@@ -203,7 +203,6 @@
 				BA6779F61A125C0F00193CDB /* TTFriendSongTableViewCell.m */,
 			);
 			name = "Friend Song";
-			path = iMusic;
 			sourceTree = "<group>";
 		};
 		BA7F4ED319FACEB800E1577D /* Friends */ = {
@@ -241,7 +240,6 @@
 			isa = PBXGroup;
 			children = (
 				BADD935319C563B1000E0898 /* iMusic */,
-				BA6779F81A1270CB00193CDB /* Friend Song */,
 				BADD934C19C563B1000E0898 /* Frameworks */,
 				BADD934B19C563B1000E0898 /* Products */,
 				3E5AB4919FE37EBCDD412FF0 /* Pods */,
@@ -276,7 +274,6 @@
 		BADD935319C563B1000E0898 /* iMusic */ = {
 			isa = PBXGroup;
 			children = (
-				375AD0271A1314D3002A0223 /* AudioPlayer */,
 				E2F13E6C1A0DE22E00D6A6FE /* Data.xcdatamodeld */,
 				BA9C98B919FAD92500047D58 /* Main.storyboard */,
 				BADD935C19C563B1000E0898 /* TTAppDelegate.h */,
@@ -290,7 +287,9 @@
 				E2F13E741A0E0E6D00D6A6FE /* Playlists */,
 				E257F49E19E81D6F00EF4FBB /* Model */,
 				E2AA10611A11C6F600FE0579 /* Youtube */,
+				375AD0271A1314D3002A0223 /* AudioPlayer */,
 				BADD936819C563B1000E0898 /* Images.xcassets */,
+				BA6779F81A1270CB00193CDB /* Friend Song */,
 				BADD935419C563B1000E0898 /* Supporting Files */,
 				BA7F4ED319FACEB800E1577D /* Friends */,
 			);
