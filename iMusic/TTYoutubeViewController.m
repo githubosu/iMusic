@@ -82,27 +82,39 @@
             NSLog(@"Started playback");
             // Storing data to Parse
             PFObject *video = [PFObject objectWithClassName:@"Youtube"];
-            [video setObject:[PFUser currentUser] forKey:@"user"];
-            [video setObject:self.youtube.videoTitle forKey:@"videoTitle"];
-            [video setObject:self.youtube.videoDescription forKey:@"videoDescription"];
-            [video setObject:self.youtube.videoId forKey:@"videoId"];
-            [video setObject:self.youtube.thumbnailURL forKey:@"thumbnailURL"];
-            // Get FbId
-            FBRequest *request = [FBRequest requestForMe];
-            [request startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
-                if (!error) {
-                    NSDictionary *userDictionary = (NSDictionary *)result;
-                    NSString *facebookID = userDictionary[@"id"];
-                    NSLog(@"FB ID: %@", facebookID);
-                    [video setObject:facebookID forKey:@"fbId"];
-                }
-                [video saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            
+            @try {
+                [video setObject:[PFUser currentUser] forKey:@"user"];
+                [video setObject:self.youtube.videoTitle forKey:@"title"];
+                [video setObject:self.youtube.videoId forKey:@"album"];
+                [video setObject:self.youtube.videoDescription forKey:@"artist"];
+                NSData *thumbnailImage = [NSData dataWithContentsOfURL:[NSURL URLWithString:self.youtube.thumbnailURL]];
+                PFFile *photoFile = [PFFile fileWithData:thumbnailImage];
+                [photoFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                     if (succeeded) {
-                        NSLog(@"Video saved successfully in Parse.");
+                        NSLog(@"Thumbnail saved");
+                        [video setObject:photoFile forKey:@"artwork"];
                     }
+                    // Get FbId
+                    FBRequest *request = [FBRequest requestForMe];
+                    [request startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+                        if (!error) {
+                            NSDictionary *userDictionary = (NSDictionary *)result;
+                            NSString *facebookID = userDictionary[@"id"];
+                            NSLog(@"FB ID: %@", facebookID);
+                            [video setObject:facebookID forKey:@"fbId"];
+                        }
+                        [video saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                            if (succeeded) {
+                                NSLog(@"Video saved successfully in Parse.");
+                            }
+                        }];
+                    }];
                 }];
-            }];
-    
+                
+            } @catch(NSException *exception) {
+                NSLog(@"Exception caught while trying to save YouTube object to Parse. %@",exception);
+            }
             break;
         }
         case kYTPlayerStatePaused: {
