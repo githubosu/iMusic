@@ -29,12 +29,14 @@
     [[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor colorWithRed:0.596 green:0.867 blue:0.596 alpha:1.0]} forState:UIControlStateSelected];
     [[UITabBar appearance] setSelectedImageTintColor:[UIColor colorWithRed:0.596 green:0.867 blue:0.596 alpha:1.0]];
     [[UITabBar appearance] setTintColor:[UIColor colorWithRed:0.596 green:0.867 blue:0.596 alpha:1.0]];
+    [[UITabBar appearance] setBarTintColor:[UIColor darkGrayColor]];
     
     //Style navigation bars
-    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:0.19 green:0.19 blue:0.19 alpha:1.0]];
+    //[[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:0.19 green:0.19 blue:0.19 alpha:1.0]];
+    [[UINavigationBar appearance] setBarTintColor:[UIColor darkGrayColor]];
     [[UINavigationBar appearance] setTranslucent:NO];
     [[UINavigationBar appearance]  setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0]}];
-    
+        
     //Style table views
     [[UITableView appearance] setBackgroundColor:[UIColor darkGrayColor]];
     [[UITableView appearance] setSeparatorColor:[UIColor colorWithRed:0.19 green:0.19 blue:0.19 alpha:1.0]];
