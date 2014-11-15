@@ -102,7 +102,7 @@
         if (!error) {
             cell.albumArtworkImage.image = [UIImage imageWithData:data];
             cell.songLabel.text = imageObject[@"title"];
-            cell.albumLabel.text = imageObject[@"album"];
+            //cell.albumLabel.text = imageObject[@"album"];
             cell.artistLabel.text = imageObject[@"artist"];
         }
     }];
