@@ -7,10 +7,11 @@
 //
 
 #import "TTFriendSongTableViewController.h"
+#import "TTYoutube.h"
 
 @interface TTFriendSongTableViewController ()
 @property(strong,nonatomic)NSArray *songArray;
-
+@property(strong,nonatomic)NSString *currentSegment;
 @end
 
 @implementation TTFriendSongTableViewController
@@ -145,15 +146,46 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
+/*
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Perform segue
+    if([self.currentSegment isEqualToString:@"Videos"]) {
+        NSLog(@"About to perform segue...");
+        [self performSegueWithIdentifier:@"friendYoutubeSegue" sender:tableView];
+    }
+}*/
+
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
+    // Performing segue only when selected segment is Videos
+    if([self.currentSegment isEqualToString:@"Videos"]) {
+        return YES;
+    } else {
+        return NO;
+    }
+}
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([[segue identifier] isEqualToString:@"friendYoutubeSegue"]) {
+        if([self.currentSegment isEqualToString:@"Videos"]) {
+            TTYoutubeViewController *Player = (TTYoutubeViewController*) segue.destinationViewController;
+            NSIndexPath *videoIndexPath;
+            TTYoutube *youtube = [[TTYoutube alloc] init];
+            videoIndexPath = [self.tableView indexPathForSelectedRow];
+            PFObject *videoObject = [self.songArray objectAtIndex:videoIndexPath.row];
+            youtube.videoId = videoObject[@"album"];
+            youtube.videoTitle = videoObject[@"title"];
+            youtube.videoDescription = videoObject[@"artist"];
+            youtube.thumbnailURL = videoObject[@"thumbnailURL"];
+            NSLog(@"Title: %@, videoId: %@", youtube.videoTitle, youtube.videoId);
+            Player.youtube = youtube;
+        }
+    }
 }
-*/
 
 - (IBAction)segmentedControlPressed:(UISegmentedControl *)sender
 {
@@ -161,9 +193,11 @@
     NSLog(@"The selected segment is : %d", index);
     switch (index) {
         case 0:
+            self.currentSegment = @"Songs";
             [self queryForSong];
             break;
         case 1:
+            self.currentSegment = @"Videos";
             [self queryForYoutube];
             break;
     }

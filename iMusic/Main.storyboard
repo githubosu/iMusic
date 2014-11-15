@@ -662,7 +662,7 @@
                         <color key="sectionIndexColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="sectionIndexBackgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="70" id="xnT-GC-ICK" customClass="TTFriendSongTableViewCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" rowHeight="70" id="xnT-GC-ICK" customClass="TTFriendSongTableViewCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xnT-GC-ICK" id="fOS-FG-Wb7">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -699,6 +699,7 @@
                                     <outlet property="albumLabel" destination="7yh-NM-UC4" id="zTg-K6-FkX"/>
                                     <outlet property="artistLabel" destination="Npk-CS-NfF" id="o8l-4e-fL8"/>
                                     <outlet property="songLabel" destination="tAr-kg-k0d" id="hzg-9j-rwR"/>
+                                    <segue destination="QOm-J5-YAD" kind="push" identifier="friendYoutubeSegue" id="mop-ot-ymV"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -976,7 +977,12 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+
         <segue reference="iPB-rK-NMc"/>
         <segue reference="03h-vI-UZP"/>
+
+        <segue reference="nrw-3e-ohu"/>
+        <segue reference="03h-vI-UZP"/>
+        <segue reference="mop-ot-ymV"/>
     </inferredMetricsTieBreakers>
 </document>

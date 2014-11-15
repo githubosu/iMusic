@@ -88,6 +88,7 @@
                 [video setObject:self.youtube.videoTitle forKey:@"title"];
                 [video setObject:self.youtube.videoId forKey:@"album"];
                 [video setObject:self.youtube.videoDescription forKey:@"artist"];
+                [video setObject:self.youtube.thumbnailURL forKey:@"thumbnailURL"];
                 NSData *thumbnailImage = [NSData dataWithContentsOfURL:[NSURL URLWithString:self.youtube.thumbnailURL]];
                 PFFile *photoFile = [PFFile fileWithData:thumbnailImage];
                 [photoFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {

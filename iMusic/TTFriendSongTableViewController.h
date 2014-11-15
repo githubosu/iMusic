@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "TTFriendSongTableViewCell.h"
-
+#import "TTYoutubeViewController.h"
 
 @interface TTFriendSongTableViewController : UITableViewController
 @property(strong, nonatomic)PFUser *friendUser;
