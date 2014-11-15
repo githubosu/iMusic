@@ -30,6 +30,16 @@
 			<key>orderHint</key>
 			<integer>5</integer>
 		</dict>
+		<key>Pods-SVProgressHUD.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>6</integer>
+		</dict>
+		<key>Pods-youtube-ios-player-helper.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>7</integer>
+		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -40,7 +50,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>022EAE9C0CB5D41301C3333C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>05E350E8F616836E2A88A865</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>09A7B81E49194908A4894A5B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>142B0AD09C8B4AC6C46EEF39</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>17ECEDCF48AEA382063A0D56</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -56,6 +86,16 @@
 			<true/>
 		</dict>
 		<key>445CC569D02A4488BA5744AC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>57B06D4C2C1A169E0CE58004</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>613DE58D7A8508D2F98AA5F4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -76,6 +116,11 @@
 			<true/>
 		</dict>
 		<key>D648B03E6F13456DA6050D0B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DBD7565BC46172D2605ECB1D</key>
 		<dict>
 			<key>primary</key>
 			<true/>

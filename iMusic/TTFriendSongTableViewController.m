@@ -24,6 +24,37 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     //NSLog(@"%@",self.friendUser[@"fbId"]);
+    self.navigationItem.hidesBackButton = YES;
+//    PFQuery *query = [PFQuery queryWithClassName:@"Song"];
+//    [query whereKey:@"fbId" equalTo:self.friendUser[@"fbId"]];
+//    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+//        if (!error) {
+//            //NSLog(@"%@", objects);
+//            self.songArray = objects;
+//            [self.tableView reloadData];
+//        }
+//        
+//    }];
+    [self queryForSong];
+}
+
+#pragma mark - Query Parse
+
+-(void)queryForYoutube
+{
+    PFQuery *query = [PFQuery queryWithClassName:@"Youtube"];
+    [query whereKey:@"fbId" equalTo:self.friendUser[@"fbId"]];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            self.songArray = objects;
+            //NSLog(@"%@", self.songArray);
+            [self.tableView reloadData];
+        }
+    }];
+}
+
+-(void)queryForSong
+{
     PFQuery *query = [PFQuery queryWithClassName:@"Song"];
     [query whereKey:@"fbId" equalTo:self.friendUser[@"fbId"]];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
@@ -63,7 +94,7 @@
     
     // Configure the cell...
     PFObject *imageObject = [self.songArray objectAtIndex:indexPath.row];
-    //NSLog(@"%@", imageObject);
+    NSLog(@"%@", imageObject);
     PFFile *imageFile = [imageObject objectForKey:@"artwork"];
    //NSLog(@"%@", imageFile);
     
@@ -124,4 +155,17 @@
 }
 */
 
+- (IBAction)segmentedControlPressed:(UISegmentedControl *)sender
+{
+    int index = (int)sender.selectedSegmentIndex;
+    NSLog(@"The selected segment is : %d", index);
+    switch (index) {
+        case 0:
+            [self queryForSong];
+            break;
+        case 1:
+            [self queryForYoutube];
+            break;
+    }
+}
 @end

@@ -708,7 +708,23 @@
                             <outlet property="delegate" destination="VXz-xK-l4K" id="t9X-Tm-B83"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="21m-RP-fDb"/>
+                    <navigationItem key="navigationItem" id="21m-RP-fDb">
+                        <nil key="title"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="bLq-0w-x7i">
+                            <rect key="frame" x="96" y="7" width="128" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="Song"/>
+                                <segment title="Videos"/>
+                            </segments>
+                            <connections>
+                                <action selector="segmentedControlPressed:" destination="VXz-xK-l4K" eventType="valueChanged" id="ivD-PK-bAX"/>
+                            </connections>
+                        </segmentedControl>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="segmentedControl" destination="bLq-0w-x7i" id="GHw-4p-yuh"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f3i-SB-h4H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

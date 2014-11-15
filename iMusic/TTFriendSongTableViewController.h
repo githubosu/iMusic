@@ -12,5 +12,7 @@
 
 @interface TTFriendSongTableViewController : UITableViewController
 @property(strong, nonatomic)PFUser *friendUser;
+@property (strong, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
+- (IBAction)segmentedControlPressed:(UISegmentedControl *)sender;
 
 @end
