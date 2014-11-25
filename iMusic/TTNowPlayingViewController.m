@@ -108,14 +108,16 @@
         [song setObject:self.currentSong.songTitle forKey:@"title"];
         [song setObject:self.currentSong.album forKey:@"album"];
         [song setObject:self.currentSong.artist forKey:@"artist"];
+        [song setObject:[[PFUser currentUser] objectForKey:@"fbId"] forKey:@"fbId"];
+        NSLog(@"FB ID: %@", [[PFUser currentUser] objectForKey:@"fbId"]);
         // Get FbId
-        FBRequest *request =[FBRequest requestForMe];
-        [request startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
-            if (!error) {
-                NSDictionary *userDictionary = (NSDictionary *)result;
-                NSString *facebookID = userDictionary[@"id"];
-                NSLog(@"FB ID: %@", facebookID);
-                [song setObject:facebookID forKey:@"fbId"];
+//        FBRequest *request =[FBRequest requestForMe];
+//        [request startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+//            if (!error) {
+//                NSDictionary *userDictionary = (NSDictionary *)result;
+//                NSString *facebookID = userDictionary[@"id"];
+//                NSLog(@"FB ID: %@", facebookID);
+//                [song setObject:facebookID forKey:@"fbId"];
                 UIImage *albumArtworkImage = NULL;
                 UIImage *resizedImage = NULL;
                 MPMediaItemArtwork *itemArtwork = [self.currentSong artwork];
@@ -141,12 +143,14 @@
                                 }
                             }];*/
                             // Save it as soon as is convenient.
-                            //[song saveEventually];
-                            [song saveEventually:^(BOOL succeeded, NSError *error) {
+                            [song saveEventually];
+                            /*[song saveEventually:^(BOOL succeeded, NSError *error) {
                                 if(succeeded) {
                                     NSLog(@"Song saved successfully");
                                 }
-                            }];
+                            }];*/
+                        } else {
+                            NSLog(@"Error: %@", error);
                         }
                     }];
                 } else { // no album artwork
@@ -158,16 +162,16 @@
                         }
                     }];*/
                     // Save it as soon as is convenient.
-                    //[song saveEventually];
-                    [song saveEventually:^(BOOL succeeded, NSError *error) {
+                    [song saveEventually];
+                    /*[song saveEventually:^(BOOL succeeded, NSError *error) {
                         if(succeeded) {
                             NSLog(@"Song saved successfully");
                         }
-                    }];
+                    }];*/
                 }
                 
-            }
-        }];
+//            }
+//        }];
     } @catch(NSException *exception) {
         NSLog(@"Exception caught while storing song data to Parse: %@", exception);
     }
