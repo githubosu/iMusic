@@ -135,8 +135,15 @@
                             NSLog(@"Artwork saved");
                             
                             [song setObject:photoFile forKey:@"artwork"];
-                            [song saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                            /*[song saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                                 if (succeeded) {
+                                    NSLog(@"Song saved successfully");
+                                }
+                            }];*/
+                            // Save it as soon as is convenient.
+                            //[song saveEventually];
+                            [song saveEventually:^(BOOL succeeded, NSError *error) {
+                                if(succeeded) {
                                     NSLog(@"Song saved successfully");
                                 }
                             }];
@@ -145,8 +152,15 @@
                 } else { // no album artwork
                     NSLog(@"No ALBUM ARTWORK");
                     /*cell.imageView.image = [[UIImage imageNamed:@"default-artwork.png"] resizedImage: CGSizeMake(256.0f, 256.0f) interpolationQuality: kCGInterpolationLow];*/
-                    [song saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                    /*[song saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                         if (succeeded) {
+                            NSLog(@"Song saved successfully");
+                        }
+                    }];*/
+                    // Save it as soon as is convenient.
+                    //[song saveEventually];
+                    [song saveEventually:^(BOOL succeeded, NSError *error) {
+                        if(succeeded) {
                             NSLog(@"Song saved successfully");
                         }
                     }];

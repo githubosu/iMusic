@@ -36,10 +36,12 @@
 		E219457119F39B96005C3E56 /* TTAlbumViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E219457019F39B96005C3E56 /* TTAlbumViewCell.m */; };
 		E219457519F3AF84005C3E56 /* TTAlbumArtistSongViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E219457419F3AF84005C3E56 /* TTAlbumArtistSongViewCell.m */; };
 		E219457819F3AFAB005C3E56 /* TTAlbumArtistTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E219457719F3AFAB005C3E56 /* TTAlbumArtistTableViewController.m */; };
+		E23549FB1A246999009FE084 /* Ipad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E23549FA1A246999009FE084 /* Ipad.storyboard */; };
+		E23549FD1A248142009FE084 /* youtubeCustomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E23549FC1A248142009FE084 /* youtubeCustomeCell.xib */; };
 		E23A57021A11F8BF00CA89F5 /* TTYoutubeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E23A57011A11F8BF00CA89F5 /* TTYoutubeTableViewController.m */; };
 		E23A57051A11FB4000CA89F5 /* TTYoutubeViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E23A57041A11FB4000CA89F5 /* TTYoutubeViewCell.m */; };
 		E23A57081A12016700CA89F5 /* TTYoutube.m in Sources */ = {isa = PBXBuildFile; fileRef = E23A57071A12016700CA89F5 /* TTYoutube.m */; };
-		E23A570A1A12EED200CA89F5 /* youtubeCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E23A57091A12EED200CA89F5 /* youtubeCustomCell.xib */; };
+		E23A570A1A12EED200CA89F5 /* youtubeCustomCell~iphone.xib in Resources */ = {isa = PBXBuildFile; fileRef = E23A57091A12EED200CA89F5 /* youtubeCustomCell~iphone.xib */; };
 		E257F4A119E81E9100EF4FBB /* TTSong.m in Sources */ = {isa = PBXBuildFile; fileRef = E257F4A019E81E9100EF4FBB /* TTSong.m */; };
 		E2AA10641A11C72C00FE0579 /* TTYoutubeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2AA10631A11C72C00FE0579 /* TTYoutubeViewController.m */; };
 		E2E9363019E86A6900BFE068 /* default-artwork.png in Resources */ = {isa = PBXBuildFile; fileRef = E2E9362F19E86A6900BFE068 /* default-artwork.png */; };
@@ -113,13 +115,15 @@
 		E219457419F3AF84005C3E56 /* TTAlbumArtistSongViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTAlbumArtistSongViewCell.m; sourceTree = "<group>"; };
 		E219457619F3AFAB005C3E56 /* TTAlbumArtistTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTAlbumArtistTableViewController.h; sourceTree = "<group>"; };
 		E219457719F3AFAB005C3E56 /* TTAlbumArtistTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTAlbumArtistTableViewController.m; sourceTree = "<group>"; };
+		E23549FA1A246999009FE084 /* Ipad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Ipad.storyboard; sourceTree = "<group>"; };
+		E23549FC1A248142009FE084 /* youtubeCustomeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = youtubeCustomeCell.xib; sourceTree = "<group>"; };
 		E23A57001A11F8BF00CA89F5 /* TTYoutubeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTYoutubeTableViewController.h; sourceTree = "<group>"; };
 		E23A57011A11F8BF00CA89F5 /* TTYoutubeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTYoutubeTableViewController.m; sourceTree = "<group>"; };
 		E23A57031A11FB3F00CA89F5 /* TTYoutubeViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTYoutubeViewCell.h; sourceTree = "<group>"; };
 		E23A57041A11FB4000CA89F5 /* TTYoutubeViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTYoutubeViewCell.m; sourceTree = "<group>"; };
 		E23A57061A12016700CA89F5 /* TTYoutube.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTYoutube.h; sourceTree = "<group>"; };
 		E23A57071A12016700CA89F5 /* TTYoutube.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTYoutube.m; sourceTree = "<group>"; };
-		E23A57091A12EED200CA89F5 /* youtubeCustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = youtubeCustomCell.xib; sourceTree = "<group>"; };
+		E23A57091A12EED200CA89F5 /* youtubeCustomCell~iphone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "youtubeCustomCell~iphone.xib"; sourceTree = "<group>"; };
 		E257F49F19E81E9100EF4FBB /* TTSong.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTSong.h; sourceTree = "<group>"; };
 		E257F4A019E81E9100EF4FBB /* TTSong.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTSong.m; sourceTree = "<group>"; };
 		E2AA10621A11C72C00FE0579 /* TTYoutubeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTYoutubeViewController.h; sourceTree = "<group>"; };
@@ -276,6 +280,7 @@
 			children = (
 				E2F13E6C1A0DE22E00D6A6FE /* Data.xcdatamodeld */,
 				BA9C98B919FAD92500047D58 /* Main.storyboard */,
+				E23549FA1A246999009FE084 /* Ipad.storyboard */,
 				BADD935C19C563B1000E0898 /* TTAppDelegate.h */,
 				BADD935D19C563B1000E0898 /* TTAppDelegate.m */,
 				37041ABA19EDE70500DE7AA3 /* Player */,
@@ -347,13 +352,14 @@
 		E2AA10611A11C6F600FE0579 /* Youtube */ = {
 			isa = PBXGroup;
 			children = (
-				E23A57091A12EED200CA89F5 /* youtubeCustomCell.xib */,
+				E23A57091A12EED200CA89F5 /* youtubeCustomCell~iphone.xib */,
 				E2AA10621A11C72C00FE0579 /* TTYoutubeViewController.h */,
 				E2AA10631A11C72C00FE0579 /* TTYoutubeViewController.m */,
 				E23A57001A11F8BF00CA89F5 /* TTYoutubeTableViewController.h */,
 				E23A57011A11F8BF00CA89F5 /* TTYoutubeTableViewController.m */,
 				E23A57031A11FB3F00CA89F5 /* TTYoutubeViewCell.h */,
 				E23A57041A11FB4000CA89F5 /* TTYoutubeViewCell.m */,
+				E23549FC1A248142009FE084 /* youtubeCustomeCell.xib */,
 			);
 			name = Youtube;
 			sourceTree = "<group>";
@@ -481,11 +487,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E23549FB1A246999009FE084 /* Ipad.storyboard in Resources */,
 				BADD936919C563B1000E0898 /* Images.xcassets in Resources */,
+				E23549FD1A248142009FE084 /* youtubeCustomeCell.xib in Resources */,
 				E2E9363019E86A6900BFE068 /* default-artwork.png in Resources */,
 				BADD935819C563B1000E0898 /* InfoPlist.strings in Resources */,
 				BA9C98BA19FAD92500047D58 /* Main.storyboard in Resources */,
-				E23A570A1A12EED200CA89F5 /* youtubeCustomCell.xib in Resources */,
+				E23A570A1A12EED200CA89F5 /* youtubeCustomCell~iphone.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

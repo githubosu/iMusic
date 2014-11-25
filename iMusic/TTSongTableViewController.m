@@ -263,6 +263,13 @@
     return cell;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        return 75;
+    } else {
+        return 50;
+    }
+}
 
 /*
 // Override to support conditional editing of the table view.

@@ -56,7 +56,12 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    self.playerView = [[YTPlayerView alloc] initWithFrame: CGRectMake(0, 130, 320, 200)];
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        self.playerView = [[YTPlayerView alloc] initWithFrame: CGRectMake(0, 130, 770, 500)];
+    } else {
+        self.playerView = [[YTPlayerView alloc] initWithFrame: CGRectMake(0, 130, 320, 200)];
+    }
+
     self.playerView.backgroundColor = [UIColor lightGrayColor];
     self.playerView.delegate = self;
     [self.view addSubview:self.playerView];
@@ -105,8 +110,15 @@
                             NSLog(@"FB ID: %@", facebookID);
                             [video setObject:facebookID forKey:@"fbId"];
                         }
-                        [video saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                        /*([video saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                             if (succeeded) {
+                                NSLog(@"Video saved successfully in Parse.");
+                            }
+                        }];*/
+                        // Save it as soon as is convenient.
+                        //[video saveEventually];
+                        [video saveEventually:^(BOOL succeeded, NSError *error) {
+                            if(succeeded) {
                                 NSLog(@"Video saved successfully in Parse.");
                             }
                         }];
