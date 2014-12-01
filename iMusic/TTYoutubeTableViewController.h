@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "TTYoutubeViewCell.h"
 #import "TTYoutubeViewController.h"
+#import "TTNetworkCheck.h"
 @interface TTYoutubeTableViewController : UITableViewController
 @property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
 

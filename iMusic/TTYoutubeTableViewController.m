@@ -33,18 +33,26 @@
     
     self.searchResults = [[NSMutableArray alloc]init];
     self.initialResults = [[NSMutableArray alloc]init];
-    // For testing
     
-    [SVProgressHUD showWithStatus:@"Loading Videos..." maskType:SVProgressHUDMaskTypeClear];
-    
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-
-    NSString *apiKey = @"AIzaSyAXwT5jS7mm-QMNAFDqDd_1jlWoBYcvTbc";
-    NSString *urlString = [NSString stringWithFormat:@"https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&chart=mostPopular&key=%@", apiKey];
-    NSURL *url = [NSURL URLWithString:urlString];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    [[NSURLConnection alloc] initWithRequest:request delegate:self];
-    NSLog(@"JSON REQUESTED for : %@", urlString);
+    if([TTNetworkCheck hasConnectivity]) {
+        [SVProgressHUD showWithStatus:@"Loading Videos..." maskType:SVProgressHUDMaskTypeClear];
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+        NSString *apiKey = @"AIzaSyAXwT5jS7mm-QMNAFDqDd_1jlWoBYcvTbc";
+        NSString *urlString = [NSString stringWithFormat:@"https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&chart=mostPopular&key=%@", apiKey];
+        NSURL *url = [NSURL URLWithString:urlString];
+        NSURLRequest *request = [NSURLRequest requestWithURL:url];
+        [[NSURLConnection alloc] initWithRequest:request delegate:self];
+        NSLog(@"JSON REQUESTED for : %@", urlString);
+    } else {
+        UIAlertView *errorAlert = [[UIAlertView alloc]
+                                   initWithTitle: @"No Internet Connectivity"
+                                   message: @"Unable to connect to the Internet. Please check your Internet connection and try again."
+                                   delegate:nil
+                                   cancelButtonTitle:@"OK"
+                                   otherButtonTitles:nil];
+        [errorAlert show];
+        NSLog (@"No connectivity...");
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -198,20 +206,32 @@
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
     //Populate search results;
     
-    [SVProgressHUD showWithStatus:@"Loading Videos..." maskType:SVProgressHUDMaskTypeClear];
-    NSLog(@"Loading Videos...");
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-    //NSString *apiKey = @"AIzaSyC2PTX7MnDclRCRGa1YUpnM6hhb-HU5xB4";
-    NSString *apiKey = @"AIzaSyAXwT5jS7mm-QMNAFDqDd_1jlWoBYcvTbc";
-    NSString* urlText = searchBar.text;
-    NSString* urlTextEscaped = [urlText stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    NSString *urlString = [NSString stringWithFormat:@"https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=%@&key=%@", urlTextEscaped, apiKey];
-    //urlString = [urlString stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    NSURL *url = [NSURL URLWithString: urlString];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    [[NSURLConnection alloc] initWithRequest:request delegate:self];
-    NSLog(@"JSON REQUESTED for : %@", urlString);
-    //[self.searchDisplayController.searchResultsTableView reloadData];
+    if([TTNetworkCheck hasConnectivity]) {
+        [SVProgressHUD showWithStatus:@"Loading Videos..." maskType:SVProgressHUDMaskTypeClear];
+        NSLog(@"Loading Videos...");
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+        //NSString *apiKey = @"AIzaSyC2PTX7MnDclRCRGa1YUpnM6hhb-HU5xB4";
+        NSString *apiKey = @"AIzaSyAXwT5jS7mm-QMNAFDqDd_1jlWoBYcvTbc";
+        NSString* urlText = searchBar.text;
+        NSString* urlTextEscaped = [urlText stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        NSString *urlString = [NSString stringWithFormat:@"https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=%@&key=%@", urlTextEscaped, apiKey];
+        //urlString = [urlString stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        NSURL *url = [NSURL URLWithString: urlString];
+        NSURLRequest *request = [NSURLRequest requestWithURL:url];
+        [[NSURLConnection alloc] initWithRequest:request delegate:self];
+        NSLog(@"JSON REQUESTED for : %@", urlString);
+        //[self.searchDisplayController.searchResultsTableView reloadData];
+    } else {
+        UIAlertView *errorAlert = [[UIAlertView alloc]
+                                   initWithTitle: @"No Internet Connectivity"
+                                   message: @"Unable to connect to the Internet. Please check your Internet connection and try again."
+                                   delegate:nil
+                                   cancelButtonTitle:@"OK"
+                                   otherButtonTitles:nil];
+        [errorAlert show];
+        NSLog (@"No connectivity...");
+    }
+
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response

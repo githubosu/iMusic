@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <YTPlayerView.h>
 #import "TTYoutube.h"
+#import "TTNetworkCheck.h"
 @interface TTYoutubeViewController : UIViewController<YTPlayerViewDelegate>
 @property (strong, nonatomic) IBOutlet YTPlayerView *playerView;
 @property (strong, nonatomic) IBOutlet UILabel *videoTitleLabel;

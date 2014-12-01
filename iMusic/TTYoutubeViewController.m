@@ -18,37 +18,49 @@
     [super viewDidLoad];
     //[self.playerView loadWithVideoId:@"M7lc1UVf-VE"];
     
-    // For a full list of player parameters, see the documentation for the HTML5 player
-    // at: https://developers.google.com/youtube/player_parameters?playerVersion=HTML5
-    NSDictionary *playerVars = @{
-                                 @"controls" : @2,
-                                 @"playsinline" : @1,
-                                 @"autohide" : @1,
-                                 @"showinfo" : @0,
-                                 @"modestbranding" : @1
-                                 };
-    /*NSDictionary *playerVars = @{
-                                 @"controls" : @0,
-                                 @"playsinline" : @1,
-                                 @"autohide" : @1,
-                                 @"showinfo" : @0,
-                                 @"modestbranding" : @1
-                                 };*/
-    
-    // Adding youtube player view programatically
-    
-    //UIWindow* window = [UIApplication sharedApplication].keyWindow;
-    //UIWindow *window = self.view.window;
-    
-    
-    
-    if(self.youtube != nil) {
-        self.videoTitleLabel.text = self.youtube.videoTitle;
-        //[self.playerView loadWithVideoId:self.youtube.videoId playerVars:playerVars];
+    //if([TTNetworkCheck hasConnectivity]) {
+        // For a full list of player parameters, see the documentation for the HTML5 player
+        // at: https://developers.google.com/youtube/player_parameters?playerVersion=HTML5
+        NSDictionary *playerVars = @{
+                                     @"controls" : @2,
+                                     @"playsinline" : @1,
+                                     @"autohide" : @1,
+                                     @"showinfo" : @0,
+                                     @"modestbranding" : @1
+                                     };
+        /*NSDictionary *playerVars = @{
+                                     @"controls" : @0,
+                                     @"playsinline" : @1,
+                                     @"autohide" : @1,
+                                     @"showinfo" : @0,
+                                     @"modestbranding" : @1
+                                     };*/
         
-    } else {
-        NSLog(@"No video id found.");
-    }
+        // Adding youtube player view programatically
+        
+        //UIWindow* window = [UIApplication sharedApplication].keyWindow;
+        //UIWindow *window = self.view.window;
+        
+        
+        
+        if(self.youtube != nil) {
+            self.videoTitleLabel.text = self.youtube.videoTitle;
+            //[self.playerView loadWithVideoId:self.youtube.videoId playerVars:playerVars];
+            
+        } else {
+            NSLog(@"No video id found.");
+        }
+    /*} else {
+        UIAlertView *errorAlert = [[UIAlertView alloc]
+                                   initWithTitle: @"No Internet Connectivity"
+                                   message: @"Unable to connect to the Internet. Please check your Internet connection and try again."
+                                   delegate:nil
+                                   cancelButtonTitle:@"OK"
+                                   otherButtonTitles:nil];
+        [errorAlert show];
+        NSLog (@"No connectivity...");
+    }*/
+
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -56,24 +68,35 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-        self.playerView = [[YTPlayerView alloc] initWithFrame: CGRectMake(0, 130, 770, 500)];
+    if([TTNetworkCheck hasConnectivity]) {
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+            self.playerView = [[YTPlayerView alloc] initWithFrame: CGRectMake(0, 130, 770, 500)];
+        } else {
+            self.playerView = [[YTPlayerView alloc] initWithFrame: CGRectMake(0, 130, 320, 200)];
+        }
+
+        self.playerView.backgroundColor = [UIColor lightGrayColor];
+        self.playerView.delegate = self;
+        [self.view addSubview:self.playerView];
+        NSDictionary *playerVars = @{
+                                     @"controls" : @2,
+                                     @"playsinline" : @1,
+                                     @"autohide" : @1,
+                                     @"showinfo" : @0,
+                                     @"modestbranding" : @1
+                                     };
+
+        [self.playerView loadWithVideoId:self.youtube.videoId playerVars:playerVars];
     } else {
-        self.playerView = [[YTPlayerView alloc] initWithFrame: CGRectMake(0, 130, 320, 200)];
+        UIAlertView *errorAlert = [[UIAlertView alloc]
+                                   initWithTitle: @"No Internet Connectivity"
+                                   message: @"Unable to connect to the Internet. Please check your Internet connection and try again."
+                                   delegate:nil
+                                   cancelButtonTitle:@"OK"
+                                   otherButtonTitles:nil];
+        [errorAlert show];
+        NSLog (@"No connectivity...");
     }
-
-    self.playerView.backgroundColor = [UIColor lightGrayColor];
-    self.playerView.delegate = self;
-    [self.view addSubview:self.playerView];
-    NSDictionary *playerVars = @{
-                                 @"controls" : @2,
-                                 @"playsinline" : @1,
-                                 @"autohide" : @1,
-                                 @"showinfo" : @0,
-                                 @"modestbranding" : @1
-                                 };
-
-    [self.playerView loadWithVideoId:self.youtube.videoId playerVars:playerVars];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -116,12 +139,12 @@
                             }
                         }];*/
                         // Save it as soon as is convenient.
-                        //[video saveEventually];
-                        [video saveEventually:^(BOOL succeeded, NSError *error) {
+                        [video saveEventually];
+                        /*[video saveEventually:^(BOOL succeeded, NSError *error) {
                             if(succeeded) {
                                 NSLog(@"Video saved successfully in Parse.");
                             }
-                        }];
+                        }];*/
                     }];
                 }];
                 
