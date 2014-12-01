@@ -66,6 +66,8 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
+    [SVProgressHUD showWithStatus:@"Loading Artists..." maskType:SVProgressHUDMaskTypeClear];
+    
     NSLog(@"Artist View Loaded.");
     MPMediaQuery *albumQuery = [MPMediaQuery albumsQuery];
     NSArray *albumCollection = [albumQuery collections];
@@ -76,7 +78,6 @@
         if(artistName != nil) {
             [artistAlbumCounter addObject:artistName];
         }
-
     }];
     MPMediaQuery *allArtistsQuery = [MPMediaQuery artistsQuery];
     NSArray *allArtistsArray = [allArtistsQuery collections];
@@ -113,6 +114,7 @@
     self.artistSectionTitle = [NSMutableArray arrayWithArray:[[self.artistIndex allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)]];
     NSLog(@"Song Section Title...");
     NSLog(@"%@", self.artistSectionTitle);
+    [SVProgressHUD dismiss];
 }
 
 - (void)didReceiveMemoryWarning

@@ -61,7 +61,8 @@
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    [SVProgressHUD showWithStatus:@"Loading Albums..." maskType:SVProgressHUDMaskTypeClear];
+    
     MPMediaQuery *allAlbumsQuery = [MPMediaQuery albumsQuery];
     NSArray *allAlbumsArray = [allAlbumsQuery collections];
     for (MPMediaItemCollection *collection in allAlbumsArray) {
@@ -104,6 +105,7 @@
     self.albumSectionTitle = [NSMutableArray arrayWithArray:[[self.albumIndex allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)]];
     NSLog(@"Song Section Title...");
     NSLog(@"%@", self.albumSectionTitle);
+    [SVProgressHUD dismiss];
 }
 
 - (void)didReceiveMemoryWarning {
