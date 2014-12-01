@@ -26,5 +26,7 @@
 
 @property (strong, nonatomic) IBOutlet UIButton *playPause;
 @property (strong, nonatomic) IBOutlet UIButton *shuffle;
+@property (strong, nonatomic) IBOutlet UIButton *nextSong;
+@property (strong, nonatomic) IBOutlet UIButton *prevSong;
 
 @end

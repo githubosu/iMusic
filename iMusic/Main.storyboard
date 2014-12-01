@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="DyF-f0-bA2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="DyF-f0-bA2">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
@@ -258,7 +258,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UqM-PG-t1e">
-                                <rect key="frame" x="134" y="350" width="52" height="35"/>
+                                <rect key="frame" x="134" y="350" width="42" height="35"/>
                                 <state key="normal" image="Pause">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -267,12 +267,30 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WLg-wC-IRv">
-                                <rect key="frame" x="74" y="350" width="55" height="35"/>
+                                <rect key="frame" x="16" y="350" width="42" height="35"/>
                                 <state key="normal" image="Shuffle">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="shuffle:" destination="PHA-8a-sG8" eventType="touchUpInside" id="RSN-kk-BsO"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kuj-qV-yFD">
+                                <rect key="frame" x="84" y="350" width="42" height="35"/>
+                                <state key="normal" image="Prev">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="playPrevSong:" destination="PHA-8a-sG8" eventType="touchUpInside" id="NVj-E3-FB2"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xwk-X6-Xff">
+                                <rect key="frame" x="184" y="350" width="42" height="35"/>
+                                <state key="normal" image="Next">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="playNextSong:" destination="PHA-8a-sG8" eventType="touchUpInside" id="PWw-7W-OHY"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -286,14 +304,16 @@
                         <outlet property="curDurLabel" destination="oJf-fe-4dh" id="Cwf-OC-xFS"/>
                         <outlet property="durLabel" destination="pOJ-oW-dW7" id="t9o-qe-tXG"/>
                         <outlet property="durSlider" destination="nKo-sF-EgH" id="hlK-ou-e6N"/>
+                        <outlet property="nextSong" destination="xwk-X6-Xff" id="Yvs-5e-7h7"/>
                         <outlet property="playPause" destination="UqM-PG-t1e" id="T3P-ih-3zZ"/>
+                        <outlet property="prevSong" destination="kuj-qV-yFD" id="S70-k2-AfA"/>
                         <outlet property="shuffle" destination="WLg-wC-IRv" id="ErR-jd-UA6"/>
                         <outlet property="songLabel" destination="zo4-pT-err" id="sDq-mV-M0O"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8ZN-d4-ejd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3041" y="-33"/>
+            <point key="canvasLocation" x="3080" y="-33"/>
         </scene>
         <!--Albums-->
         <scene sceneID="tKs-ce-P8Q">
@@ -961,9 +981,11 @@
         <image name="Artist_active" width="35" height="35"/>
         <image name="Friends" width="35" height="35"/>
         <image name="Friends_active" width="35" height="35"/>
+        <image name="Next" width="35" height="35"/>
         <image name="Pause" width="35" height="35"/>
         <image name="Playlist" width="35" height="35"/>
         <image name="Playlist_active" width="35" height="35"/>
+        <image name="Prev" width="35" height="35"/>
         <image name="Shuffle" width="35" height="35"/>
         <image name="Song" width="35" height="35"/>
         <image name="Song_active" width="35" height="35"/>

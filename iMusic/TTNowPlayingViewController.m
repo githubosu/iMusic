@@ -204,6 +204,21 @@
     }
 }
 
+//Next song button press
+- (IBAction)playNextSong:(id)sender {
+    AudioPlayer *music = [AudioPlayer getPlayer];
+    [music nextSong];
+    [self setUI];
+}
+
+//Prev song button press
+- (IBAction)playPrevSong:(id)sender {
+    AudioPlayer *music = [AudioPlayer getPlayer];
+    [music prevSong];
+    [self setUI];
+
+}
+
 //Shuffle button press
 - (IBAction)shuffle:(id)sender {
     AudioPlayer *music = [AudioPlayer getPlayer];

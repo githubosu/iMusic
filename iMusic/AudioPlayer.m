@@ -97,6 +97,20 @@
     [self startPlayer];
 }
 
+// Rewind the music player to the beginning of the song or
+// the previous song in the queue (or to the end)
+- (void) prevSong {
+    [_musicPlayer stop];
+    
+    if ([_musicPlayer currentTime] > 5) {
+        [self startPlayer];
+    } else {
+        _index -= 1;
+        if (_index < 0) _index = [_songQueue count] - 1;
+        [self startPlayer];
+    }
+}
+
 // Switch back and forth betrween the shuffle queue and regular queue
 - (void) shufflePlayer {
     TTSong *curr = [self nowPlaying];
