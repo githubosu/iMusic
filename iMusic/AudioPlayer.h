@@ -35,6 +35,7 @@
 - (void) pause;
 - (void) startPlayer;
 - (void) nextSong;
+- (void) prevSong;
 - (void) shufflePlayer;
 
 @end

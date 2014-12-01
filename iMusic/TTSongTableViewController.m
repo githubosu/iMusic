@@ -90,6 +90,9 @@
         song.songTitle = [item valueForProperty:MPMediaItemPropertyTitle];
         song.duration = [item valueForProperty:MPMediaItemPropertyPlaybackDuration];
         song.songURL = [item valueForProperty:MPMediaItemPropertyAssetURL];
+        
+        NSLog(@"%@, %@", song.songTitle, [item valueForProperty:MPMediaItemPropertyIsCloudItem]);
+        
         [self.songs addObject:song];
         // Add song title to the dictionary for indexed list
         unichar c = [[song.songTitle uppercaseString] characterAtIndex:0];

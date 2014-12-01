@@ -17,9 +17,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="login_bg" translatesAutoresizingMaskIntoConstraints="NO" id="vCr-Bq-Odv">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
-                            </imageView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="plt-KJ-128">
                                 <rect key="frame" x="150" y="344" width="20" height="20"/>
                             </activityIndicatorView>
@@ -41,6 +38,9 @@
                                     <action selector="loginButtonPressed:" destination="KAO-oJ-cF0" eventType="touchUpInside" id="HWf-mu-eom"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="login_bg" translatesAutoresizingMaskIntoConstraints="NO" id="vCr-Bq-Odv">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -219,7 +219,7 @@
                         <viewControllerLayoutGuide type="bottom" id="CHJ-CP-cBL"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="97g-ri-oqP">
-                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="nKo-sF-EgH">
@@ -248,6 +248,13 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+
+
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S3U-Yh-aul">
+                                <rect key="frame" x="16" y="16" width="288" height="288"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            </imageView>
+
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Artist" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bnf-2T-iCK">
                                 <rect key="frame" x="16" y="422" width="288" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -255,7 +262,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UqM-PG-t1e">
-                                <rect key="frame" x="134" y="350" width="52" height="35"/>
+                                <rect key="frame" x="134" y="350" width="42" height="35"/>
                                 <state key="normal" image="Pause">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -264,7 +271,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WLg-wC-IRv">
-                                <rect key="frame" x="74" y="350" width="55" height="35"/>
+                                <rect key="frame" x="16" y="350" width="42" height="35"/>
                                 <state key="normal" image="Shuffle">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -272,10 +279,31 @@
                                     <action selector="shuffle:" destination="PHA-8a-sG8" eventType="touchUpInside" id="RSN-kk-BsO"/>
                                 </connections>
                             </button>
+
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S3U-Yh-aul">
                                 <rect key="frame" x="16" y="8" width="288" height="296"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
+
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kuj-qV-yFD">
+                                <rect key="frame" x="84" y="350" width="42" height="35"/>
+                                <state key="normal" image="Prev">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="playPrevSong:" destination="PHA-8a-sG8" eventType="touchUpInside" id="NVj-E3-FB2"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xwk-X6-Xff">
+                                <rect key="frame" x="184" y="350" width="42" height="35"/>
+                                <state key="normal" image="Next">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="playNextSong:" destination="PHA-8a-sG8" eventType="touchUpInside" id="PWw-7W-OHY"/>
+                                </connections>
+                            </button>
+
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -287,14 +315,16 @@
                         <outlet property="curDurLabel" destination="oJf-fe-4dh" id="Cwf-OC-xFS"/>
                         <outlet property="durLabel" destination="pOJ-oW-dW7" id="t9o-qe-tXG"/>
                         <outlet property="durSlider" destination="nKo-sF-EgH" id="hlK-ou-e6N"/>
+                        <outlet property="nextSong" destination="xwk-X6-Xff" id="Yvs-5e-7h7"/>
                         <outlet property="playPause" destination="UqM-PG-t1e" id="T3P-ih-3zZ"/>
+                        <outlet property="prevSong" destination="kuj-qV-yFD" id="S70-k2-AfA"/>
                         <outlet property="shuffle" destination="WLg-wC-IRv" id="ErR-jd-UA6"/>
                         <outlet property="songLabel" destination="zo4-pT-err" id="sDq-mV-M0O"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8ZN-d4-ejd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3041" y="-33"/>
+            <point key="canvasLocation" x="3080" y="-33"/>
         </scene>
         <!--Albums-->
         <scene sceneID="tKs-ce-P8Q">
@@ -357,7 +387,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="AlbumArtistSongListView" id="fLi-vr-DnM" customClass="TTAlbumArtistTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="olC-Cl-edc">
-                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -962,9 +992,11 @@
         <image name="Artist_active" width="35" height="35"/>
         <image name="Friends" width="35" height="35"/>
         <image name="Friends_active" width="35" height="35"/>
+        <image name="Next" width="35" height="35"/>
         <image name="Pause" width="35" height="35"/>
         <image name="Playlist" width="35" height="35"/>
         <image name="Playlist_active" width="35" height="35"/>
+        <image name="Prev" width="35" height="35"/>
         <image name="Shuffle" width="35" height="35"/>
         <image name="Song" width="35" height="35"/>
         <image name="Song_active" width="35" height="35"/>
@@ -978,8 +1010,14 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+
         <segue reference="wqh-iJ-fb5"/>
         <segue reference="03h-vI-UZP"/>
         <segue reference="8UA-m4-NHG"/>
+
+        <segue reference="mop-ot-ymV"/>
+        <segue reference="nrw-3e-ohu"/>
+        <segue reference="03h-vI-UZP"/>
+
     </inferredMetricsTieBreakers>
 </document>
