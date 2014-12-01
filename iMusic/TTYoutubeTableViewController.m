@@ -246,7 +246,12 @@
         NSString *description = [snippet objectForKey:@"description"];
         NSString *title = [snippet objectForKey: @"title"];
         NSDictionary *thumbnails = [snippet objectForKey:@"thumbnails"];
-        NSDictionary *defaultThumbnail = [thumbnails objectForKey:@"default"];
+        NSDictionary *defaultThumbnail;
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+            defaultThumbnail = [thumbnails objectForKey:@"medium"];
+        } else {
+            defaultThumbnail = [thumbnails objectForKey:@"default"];
+        }
         NSString *thumbnailURL = [defaultThumbnail objectForKey:@"url"];
         NSString *videoId = [ids objectForKey:@"videoId"];
         NSLog(@"Title: %@",title);

@@ -506,7 +506,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="39v-xe-O5x"/>
+                    <navigationItem key="navigationItem" title="Youtube" id="39v-xe-O5x"/>
                     <connections>
                         <outlet property="videoTitleLabel" destination="awf-gr-cZj" id="PwZ-uY-qHd"/>
                     </connections>
@@ -515,7 +515,7 @@
             </objects>
             <point key="canvasLocation" x="399" y="1584"/>
         </scene>
-        <!--Youtube Table View Controller-->
+        <!--Youtube-->
         <scene sceneID="tqt-kb-3DJ">
             <objects>
                 <tableViewController id="EkV-tG-r2E" customClass="TTYoutubeTableViewController" sceneMemberID="viewController">
@@ -562,7 +562,7 @@
                             <outlet property="delegate" destination="EkV-tG-r2E" id="56f-K7-TpO"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="J1Y-2T-rgx"/>
+                    <navigationItem key="navigationItem" title="Youtube" id="J1Y-2T-rgx"/>
                     <connections>
                         <outlet property="searchBar" destination="DF4-Sw-rhr" id="zLv-Zd-3hO"/>
                         <outlet property="searchDisplayController" destination="uBA-h1-bRk" id="mKO-c9-Wqe"/>

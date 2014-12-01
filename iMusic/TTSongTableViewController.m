@@ -75,6 +75,8 @@
     searchController = [[UISearchDisplayController alloc]init];
     searchController.searchResultsDataSource = self;*/
     
+    [SVProgressHUD showWithStatus:@"Loading Songs..." maskType:SVProgressHUDMaskTypeClear];
+    
     filteredSongs = [[NSMutableArray alloc]init];
     
     MPMediaQuery *allAlbumsQuery = [MPMediaQuery songsQuery];
@@ -116,6 +118,7 @@
     self.songSectionTitle = [NSMutableArray arrayWithArray:[[self.songIndex allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)]];
     //NSLog(@"Song Section Title...");
     //NSLog(@"%@", self.songSectionTitle);
+    [SVProgressHUD dismiss];
 }
 
 - (void)didReceiveMemoryWarning
