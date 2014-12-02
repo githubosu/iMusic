@@ -8,6 +8,7 @@
 
 #import "TTFriendViewController.h"
 #import "TTFriendSongTableViewController.h"
+#import "TTNetworkCheck.h"
 
 @interface TTFriendViewController ()
 @property (strong, nonatomic) NSArray *friendObjects;
@@ -22,7 +23,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self queryParseMethod];
+    if([TTNetworkCheck hasConnectivity]){
+        [self queryParseMethod];
+    }
+    else {
+        UIAlertView *errorAlert = [[UIAlertView alloc]
+                                   initWithTitle: @"No Internet Connectivity"
+                                   message: @"Unable to connect to the Internet. Please check your Internet connection and try again."
+                                   delegate:nil
+                                   cancelButtonTitle:@"OK"
+                                   otherButtonTitles:nil];
+        [errorAlert show];
+        NSLog (@"No connectivity...");
+    }
 }
 
 - (void)didReceiveMemoryWarning {
