@@ -103,16 +103,16 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1n7-Jg-2ES">
-                                            <rect key="frame" x="2" y="2" width="50" height="46"/>
+                                            <rect key="frame" x="2" y="2" width="78" height="46"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="npy-rv-BqW">
-                                            <rect key="frame" x="56" y="23" width="200" height="21"/>
+                                            <rect key="frame" x="85" y="22" width="180" height="21"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QOK-fo-nfL">
-                                            <rect key="frame" x="55" y="5" width="225" height="21"/>
+                                            <rect key="frame" x="85" y="8" width="227" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -248,13 +248,10 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-
-
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S3U-Yh-aul">
                                 <rect key="frame" x="16" y="16" width="288" height="288"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
-
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Artist" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bnf-2T-iCK">
                                 <rect key="frame" x="16" y="422" width="288" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -279,12 +276,6 @@
                                     <action selector="shuffle:" destination="PHA-8a-sG8" eventType="touchUpInside" id="RSN-kk-BsO"/>
                                 </connections>
                             </button>
-
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S3U-Yh-aul">
-                                <rect key="frame" x="16" y="8" width="288" height="296"/>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                            </imageView>
-
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kuj-qV-yFD">
                                 <rect key="frame" x="84" y="350" width="42" height="35"/>
                                 <state key="normal" image="Prev">
@@ -303,7 +294,6 @@
                                     <action selector="playNextSong:" destination="PHA-8a-sG8" eventType="touchUpInside" id="PWw-7W-OHY"/>
                                 </connections>
                             </button>
-
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -345,16 +335,16 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DpY-tb-OGU">
-                                            <rect key="frame" x="2" y="2" width="50" height="46"/>
+                                            <rect key="frame" x="2" y="2" width="78" height="46"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bej-rC-nCG">
-                                            <rect key="frame" x="55" y="24" width="200" height="21"/>
+                                            <rect key="frame" x="85" y="22" width="180" height="21"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bfK-dC-31s">
-                                            <rect key="frame" x="55" y="5" width="225" height="21"/>
+                                            <rect key="frame" x="85" y="5" width="227" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -536,7 +526,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Youtube" id="39v-xe-O5x"/>
+                    <navigationItem key="navigationItem" id="39v-xe-O5x"/>
                     <connections>
                         <outlet property="videoTitleLabel" destination="awf-gr-cZj" id="PwZ-uY-qHd"/>
                     </connections>
@@ -545,7 +535,7 @@
             </objects>
             <point key="canvasLocation" x="399" y="1584"/>
         </scene>
-        <!--Youtube-->
+        <!--Youtube Table View Controller-->
         <scene sceneID="tqt-kb-3DJ">
             <objects>
                 <tableViewController id="EkV-tG-r2E" customClass="TTYoutubeTableViewController" sceneMemberID="viewController">
@@ -592,7 +582,7 @@
                             <outlet property="delegate" destination="EkV-tG-r2E" id="56f-K7-TpO"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Youtube" id="J1Y-2T-rgx"/>
+                    <navigationItem key="navigationItem" id="J1Y-2T-rgx"/>
                     <connections>
                         <outlet property="searchBar" destination="DF4-Sw-rhr" id="zLv-Zd-3hO"/>
                         <outlet property="searchDisplayController" destination="uBA-h1-bRk" id="mKO-c9-Wqe"/>
@@ -1010,14 +1000,8 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-
-        <segue reference="wqh-iJ-fb5"/>
-        <segue reference="03h-vI-UZP"/>
-        <segue reference="8UA-m4-NHG"/>
-
         <segue reference="mop-ot-ymV"/>
         <segue reference="nrw-3e-ohu"/>
         <segue reference="03h-vI-UZP"/>
-
     </inferredMetricsTieBreakers>
 </document>
