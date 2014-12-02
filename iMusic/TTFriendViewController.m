@@ -13,6 +13,7 @@
 @interface TTFriendViewController ()
 @property (strong, nonatomic) NSArray *friendObjects;
 @property (strong, nonatomic) NSArray *friendUsers;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *logout;
 
 @end
 
@@ -126,5 +127,11 @@
     
     return cell;
 }
+- (IBAction)logoutBarButtonPressed:(id)sender {
+    [PFUser logOut];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
 
 @end

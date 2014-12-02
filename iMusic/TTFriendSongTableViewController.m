@@ -12,6 +12,7 @@
 @interface TTFriendSongTableViewController ()
 @property(strong,nonatomic)NSArray *songArray;
 @property(strong,nonatomic)NSString *currentSegment;
+
 @end
 
 @implementation TTFriendSongTableViewController

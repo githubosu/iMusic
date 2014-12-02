@@ -20,15 +20,6 @@
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="plt-KJ-128">
                                 <rect key="frame" x="150" y="344" width="20" height="20"/>
                             </activityIndicatorView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a2l-1q-aDp">
-                                <rect key="frame" x="137" y="426" width="49" height="30"/>
-                                <state key="normal" title="Logout">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="logoutButtonPressed:" destination="KAO-oJ-cF0" eventType="touchUpInside" id="Jtu-c4-8yA"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZEX-Z7-d1x">
                                 <rect key="frame" x="89" y="403" width="143" height="30"/>
                                 <state key="normal" title="Login with Facebook">
@@ -48,7 +39,6 @@
                     <navigationItem key="navigationItem" id="ZCl-jH-Hgj"/>
                     <connections>
                         <outlet property="activityIndicator" destination="plt-KJ-128" id="WFF-MZ-ntE"/>
-                        <outlet property="logoutButton" destination="a2l-1q-aDp" id="MHw-Z6-Ejj"/>
                         <segue destination="8YX-ce-x5E" kind="modal" identifier="loginToTabBarSegue" id="G1k-2l-Wyg"/>
                     </connections>
                 </viewController>
@@ -661,9 +651,16 @@
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Friends" id="pdm-yg-GL0"/>
+                    <navigationItem key="navigationItem" title="Friends" id="pdm-yg-GL0">
+                        <barButtonItem key="rightBarButtonItem" title="Logout" id="bwZ-Z1-TWy">
+                            <connections>
+                                <action selector="logoutBarButtonPressed:" destination="heI-xk-mnh" id="En9-k0-QrK"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="imagesCollection" destination="bbW-AE-7QL" id="sYH-IH-erf"/>
+                        <outlet property="logout" destination="bwZ-Z1-TWy" id="3li-mj-lYw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DPs-EP-Y1W" userLabel="First Responder" sceneMemberID="firstResponder"/>
