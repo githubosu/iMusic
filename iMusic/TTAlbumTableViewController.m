@@ -64,6 +64,8 @@
     [SVProgressHUD showWithStatus:@"Loading Albums..." maskType:SVProgressHUDMaskTypeClear];
     
     MPMediaQuery *allAlbumsQuery = [MPMediaQuery albumsQuery];
+    MPMediaPropertyPredicate *cloudFilter = [MPMediaPropertyPredicate predicateWithValue:[NSNumber numberWithBool:NO] forProperty:MPMediaItemPropertyIsCloudItem];
+    [allAlbumsQuery addFilterPredicate:cloudFilter];
     NSArray *allAlbumsArray = [allAlbumsQuery collections];
     for (MPMediaItemCollection *collection in allAlbumsArray) {
         TTAlbum *album = [[TTAlbum alloc] init];
@@ -170,8 +172,8 @@
         cell.albumArtworkImage.image = [[UIImage imageNamed:@"default-artwork.png"] resizedImage: CGSizeMake(256.0f, 256.0f) interpolationQuality: kCGInterpolationLow];
     }
     cell.albumTitle.text = album.albumTitle;
-    NSString *minString = (album.duration > 1)?@"mins":@"min";
-    NSString *songString = (album.songCount > 1)?@"songs":@"song";
+    NSString *minString = (album.duration == 1)?@"min":@"mins";
+    NSString *songString = (album.songCount == 1)?@"song":@"songs";
 
     cell.songCountLabel.text = [NSString stringWithFormat:@"%ld %@, %ld %@", (long)album.songCount, songString, (long)album.duration/60, minString];
     return cell;

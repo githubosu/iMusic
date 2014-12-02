@@ -10,6 +10,7 @@
 
 @implementation TTNetworkCheck
 
+//Check to see if device is connected to internet
 + (BOOL)hasConnectivity {
     Reachability *reachability = [Reachability reachabilityForInternetConnection];
     NetworkStatus networkStatus = [reachability currentReachabilityStatus];

@@ -70,6 +70,9 @@
     
     NSLog(@"Artist View Loaded.");
     MPMediaQuery *albumQuery = [MPMediaQuery albumsQuery];
+    MPMediaPropertyPredicate *cloudFilter = [MPMediaPropertyPredicate predicateWithValue:[NSNumber numberWithBool:NO] forProperty:MPMediaItemPropertyIsCloudItem];
+    [albumQuery addFilterPredicate:cloudFilter];
+
     NSArray *albumCollection = [albumQuery collections];
     NSCountedSet *artistAlbumCounter = [NSCountedSet set];
     
@@ -180,8 +183,8 @@
     }
 
     cell.artistTitle.text = artist.artistTitle;
-    NSString *albumString = (artist.albumCount > 1)?@"albums":@"album";
-    NSString *songString = (artist.songCount > 1)?@"songs":@"song";
+    NSString *albumString = (artist.albumCount == 1)?@"album":@"albums";
+    NSString *songString = (artist.songCount == 1)?@"song":@"songs";
     cell.albumSongCountLabel.text = [NSString stringWithFormat:@"%ld %@, %ld %@", (long)artist.albumCount, albumString, (long)artist.songCount, songString];
     //cell.textLabel.text = song.artist;
     //cell.artistTitle.text = song.artist;

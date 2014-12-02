@@ -23,17 +23,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    //Check network connectivity then load friends list if connected
     if([TTNetworkCheck hasConnectivity]){
+        [SVProgressHUD showWithStatus:@"Loading Friends..." maskType:SVProgressHUDMaskTypeClear];
         [self queryParseMethod];
-    }
-    else {
-        UIAlertView *errorAlert = [[UIAlertView alloc]
-                                   initWithTitle: @"No Internet Connectivity"
-                                   message: @"Unable to connect to the Internet. Please check your Internet connection and try again."
-                                   delegate:nil
-                                   cancelButtonTitle:@"OK"
-                                   otherButtonTitles:nil];
+        [SVProgressHUD dismiss];
+    } else {
+        UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle: @"No Internet Connectivity" message: @"Unable to connect to the Internet. Please check your Internet connection and try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [errorAlert show];
         NSLog (@"No connectivity...");
     }
@@ -94,6 +91,7 @@
     return [self.friendUsers count];
 }
 
+//Display friend's info in cell
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     //UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Photo Cell" forIndexPath:indexPath];
     //NSLog(@"cellforitematindexpath");

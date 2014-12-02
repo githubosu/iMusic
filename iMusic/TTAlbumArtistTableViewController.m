@@ -28,8 +28,8 @@
     NSLog(@"AlbumArtistTable View Loaded...");
     if(self.album != nil) {
         self.aTitle.text = self.album.albumTitle;
-        NSString *minString = (self.album.duration > 1)?@"mins":@"min";
-        NSString *songString = (self.album.songCount > 1)?@"songs":@"song";
+        NSString *minString = (self.album.duration == 1)?@"min":@"mins";
+        NSString *songString = (self.album.songCount == 1)?@"song":@"songs";
         self.songCount.text = [NSString stringWithFormat:@"%ld %@, %ld %@", (long)self.album.songCount, songString, (long)self.album.duration/60, minString];
         UIImage *albumArtworkImage = NULL;
         UIImage *resizedImage = NULL;
@@ -81,8 +81,8 @@
         
     } else if(self.artist != nil) {
         self.aTitle.text = self.artist.artistTitle;
-        NSString *albumString = (self.artist.albumCount > 1)?@"albums":@"album";
-        NSString *songString = (self.artist.songCount > 1)?@"songs":@"song";
+        NSString *albumString = (self.artist.albumCount == 1)?@"album":@"albums";
+        NSString *songString = (self.artist.songCount == 1)?@"song":@"songs";
         self.songCount.text = [NSString stringWithFormat:@"%ld %@, %ld %@", (long)self.artist.albumCount, albumString, (long)self.artist.songCount, songString];
         UIImage *artistArtworkImage = NULL;
         UIImage *resizedImage = NULL;

@@ -80,6 +80,8 @@
     filteredSongs = [[NSMutableArray alloc]init];
     
     MPMediaQuery *allAlbumsQuery = [MPMediaQuery songsQuery];
+    MPMediaPropertyPredicate *cloudFilter = [MPMediaPropertyPredicate predicateWithValue:[NSNumber numberWithBool:NO] forProperty:MPMediaItemPropertyIsCloudItem];
+    [allAlbumsQuery addFilterPredicate:cloudFilter];
     NSArray *allAlbumsArray = [allAlbumsQuery collections];
     for (MPMediaItemCollection *collection in allAlbumsArray) {
         TTSong *song = [[TTSong alloc] init];
