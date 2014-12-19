@@ -1,14 +1,4 @@
 iMusic
 ======
-Music player for iOS with Facebook and Youtube integration
+iMusic is a social-oriented music application for iOS devices.  Along with acting as a media player, iMusic uses Facebook integration to show users what their friends have been listening to in a convenient feed.  In addition, iMusic provides basic Youtube access to allow users to stream music found through Youtube’s service.
 
-
-TODO:
-
-1.  Optimize load times
-2.  Check for network connectivity
-3.  Display only songs on device
-4.  Implement next song and previous song feature for player
-5.  Settings (??)
-6.  Add songs to playlist
-7.  Network check and related videos in youtube.
